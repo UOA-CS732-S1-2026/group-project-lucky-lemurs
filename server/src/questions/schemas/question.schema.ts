@@ -1,9 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
-import {
-  QuestionCategory,
-  QuestionDifficulty,
-} from '../../common/enums';
+import { QuestionCategory, QuestionDifficulty } from '../../common/enums';
 import { generateId } from '../../common/id.util';
 
 export type QuestionDocument = HydratedDocument<Question>;
@@ -45,8 +42,14 @@ export class Question {
   @Prop({ default: '' })
   explanation: string;
 
-  @Prop({ default: null })
+  @Prop({ default: '' })
+  hintText: string;
+
+  @Prop({ type: String, default: null })
   imageUrl: string | null;
+
+  @Prop({ type: String, default: null })
+  sourceUrl: string | null;
 
   @Prop({ default: true, index: true })
   isActive: boolean;

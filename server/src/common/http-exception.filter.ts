@@ -14,6 +14,14 @@ interface ErrorResponse {
   field?: string;
 }
 
+const DEFAULT_ERROR_MESSAGES: Record<number, string> = {
+  [HttpStatus.BAD_REQUEST]: 'Bad Request',
+  [HttpStatus.UNAUTHORIZED]: 'Unauthorized',
+  [HttpStatus.FORBIDDEN]: 'Forbidden',
+  [HttpStatus.NOT_FOUND]: 'Not Found',
+  [HttpStatus.CONFLICT]: 'Conflict',
+};
+
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
   catch(exception: unknown, host: ArgumentsHost): void {
@@ -55,19 +63,6 @@ export class HttpExceptionFilter implements ExceptionFilter {
   }
 
   private getDefaultError(status: number): string {
-    switch (status) {
-      case HttpStatus.BAD_REQUEST:
-        return 'Bad Request';
-      case HttpStatus.UNAUTHORIZED:
-        return 'Unauthorized';
-      case HttpStatus.FORBIDDEN:
-        return 'Forbidden';
-      case HttpStatus.NOT_FOUND:
-        return 'Not Found';
-      case HttpStatus.CONFLICT:
-        return 'Conflict';
-      default:
-        return 'Internal Server Error';
-    }
+    return DEFAULT_ERROR_MESSAGES[status] ?? 'Internal Server Error';
   }
 }

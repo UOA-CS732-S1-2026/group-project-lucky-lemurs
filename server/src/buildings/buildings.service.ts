@@ -18,7 +18,10 @@ export class BuildingsService {
 
   async findAllForUser(userId: string) {
     const [buildings, progress] = await Promise.all([
-      this.buildingModel.find({ isActive: true }).sort({ unlockOrder: 1 }).exec(),
+      this.buildingModel
+        .find({ isActive: true })
+        .sort({ unlockOrder: 1 })
+        .exec(),
       this.progressModel.find({ userId }).lean().exec(),
     ]);
     const progressByBuilding = new Map(
@@ -59,6 +62,13 @@ export class BuildingsService {
     }
 
     return building;
+  }
+
+  findNextActiveByUnlockOrder(unlockOrder: number) {
+    return this.buildingModel
+      .findOne({ isActive: true, unlockOrder: { $gt: unlockOrder } })
+      .sort({ unlockOrder: 1 })
+      .exec();
   }
 
   toBuildingResponse(

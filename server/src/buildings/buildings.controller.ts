@@ -15,7 +15,10 @@ export class BuildingsController {
   }
 
   @Get(':buildingId')
-  findOne(@CurrentUser() user: AuthUser, @Param('buildingId') buildingId: string) {
+  findOne(
+    @CurrentUser() user: AuthUser,
+    @Param('buildingId') buildingId: string,
+  ) {
     return this.buildingsService.findOneForUser(buildingId, user.id);
   }
 }

@@ -25,6 +25,12 @@ export class QuizAnswer {
   @Prop({ default: 0 })
   timeSpentSeconds: number;
 
+  @Prop({ default: false })
+  usedHint: boolean;
+
+  @Prop({ type: [String], default: [] })
+  removedOptionIds: string[];
+
   @Prop({ default: Date.now })
   answeredAt: Date;
 }
@@ -42,7 +48,7 @@ export class QuizSession {
   @Prop({ enum: QuizMode, required: true, index: true })
   mode: QuizMode;
 
-  @Prop({ default: null, index: true })
+  @Prop({ type: String, default: null, index: true })
   buildingId: string | null;
 
   @Prop({ enum: SessionStatus, default: SessionStatus.Active, index: true })
@@ -63,16 +69,43 @@ export class QuizSession {
   @Prop({ default: 0 })
   totalQuestions: number;
 
-  @Prop({ default: null })
+  @Prop({ default: 0 })
+  attemptedCount: number;
+
+  @Prop({ default: 0 })
+  hintUsedCount: number;
+
+  @Prop({ default: 0 })
+  hintLimit: number;
+
+  @Prop({ default: 0 })
+  coinsSpent: number;
+
+  @Prop({ default: 0 })
+  currentStreak: number;
+
+  @Prop({ default: 0 })
+  bestStreak: number;
+
+  @Prop({ type: String, default: null, index: true })
+  multiplayerRoomCode: string | null;
+
+  @Prop({ type: String, default: null })
+  opponentUserId: string | null;
+
+  @Prop({ default: false })
+  isMultiplayerHost: boolean;
+
+  @Prop({ type: Number, default: null })
   timeLimitSeconds: number | null;
 
   @Prop({ default: Date.now, index: true })
   startedAt: Date;
 
-  @Prop({ default: null })
+  @Prop({ type: Date, default: null })
   expiresAt: Date | null;
 
-  @Prop({ default: null, index: true })
+  @Prop({ type: Date, default: null, index: true })
   finishedAt: Date | null;
 
   @Prop({ type: [QuizAnswerSchema], default: [] })

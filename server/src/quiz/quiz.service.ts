@@ -15,10 +15,14 @@ import { UserBuildingProgress } from '../users/schemas/user-building-progress.sc
 import { User } from '../users/schemas/user.schema';
 import { StartBuildingQuizDto } from './dto/start-building-quiz.dto';
 import { SubmitAnswerDto } from './dto/submit-answer.dto';
-import { QuizSession, QuizSessionDocument } from './schemas/quiz-session.schema';
+import {
+  QuizSession,
+  QuizSessionDocument,
+} from './schemas/quiz-session.schema';
 
 const RANKED_QUESTION_LIMIT = 20;
 const RANKED_TIME_LIMIT_SECONDS = 60;
+const RANKED_HINT_LIMIT = 3;
 const CORRECT_SCORE_DELTA = 10;
 
 @Injectable()
@@ -74,6 +78,7 @@ export class QuizService {
       questionIds: questions.map((question) => question.id),
       totalQuestions: RANKED_QUESTION_LIMIT,
       timeLimitSeconds: RANKED_TIME_LIMIT_SECONDS,
+      hintLimit: RANKED_HINT_LIMIT,
       startedAt,
       expiresAt,
     });
@@ -96,6 +101,15 @@ export class QuizService {
       this.buildingsService.findActiveById(dto.buildingId),
       this.questionsService.findByBuildingId(dto.buildingId),
     ]);
+    const progress = await this.progressModel
+      .findOne({ userId, buildingId: building.id })
+      .lean()
+      .exec();
+    const isUnlocked = progress?.isUnlocked ?? building.unlockOrder === 1;
+
+    if (!isUnlocked) {
+      throw new ForbiddenException('Building is locked');
+    }
 
     const session = await this.quizSessionModel.create({
       userId,
@@ -103,6 +117,7 @@ export class QuizService {
       buildingId: building.id,
       questionIds: questions.map((question) => question.id),
       totalQuestions: questions.length,
+      hintLimit: 0,
       timeLimitSeconds: null,
       expiresAt: null,
     });
@@ -143,7 +158,9 @@ export class QuizService {
     }
 
     const question = await this.questionsService.findById(dto.questionId);
-    if (!question.options.some((option) => option.id === dto.selectedOptionId)) {
+    if (
+      !question.options.some((option) => option.id === dto.selectedOptionId)
+    ) {
       throw new BadRequestException('selectedOptionId is invalid');
     }
 
@@ -151,7 +168,9 @@ export class QuizService {
       (answer) => answer.questionId === dto.questionId && answer.isCorrect,
     );
     if (alreadyCorrect) {
-      throw new ConflictException('Question has already been answered correctly');
+      throw new ConflictException(
+        'Question has already been answered correctly',
+      );
     }
 
     if (
@@ -163,6 +182,13 @@ export class QuizService {
 
     const correct = question.correctOptionId === dto.selectedOptionId;
     const scoreDelta = correct ? CORRECT_SCORE_DELTA : 0;
+    session.attemptedCount += 1;
+    if (correct) {
+      session.currentStreak += 1;
+      session.bestStreak = Math.max(session.bestStreak, session.currentStreak);
+    } else {
+      session.currentStreak = 0;
+    }
     session.answers.push({
       questionId: question.id,
       selectedOptionId: dto.selectedOptionId,
@@ -170,6 +196,8 @@ export class QuizService {
       isCorrect: correct,
       scoreDelta,
       timeSpentSeconds: dto.timeSpentSeconds,
+      usedHint: false,
+      removedOptionIds: [],
       answeredAt: new Date(),
     });
     session.score += scoreDelta;
@@ -190,6 +218,8 @@ export class QuizService {
       currentScore: session.score,
       correctCount: session.correctCount,
       incorrectCount: session.incorrectCount,
+      currentStreak: session.currentStreak,
+      bestStreak: session.bestStreak,
       ...(session.mode === QuizMode.Building && !correct
         ? { retryLater: true }
         : {}),
@@ -203,7 +233,13 @@ export class QuizService {
     }
 
     session.status = SessionStatus.Finished;
-    session.finishedAt = new Date();
+    const now = new Date();
+    session.finishedAt =
+      session.mode === QuizMode.Ranked &&
+      session.expiresAt &&
+      now > session.expiresAt
+        ? session.expiresAt
+        : now;
     await session.save();
 
     if (session.mode === QuizMode.Ranked) {
@@ -231,7 +267,10 @@ export class QuizService {
   }
 
   async getRank(session: QuizSession): Promise<number | null> {
-    if (session.mode !== QuizMode.Ranked || session.status !== SessionStatus.Finished) {
+    if (
+      session.mode !== QuizMode.Ranked ||
+      session.status !== SessionStatus.Finished
+    ) {
       return null;
     }
 
@@ -310,6 +349,17 @@ export class QuizService {
       .findOne({ userId: session.userId, buildingId: session.buildingId })
       .exec();
     const bestScore = Math.max(existing?.bestScore ?? 0, session.score);
+    const completedAt =
+      isCompleted && !existing?.isCompleted
+        ? session.finishedAt
+        : existing?.completedAt;
+    const building = session.buildingId
+      ? await this.buildingsService.findActiveById(session.buildingId)
+      : null;
+    const coinsAwarded =
+      isCompleted && !existing?.isCompleted
+        ? (building?.completionCoinReward ?? 0)
+        : 0;
 
     await this.progressModel.updateOne(
       { userId: session.userId, buildingId: session.buildingId },
@@ -320,16 +370,59 @@ export class QuizService {
           bestScore,
           correctCount,
           totalQuestions,
+          completedAt,
           lastPlayedAt: session.finishedAt,
+        },
+        $inc: { coinsAwarded },
+        $setOnInsert: {
+          unlockedAt: session.startedAt,
         },
       },
       { upsert: true },
     );
 
+    if (coinsAwarded > 0) {
+      await this.userModel.updateOne(
+        { id: session.userId },
+        { $inc: { coins: coinsAwarded } },
+      );
+    }
+
+    if (isCompleted && session.buildingId) {
+      const currentBuilding =
+        building ??
+        (await this.buildingsService.findActiveById(session.buildingId));
+      const nextBuilding =
+        await this.buildingsService.findNextActiveByUnlockOrder(
+          currentBuilding.unlockOrder,
+        );
+
+      if (nextBuilding) {
+        await this.progressModel.updateOne(
+          { userId: session.userId, buildingId: nextBuilding.id },
+          {
+            $set: { isUnlocked: true },
+            $setOnInsert: {
+              isCompleted: false,
+              bestScore: 0,
+              correctCount: 0,
+              totalQuestions: 0,
+              coinsAwarded: 0,
+              unlockedAt: session.finishedAt,
+              completedAt: null,
+              lastPlayedAt: null,
+            },
+          },
+          { upsert: true },
+        );
+      }
+    }
+
     return {
       buildingId: session.buildingId ?? '',
       isCompleted,
       bestScore,
+      coinsAwarded,
     };
   }
 
@@ -351,8 +444,13 @@ export class QuizService {
       correctCount: session.correctCount,
       incorrectCount: session.incorrectCount,
       totalQuestions: session.totalQuestions,
+      attemptedCount: session.attemptedCount,
       accuracy: this.getAccuracy(session.correctCount, session.incorrectCount),
       timeUsedSeconds: this.getTimeUsedSeconds(session),
+      hintUsedCount: session.hintUsedCount,
+      hintLimit: session.hintLimit,
+      coinsSpent: session.coinsSpent,
+      bestStreak: session.bestStreak,
       rank,
       ...(buildingProgress ? { buildingProgress } : {}),
       finishedAt: session.finishedAt,
