@@ -1,0 +1,313 @@
+:root {
+  --primary-black: #1a1a1a;
+  --primary-white: #ffffff;
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --text-primary: #334155;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-content {
+  flex-grow: 1;
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.error-message-box {
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  color: #dc2626;
+  text-align: center;
+  font-weight: 500;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.leaderboard-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.leaderboard-header h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 16px;
+  color: var(--primary-black);
+}
+
+.leaderboard-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0 0 20px;
+}
+
+.user-rank-badge {
+  display: inline-block;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: var(--primary-black);
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: var(--shadow-md);
+}
+
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 50px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-radius: 20px;
+}
+
+.podium-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.podium-item:hover {
+  transform: translateY(-5px);
+}
+
+.podium-avatar {
+  font-size: 4rem;
+  margin-bottom: 12px;
+}
+
+.podium-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary-black);
+  margin-bottom: 8px;
+}
+
+.podium-score {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-black);
+  margin-bottom: 16px;
+}
+
+.podium-stand {
+  padding: 12px 24px;
+  border-radius: 10px 10px 0 0;
+  font-weight: 700;
+  color: var(--primary-white);
+  min-width: 100px;
+  text-align: center;
+}
+
+.first-place .podium-stand {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  padding-bottom: 30px;
+}
+
+.second-place .podium-stand {
+  background: linear-gradient(135deg, #9ca3af, #6b7280);
+  padding-bottom: 20px;
+}
+
+.third-place .podium-stand {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  padding-bottom: 10px;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background-color: var(--primary-white);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-md);
+}
+
+.leaderboard-item.current-user {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-color: #fbbf24;
+}
+
+.leaderboard-rank {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  min-width: 35px;
+}
+
+.leaderboard-avatar {
+  font-size: 2.5rem;
+}
+
+.leaderboard-info {
+  flex-grow: 1;
+}
+
+.leaderboard-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--primary-black);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.current-user-badge {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  background-color: #fbbf24;
+  color: var(--primary-black);
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.leaderboard-detail {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.leaderboard-score {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--primary-black);
+}
+
+.leaderboard-cta {
+  text-align: center;
+  padding: 32px;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.leaderboard-cta p {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin: 0 0 24px;
+}
+
+.leaderboard-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .leaderboard-content {
+    padding: 40px 16px;
+  }
+
+  .leaderboard-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .podium {
+    gap: 15px;
+    padding: 20px 15px;
+  }
+
+  .podium-avatar {
+    font-size: 2.5rem;
+  }
+
+  .podium-name {
+    font-size: 0.9rem;
+  }
+
+  .podium-score {
+    font-size: 1.2rem;
+  }
+
+  .podium-stand {
+    min-width: 70px;
+    padding: 10px 16px;
+  }
+
+  .leaderboard-item {
+    padding: 14px 16px;
+  }
+
+  .leaderboard-avatar {
+    font-size: 2rem;
+  }
+
+  .leaderboard-name {
+    font-size: 0.95rem;
+  }
+
+  .leaderboard-score {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .podium {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .podium-item {
+    width: 100%;
+  }
+
+  .podium-stand {
+    width: 100%;
+    border-radius: 10px;
+    padding: 12px;
+  }
+
+  .first-place .podium-stand,
+  .second-place .podium-stand,
+  .third-place .podium-stand {
+    padding-bottom: 12px;
+  }
+
+  .leaderboard-rank {
+    min-width: 25px;
+  }
+
+  .leaderboard-avatar {
+    font-size: 1.8rem;
+  }
+}

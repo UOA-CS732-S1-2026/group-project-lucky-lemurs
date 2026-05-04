@@ -1,0 +1,229 @@
+:root {
+  --primary-black: #1a1a1a;
+  --primary-white: #ffffff;
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --text-primary: #334155;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.review-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+}
+
+.review-content {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.review-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.review-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-black);
+  margin: 0 0 16px;
+}
+
+.review-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.error-message-box {
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  color: #dc2626;
+  text-align: center;
+  font-weight: 500;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.review-card {
+  background-color: var(--primary-white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.review-card.expanded {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.review-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.review-card-header:hover {
+  background-color: var(--bg-secondary);
+}
+
+.review-topic-badge {
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: var(--primary-white);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.review-question {
+  flex-grow: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-black);
+}
+
+.expand-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-secondary);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.review-card-header:hover .expand-icon {
+  background-color: #3b82f6;
+  color: var(--primary-white);
+}
+
+.review-card-body {
+  padding: 0 24px 24px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.review-answer {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border-radius: 12px;
+  border-left: 4px solid #22c55e;
+  margin-bottom: 16px;
+}
+
+.answer-label {
+  font-weight: 600;
+  color: #166534;
+  white-space: nowrap;
+}
+
+.answer-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #166534;
+}
+
+.review-details {
+  padding: 16px;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+}
+
+.details-label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.review-details p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.review-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .review-content {
+    padding: 30px 16px;
+  }
+
+  .review-header h1 {
+    font-size: 2rem;
+  }
+
+  .review-card-header {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .review-question {
+    order: 3;
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .expand-icon {
+    order: 2;
+  }
+
+  .review-answer {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .review-actions {
+    flex-direction: column;
+  }
+
+  .review-actions .btn {
+    width: 100%;
+  }
+}
