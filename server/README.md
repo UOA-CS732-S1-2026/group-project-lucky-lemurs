@@ -1,98 +1,138 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Lucky Lemurs Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+NestJS API for the UOA campus quiz game MVP.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Project setup
+## Local Setup
 
 ```bash
-$ npm install
+npm install
+copy .env.example .env
 ```
 
-## Compile and run the project
+Edit `.env` for local MongoDB:
+
+```txt
+PORT=3000
+MONGODB_URI=mongodb://127.0.0.1:27017/lucky-lemurs
+JWT_SECRET=replace-with-a-long-random-secret
+```
+
+Start MongoDB locally, then seed the starter buildings and questions:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm run seed
+npm run start:dev
 ```
 
-## Run tests
+The API runs at `http://localhost:3000`.
+
+## Shared Atlas Setup
+
+For team integration, create one shared MongoDB Atlas database named
+`lucky-lemurs`. Use these collections:
+
+```txt
+users
+buildings
+questions
+quizsessions
+userbuildingprogresses
+```
+
+Do not commit the Atlas connection string. Share it in the team chat and set it in
+each member's local `.env`:
+
+```txt
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-url>/lucky-lemurs
+```
+
+After changing `MONGODB_URI`, run:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm run seed
+npm run start:dev
 ```
 
-## Deployment
+## Seed Data And Images
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Seed files live in:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+```txt
+src/seeds/buildings.seed.json
+src/seeds/questions.seed.json
+```
+
+Building and question images live in the frontend public folder:
+
+```txt
+../client/public/images/buildings/
+```
+
+The backend stores only image paths such as:
+
+```txt
+/images/buildings/oggb-cover.jpg
+/images/buildings/oggb-01.jpg
+```
+
+Keep `buildingId` in `questions.seed.json` exactly the same as the matching
+building `id` in `buildings.seed.json`.
+
+## MVP API
+
+Full request and response examples for frontend handoff are in
+[`docs/api-contract.md`](docs/api-contract.md).
+
+Auth:
+
+```txt
+POST /auth/register
+POST /auth/login
+POST /auth/logout
+```
+
+User:
+
+```txt
+GET   /users/me
+PATCH /users/me
+GET   /users/me/progress
+```
+
+Buildings and quiz:
+
+```txt
+GET  /buildings
+GET  /buildings/:buildingId
+GET  /quiz/modes
+POST /quiz/ranked/start
+POST /quiz/building/start
+POST /quiz/sessions/:sessionId/answers
+POST /quiz/sessions/:sessionId/finish
+```
+
+Leaderboard:
+
+```txt
+GET /leaderboard?mode=ranked&period=all
+```
+
+Protected endpoints require:
+
+```txt
+Authorization: Bearer <accessToken>
+```
+
+Questions returned to the frontend do not include `correctOptionId`. Answers are scored by the backend one question at a time.
+
+## Verification
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm run build
+npm test
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Before handing the backend to the frontend, run the manual smoke flow documented in
+`docs/api-contract.md`: register, login, start ranked mode, submit answers, finish
+the session, check leaderboard, start building mode, submit a wrong answer, finish,
+and check progress.
