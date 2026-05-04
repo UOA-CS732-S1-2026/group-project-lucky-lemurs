@@ -1,0 +1,342 @@
+[
+  {
+    "id": "q_001",
+    "buildingId": "oggb",
+    "category": "building",
+    "difficulty": "easy",
+    "questionText": "What is the main academic focus of the Owen G Glenn Building?",
+    "options": [
+      { "id": "A", "text": "Business School" },
+      { "id": "B", "text": "Engineering workshops" },
+      { "id": "C", "text": "Medical simulation labs" },
+      { "id": "D", "text": "Music performance studios" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "OGGB is mainly associated with the University of Auckland Business School.",
+    "imageUrl": "/images/buildings/oggb-01.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_002",
+    "buildingId": "oggb",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Which road is the Owen G Glenn Building commonly associated with?",
+    "options": [
+      { "id": "A", "text": "Grafton Road" },
+      { "id": "B", "text": "Queen Street" },
+      { "id": "C", "text": "Dominion Road" },
+      { "id": "D", "text": "Beach Road" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The Owen G Glenn Building is located around Grafton Road on City Campus.",
+    "imageUrl": "/images/buildings/oggb-02.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_003",
+    "buildingId": "oggb",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "Which activity would most likely happen inside OGGB?",
+    "options": [
+      { "id": "A", "text": "A business case competition" },
+      { "id": "B", "text": "A swimming race" },
+      { "id": "C", "text": "A hospital ward round" },
+      { "id": "D", "text": "A football training session" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "OGGB supports business teaching, events, and student activities.",
+    "imageUrl": "/images/buildings/oggb-03.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_004",
+    "buildingId": "oggb",
+    "category": "student_life",
+    "difficulty": "easy",
+    "questionText": "Why might students visit OGGB outside scheduled classes?",
+    "options": [
+      { "id": "A", "text": "To attend talks, meet groups, or study" },
+      { "id": "B", "text": "To borrow sports uniforms" },
+      { "id": "C", "text": "To check in for flights" },
+      { "id": "D", "text": "To register a car" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "OGGB is used for study, events, and student collaboration.",
+    "imageUrl": "/images/buildings/oggb-04.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_005",
+    "buildingId": "clocktower",
+    "category": "history",
+    "difficulty": "easy",
+    "questionText": "Which UOA building is one of the most recognisable historic campus symbols?",
+    "options": [
+      { "id": "A", "text": "ClockTower" },
+      { "id": "B", "text": "OGGB" },
+      { "id": "C", "text": "Engineering Building" },
+      { "id": "D", "text": "Recreation Centre" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The ClockTower is a well-known historic symbol of the University of Auckland.",
+    "imageUrl": "/images/buildings/clocktower-01.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_006",
+    "buildingId": "clocktower",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "The ClockTower is closest to which City Campus street?",
+    "options": [
+      { "id": "A", "text": "Princes Street" },
+      { "id": "B", "text": "Sandringham Road" },
+      { "id": "C", "text": "Khyber Pass Road" },
+      { "id": "D", "text": "Quay Street" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The ClockTower is located near Princes Street on City Campus.",
+    "imageUrl": "/images/buildings/clocktower-02.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_007",
+    "buildingId": "clocktower",
+    "category": "culture",
+    "difficulty": "medium",
+    "questionText": "Why is the ClockTower useful in a campus quiz game?",
+    "options": [
+      { "id": "A", "text": "It connects campus knowledge with university identity" },
+      { "id": "B", "text": "It is only used for car parking" },
+      { "id": "C", "text": "It is outside New Zealand" },
+      { "id": "D", "text": "It is a sports stadium" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The ClockTower is closely linked with campus identity and history.",
+    "imageUrl": "/images/buildings/clocktower-03.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_008",
+    "buildingId": "clocktower",
+    "category": "building",
+    "difficulty": "easy",
+    "questionText": "Which visual feature is most associated with the ClockTower?",
+    "options": [
+      { "id": "A", "text": "A tower form" },
+      { "id": "B", "text": "A glass-only cube" },
+      { "id": "C", "text": "A football pitch" },
+      { "id": "D", "text": "A harbour wharf" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The tower form makes the ClockTower easy to recognise.",
+    "imageUrl": "/images/buildings/clocktower-04.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_009",
+    "buildingId": "kate-edger",
+    "category": "facility",
+    "difficulty": "easy",
+    "questionText": "What is Kate Edger Information Commons mainly used for?",
+    "options": [
+      { "id": "A", "text": "Student study and services" },
+      { "id": "B", "text": "Airport security" },
+      { "id": "C", "text": "Marine cargo loading" },
+      { "id": "D", "text": "Professional rugby games" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "Kate Edger Information Commons provides study spaces and student-facing services.",
+    "imageUrl": "/images/buildings/kate-edger-01.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_010",
+    "buildingId": "kate-edger",
+    "category": "student_life",
+    "difficulty": "easy",
+    "questionText": "Why might a student go to Kate Edger between classes?",
+    "options": [
+      { "id": "A", "text": "To study, meet friends, or access services" },
+      { "id": "B", "text": "To renew a passport" },
+      { "id": "C", "text": "To take a driving test" },
+      { "id": "D", "text": "To board a ferry" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "Kate Edger is a common student study and service hub.",
+    "imageUrl": "/images/buildings/kate-edger-02.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_011",
+    "buildingId": "kate-edger",
+    "category": "location",
+    "difficulty": "medium",
+    "questionText": "Kate Edger is close to which central campus area?",
+    "options": [
+      { "id": "A", "text": "Alfred Street" },
+      { "id": "B", "text": "Mission Bay" },
+      { "id": "C", "text": "Mount Eden Summit" },
+      { "id": "D", "text": "Auckland Airport" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "Kate Edger Information Commons is located around Alfred Street.",
+    "imageUrl": "/images/buildings/kate-edger-03.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_012",
+    "buildingId": "kate-edger",
+    "category": "facility",
+    "difficulty": "easy",
+    "questionText": "Which option best describes an information commons?",
+    "options": [
+      { "id": "A", "text": "A shared study and information support space" },
+      { "id": "B", "text": "A private apartment block" },
+      { "id": "C", "text": "A road tunnel" },
+      { "id": "D", "text": "A swimming pool" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "An information commons supports shared learning, technology, and student information access.",
+    "imageUrl": "/images/buildings/kate-edger-04.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_013",
+    "buildingId": "general-library",
+    "category": "facility",
+    "difficulty": "easy",
+    "questionText": "What is the main purpose of the General Library?",
+    "options": [
+      { "id": "A", "text": "Supporting study and research" },
+      { "id": "B", "text": "Selling train tickets" },
+      { "id": "C", "text": "Running hospital surgery" },
+      { "id": "D", "text": "Hosting airport check-in" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The General Library provides resources and spaces for study and research.",
+    "imageUrl": "/images/buildings/general-library-01.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_014",
+    "buildingId": "general-library",
+    "category": "student_life",
+    "difficulty": "easy",
+    "questionText": "Which activity is most suitable in the General Library?",
+    "options": [
+      { "id": "A", "text": "Reading course material" },
+      { "id": "B", "text": "Playing loud music" },
+      { "id": "C", "text": "Cooking dinner" },
+      { "id": "D", "text": "Repairing a car" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The library is designed for reading, study, and research work.",
+    "imageUrl": "/images/buildings/general-library-02.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_015",
+    "buildingId": "general-library",
+    "category": "location",
+    "difficulty": "medium",
+    "questionText": "The General Library is located near which street?",
+    "options": [
+      { "id": "A", "text": "Alfred Street" },
+      { "id": "B", "text": "Great North Road" },
+      { "id": "C", "text": "Tamaki Drive" },
+      { "id": "D", "text": "Lincoln Road" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The General Library is located around Alfred Street on City Campus.",
+    "imageUrl": "/images/buildings/general-library-03.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_016",
+    "buildingId": "general-library",
+    "category": "facility",
+    "difficulty": "easy",
+    "questionText": "Which resource would students expect from a university library?",
+    "options": [
+      { "id": "A", "text": "Books, databases, and study spaces" },
+      { "id": "B", "text": "Bowling lanes" },
+      { "id": "C", "text": "Hotel rooms" },
+      { "id": "D", "text": "Supermarket aisles" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "University libraries provide learning resources and study spaces.",
+    "imageUrl": "/images/buildings/general-library-04.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_017",
+    "buildingId": "engineering",
+    "category": "building",
+    "difficulty": "easy",
+    "questionText": "Which students are most directly connected to the Engineering Building?",
+    "options": [
+      { "id": "A", "text": "Engineering students" },
+      { "id": "B", "text": "Flight passengers" },
+      { "id": "C", "text": "Hotel guests" },
+      { "id": "D", "text": "Professional athletes only" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The Engineering Building supports engineering teaching and project work.",
+    "imageUrl": "/images/buildings/engineering-01.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_018",
+    "buildingId": "engineering",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "The Engineering Building is commonly associated with which street?",
+    "options": [
+      { "id": "A", "text": "Symonds Street" },
+      { "id": "B", "text": "Ponsonby Road" },
+      { "id": "C", "text": "Queenstown Road" },
+      { "id": "D", "text": "Federal Street" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The Engineering Building is around Symonds Street.",
+    "imageUrl": "/images/buildings/engineering-02.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_019",
+    "buildingId": "engineering",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "Which activity best fits an engineering learning space?",
+    "options": [
+      { "id": "A", "text": "Designing and testing prototypes" },
+      { "id": "B", "text": "Checking luggage for flights" },
+      { "id": "C", "text": "Selling concert tickets" },
+      { "id": "D", "text": "Serving court documents" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "Engineering learning often involves design, testing, and project-based work.",
+    "imageUrl": "/images/buildings/engineering-03.jpg",
+    "isActive": true
+  },
+  {
+    "id": "q_020",
+    "buildingId": "engineering",
+    "category": "student_life",
+    "difficulty": "easy",
+    "questionText": "Why might engineering students meet in this building?",
+    "options": [
+      { "id": "A", "text": "To work on classes, labs, or group projects" },
+      { "id": "B", "text": "To apply for a tourist visa" },
+      { "id": "C", "text": "To buy groceries" },
+      { "id": "D", "text": "To board a cruise ship" }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The Engineering Building supports classes, labs, and collaborative project work.",
+    "imageUrl": "/images/buildings/engineering-04.jpg",
+    "isActive": true
+  }
+]

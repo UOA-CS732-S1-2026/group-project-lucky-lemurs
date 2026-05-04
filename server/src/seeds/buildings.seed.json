@@ -1,0 +1,52 @@
+[
+  {
+    "id": "oggb",
+    "name": "Owen G Glenn Building",
+    "shortName": "OGGB",
+    "description": "A major building for the University of Auckland Business School.",
+    "location": "12 Grafton Road",
+    "imageUrl": "/images/buildings/oggb-cover.jpg",
+    "unlockOrder": 1,
+    "isActive": true
+  },
+  {
+    "id": "clocktower",
+    "name": "ClockTower",
+    "shortName": "ClockTower",
+    "description": "One of the most recognisable historic buildings on the City Campus.",
+    "location": "22 Princes Street",
+    "imageUrl": "/images/buildings/clocktower-cover.jpg",
+    "unlockOrder": 2,
+    "isActive": true
+  },
+  {
+    "id": "kate-edger",
+    "name": "Kate Edger Information Commons",
+    "shortName": "Kate Edger",
+    "description": "A central student study and service space on City Campus.",
+    "location": "2 Alfred Street",
+    "imageUrl": "/images/buildings/kate-edger-cover.jpg",
+    "unlockOrder": 3,
+    "isActive": true
+  },
+  {
+    "id": "general-library",
+    "name": "General Library",
+    "shortName": "Library",
+    "description": "The main library supporting study, research, and student learning.",
+    "location": "5 Alfred Street",
+    "imageUrl": "/images/buildings/general-library-cover.jpg",
+    "unlockOrder": 4,
+    "isActive": true
+  },
+  {
+    "id": "engineering",
+    "name": "Engineering Building",
+    "shortName": "Engineering",
+    "description": "A key teaching and project space for engineering students.",
+    "location": "20 Symonds Street",
+    "imageUrl": "/images/buildings/engineering-cover.jpg",
+    "unlockOrder": 5,
+    "isActive": true
+  }
+]
