@@ -98,6 +98,18 @@
 .podium-avatar {
   font-size: 4rem;
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.podium-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .podium-name {
@@ -175,6 +187,17 @@
 
 .leaderboard-avatar {
   font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leaderboard-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
 }
 
 .leaderboard-info {
@@ -249,6 +272,11 @@
   .podium-avatar {
     font-size: 2.5rem;
   }
+  
+  .podium-avatar img {
+    width: 60px;
+    height: 60px;
+  }
 
   .podium-name {
     font-size: 0.9rem;
@@ -269,6 +297,11 @@
 
   .leaderboard-avatar {
     font-size: 2rem;
+  }
+  
+  .leaderboard-avatar img {
+    width: 40px;
+    height: 40px;
   }
 
   .leaderboard-name {
@@ -309,5 +342,10 @@
 
   .leaderboard-avatar {
     font-size: 1.8rem;
+  }
+  
+  .leaderboard-avatar img {
+    width: 35px;
+    height: 35px;
   }
 }

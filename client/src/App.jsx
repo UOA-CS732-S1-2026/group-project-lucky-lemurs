@@ -6,6 +6,7 @@ import './App.css'
 import HomePage from './pages/HomePage'
 import QuizPage from './pages/QuizPage'
 import QuestionPage from './pages/QuestionPage'
+import TestModePage from './pages/TestModePage'
 import ResultPage from './pages/ResultPage'
 import ReviewPage from './pages/ReviewPage'
 import LeaderboardPage from './pages/LeaderboardPage'
@@ -53,6 +54,11 @@ function App() {
             <Route path="/quiz/:buildingId/review" element={
               <ProtectedRoute>
                 <ReviewPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/test-mode/questions" element={
+              <ProtectedRoute>
+                <TestModePage />
               </ProtectedRoute>
             } />
             <Route path="/leaderboard" element={<LeaderboardPage />} />

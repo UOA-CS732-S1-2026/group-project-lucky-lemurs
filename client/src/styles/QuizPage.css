@@ -138,6 +138,16 @@
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+.test-mode-marker {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #000000 !important;
+}
+
+.test-mode-marker:hover {
+  background-color: rgba(34, 197, 94, 0.3);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+
 .marker-pulse {
   position: absolute;
   width: 100%;
@@ -456,3 +466,5 @@
     font-size: 1rem;
   }
 }
+
+

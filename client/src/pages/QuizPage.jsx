@@ -38,6 +38,7 @@ function QuizPage() {
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [buildings, setBuildings] = useState([])
   const [loading, setLoading] = useState(true)
+  const [startingTestMode, setStartingTestMode] = useState(false)
 
   useEffect(() => {
     setIsTransitioning(false)
@@ -95,6 +96,26 @@ function QuizPage() {
         navigate('/')
       }
     }, 300)
+  }
+
+  const handleStartTestMode = async () => {
+    try {
+      setStartingTestMode(true)
+      setIsTransitioning(true)
+      
+      const response = await axios.post(`${API_URL}/quiz/ranked/start`, {}, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+      })
+      
+      setTimeout(() => {
+        navigate('/test-mode/questions', { state: { sessionData: response.data } })
+      }, 500)
+    } catch (err) {
+      console.error('Failed to start test mode:', err)
+      setStartingTestMode(false)
+      setIsTransitioning(false)
+      alert('Failed to start test mode. Please try again.')
+    }
   }
 
   const selectedBuilding = buildings.find(b => b.id === buildingId)
@@ -214,24 +235,22 @@ function QuizPage() {
                 <span className="marker-label">{building.name}</span>
               </button>
             ))}
-          </div>
-        </div>
-
-        <div className="legend animate-fade-in">
-          <h3>Legend</h3>
-          <div className="legend-items">
-            <div className="legend-item">
-              <span className="legend-color easy"></span>
-              <span className="legend-text">Easy</span>
-            </div>
-            <div className="legend-item">
-              <span className="legend-color medium"></span>
-              <span className="legend-text">Medium</span>
-            </div>
-            <div className="legend-item">
-              <span className="legend-color hard"></span>
-              <span className="legend-text">Hard</span>
-            </div>
+            
+            <button
+              className={`building-marker test-mode-marker ${startingTestMode ? 'building-clicked' : ''}`}
+              style={{
+                top: '6%',
+                left: '65%',
+                borderColor: '#000000ff',
+              }}
+              onClick={handleStartTestMode}
+              disabled={startingTestMode}
+              title="Timed Test Mode - 20 questions in 60 seconds"
+            >
+              <span className="marker-pulse"></span>
+              <span className="marker-icon">⏱️</span>
+              <span className="marker-label">Test Mode</span>
+            </button>
           </div>
         </div>
       </div>

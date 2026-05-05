@@ -23,13 +23,24 @@ function LeaderboardPage() {
     try {
       setLoading(true)
       setError(null)
-      const response = await axios.get(`${API_URL}/leaderboard?mode=ranked&period=all`)
+      const token = localStorage.getItem('token')
+      const config = token ? {
+        headers: { Authorization: `Bearer ${token}` }
+      } : {}
+      
+      const response = await axios.get(`${API_URL}/leaderboard?mode=ranked&period=all`, config)
       const { entries, myRank: userRank } = response.data
       setLeaderboard(entries || [])
       setMyRank(userRank)
     } catch (err) {
       console.error('Failed to fetch leaderboard:', err)
-      setError('Failed to load leaderboard. Showing mock data.')
+      
+      if (err.response?.status === 401) {
+        setError('Please login to view the leaderboard. Showing mock data.')
+      } else {
+        setError('Failed to load leaderboard. Showing mock data.')
+      }
+      
       setLeaderboard([
         { rank: 1, username: 'Alice Smith', score: 980, avatarUrl: '👩‍🎓' },
         { rank: 2, username: 'Bob Johnson', score: 890, avatarUrl: '👨‍🎓' },
@@ -114,53 +125,110 @@ function LeaderboardPage() {
           )}
         </div>
 
-        {leaderboard.length >= 3 && (
+        {leaderboard.length >= 3 ? (
           <div className="podium">
             <div className="podium-item second-place">
-              <div className="podium-avatar">{leaderboard[1].avatarUrl || '🥈'}</div>
-              <div className="podium-name">{leaderboard[1].username}</div>
-              <div className="podium-score">{leaderboard[1].score}</div>
+              <div className="podium-avatar">
+                {leaderboard[1]?.avatarUrl ? (
+                  <img src={`${API_URL}${leaderboard[1].avatarUrl}`} alt={leaderboard[1]?.username || 'Player'} />
+                ) : (
+                  <span>🥈</span>
+                )}
+              </div>
+              <div className="podium-name">{leaderboard[1]?.username || 'No player'}</div>
+              <div className="podium-score">{leaderboard[1]?.score || 0}</div>
               <div className="podium-stand">2nd</div>
             </div>
             <div className="podium-item first-place">
-              <div className="podium-avatar">{leaderboard[0].avatarUrl || '🥇'}</div>
-              <div className="podium-name">{leaderboard[0].username}</div>
-              <div className="podium-score">{leaderboard[0].score}</div>
+              <div className="podium-avatar">
+                {leaderboard[0]?.avatarUrl ? (
+                  <img src={`${API_URL}${leaderboard[0].avatarUrl}`} alt={leaderboard[0]?.username || 'Player'} />
+                ) : (
+                  <span>🥇</span>
+                )}
+              </div>
+              <div className="podium-name">{leaderboard[0]?.username || 'No player'}</div>
+              <div className="podium-score">{leaderboard[0]?.score || 0}</div>
               <div className="podium-stand">1st</div>
             </div>
             <div className="podium-item third-place">
-              <div className="podium-avatar">{leaderboard[2].avatarUrl || '🥉'}</div>
-              <div className="podium-name">{leaderboard[2].username}</div>
-              <div className="podium-score">{leaderboard[2].score}</div>
+              <div className="podium-avatar">
+                {leaderboard[2]?.avatarUrl ? (
+                  <img src={`${API_URL}${leaderboard[2].avatarUrl}`} alt={leaderboard[2]?.username || 'Player'} />
+                ) : (
+                  <span>🥉</span>
+                )}
+              </div>
+              <div className="podium-name">{leaderboard[2]?.username || 'No player'}</div>
+              <div className="podium-score">{leaderboard[2]?.score || 0}</div>
               <div className="podium-stand">3rd</div>
             </div>
           </div>
+        ) : leaderboard.length > 0 && (
+          <div className="leaderboard-list">
+            {leaderboard.map((userItem, index) => {
+              const isCurrentUser = user && user.username === userItem.username
+              return (
+                <div 
+                  key={userItem.userId || index} 
+                  className={`leaderboard-item ${isCurrentUser ? 'current-user' : ''}`}
+                >
+                  <div className="leaderboard-rank">#{userItem.rank || index + 1}</div>
+                  <div className="leaderboard-avatar">
+                    {userItem.avatarUrl ? (
+                      <img src={`${API_URL}${userItem.avatarUrl}`} alt={userItem.username || 'Player'} />
+                    ) : (
+                      <span>👤</span>
+                    )}
+                  </div>
+                  <div className="leaderboard-info">
+                    <div className="leaderboard-name">
+                      {userItem.username || 'Unknown user'}
+                      {isCurrentUser && <span className="current-user-badge">You</span>}
+                    </div>
+                    <div className="leaderboard-detail">
+                      Accuracy: {Math.round((userItem.accuracy || 0) * 100)}%
+                    </div>
+                  </div>
+                  <div className="leaderboard-score">{userItem.score || 0}</div>
+                </div>
+              )
+            })}
+          </div>
         )}
 
-        <div className="leaderboard-list">
-          {leaderboard.slice(3).map((userItem) => {
-            const isCurrentUser = user && user.username === userItem.username
-            return (
-              <div 
-                key={userItem.userId} 
-                className={`leaderboard-item ${isCurrentUser ? 'current-user' : ''}`}
-              >
-                <div className="leaderboard-rank">#{userItem.rank}</div>
-                <div className="leaderboard-avatar">{userItem.avatarUrl || '👤'}</div>
-                <div className="leaderboard-info">
-                  <div className="leaderboard-name">
-                    {userItem.username}
-                    {isCurrentUser && <span className="current-user-badge">You</span>}
+        {leaderboard.length >= 3 && (
+          <div className="leaderboard-list">
+            {leaderboard.slice(3).map((userItem) => {
+              const isCurrentUser = user && user.username === userItem.username
+              return (
+                <div 
+                  key={userItem.userId} 
+                  className={`leaderboard-item ${isCurrentUser ? 'current-user' : ''}`}
+                >
+                  <div className="leaderboard-rank">#{userItem.rank}</div>
+                  <div className="leaderboard-avatar">
+                    {userItem.avatarUrl ? (
+                      <img src={`${API_URL}${userItem.avatarUrl}`} alt={userItem.username || 'Player'} />
+                    ) : (
+                      <span>👤</span>
+                    )}
                   </div>
-                  <div className="leaderboard-detail">
-                    Accuracy: {Math.round((userItem.accuracy || 0) * 100)}%
+                  <div className="leaderboard-info">
+                    <div className="leaderboard-name">
+                      {userItem.username}
+                      {isCurrentUser && <span className="current-user-badge">You</span>}
+                    </div>
+                    <div className="leaderboard-detail">
+                      Accuracy: {Math.round((userItem.accuracy || 0) * 100)}%
+                    </div>
                   </div>
+                  <div className="leaderboard-score">{userItem.score}</div>
                 </div>
-                <div className="leaderboard-score">{userItem.score}</div>
-              </div>
-            )
-          })}
-        </div>
+              )
+            })}
+          </div>
+        )}
 
         {leaderboard.length === 0 && (
           <div className="empty-state">

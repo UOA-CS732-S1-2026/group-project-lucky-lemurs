@@ -9,8 +9,15 @@ import { QuestionsModule } from './questions/questions.module';
 import { QuizModule } from './quiz/quiz.module';
 import { UsersModule } from './users/users.module';
 
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'),
+     // renderPath: '/images',
+    }),
     ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRootAsync({
       inject: [ConfigService],
