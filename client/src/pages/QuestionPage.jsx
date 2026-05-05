@@ -1,131 +1,155 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import axios from 'axios'
 import '../styles/Pages.css'
 import '../styles/QuestionPage.css'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
-
-const mockQuestions = [
-  {
-    id: 1,
-    question: 'When was the Clock Tower built?',
-    options: ['1920', '1926', '1932', '1940'],
-    correctAnswer: 1,
-    explanation: 'The Clock Tower was completed in 1926.'
-  },
-  {
-    id: 2,
-    question: 'What is the Clock Tower officially called?',
-    options: ['Clock Tower', 'Old Arts Building', 'Clockhouse', 'Auckland Tower'],
-    correctAnswer: 1,
-    explanation: 'Officially known as the Old Arts Building.'
-  },
-  {
-    id: 3,
-    question: 'How many bells are in the Clock Tower?',
-    options: ['3', '5', '8', '10'],
-    correctAnswer: 2,
-    explanation: 'There are 8 bells in the tower.'
-  },
-  {
-    id: 4,
-    question: 'What style of architecture is the Clock Tower?',
-    options: ['Modern', 'Gothic', 'Romanesque', 'Art Deco'],
-    correctAnswer: 2,
-    explanation: 'It features Romanesque architectural style.'
-  },
-  {
-    id: 5,
-    question: 'What is the Clock Tower used for today?',
-    options: ['Administration', 'Library', 'Lecture halls', 'Museum'],
-    correctAnswer: 0,
-    explanation: 'It houses university administration offices.'
-  },
-]
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 function QuestionPage() {
   const navigate = useNavigate()
   const { buildingId } = useParams()
   const { user } = useAuth()
+  const [sessionId, setSessionId] = useState(null)
   const [questions, setQuestions] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState(null)
   const [showResult, setShowResult] = useState(false)
-  const [score, setScore] = useState(0)
+  const [currentScore, setCurrentScore] = useState(0)
+  const [correctCount, setCorrectCount] = useState(0)
+  const [incorrectCount, setIncorrectCount] = useState(0)
   const [timeLeft, setTimeLeft] = useState(180)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [answerResult, setAnswerResult] = useState(null)
+  const [isFinished, setIsFinished] = useState(false)
+  const [finalResult, setFinalResult] = useState(null)
+  const startTimeRef = useRef(Date.now())
+  const questionStartTimeRef = useRef(Date.now())
 
   useEffect(() => {
-    fetchQuestions()
+    startQuizSession()
   }, [buildingId])
 
   useEffect(() => {
-    if (timeLeft > 0 && !showResult && questions.length > 0) {
+    if (timeLeft > 0 && !showResult && questions.length > 0 && !isFinished) {
       const timer = setInterval(() => {
         setTimeLeft(prev => prev - 1)
       }, 1000)
       return () => clearInterval(timer)
-    } else if (timeLeft === 0) {
+    } else if (timeLeft === 0 && !isFinished) {
       finishQuiz()
     }
-  }, [timeLeft, showResult, questions.length])
+  }, [timeLeft, showResult, questions.length, isFinished])
 
-  const fetchQuestions = async () => {
+  const startQuizSession = async () => {
     try {
       setLoading(true)
       setError(null)
-      const response = await axios.get(`${API_URL}/quizzes/${buildingId}/questions`)
-      setQuestions(response.data)
+      const response = await axios.post(`${API_URL}/quiz/building/start`, { buildingId })
+      const { sessionId: newSessionId, questions: quizQuestions } = response.data
+      setSessionId(newSessionId)
+      setQuestions(quizQuestions)
+      setTimeLeft(180)
+      startTimeRef.current = Date.now()
+      questionStartTimeRef.current = Date.now()
     } catch (err) {
-      console.error('Failed to fetch questions:', err)
-      setError('Failed to load questions. Using demo questions.')
-      setQuestions(mockQuestions)
+      console.error('Failed to start quiz:', err)
+      setError('Failed to load quiz. Please try again.')
     } finally {
       setLoading(false)
     }
   }
 
-  const handleAnswer = (index) => {
-    if (showResult) return
-    setSelectedAnswer(index)
-    setShowResult(true)
-    
-    if (index === questions[currentIndex].correctAnswer) {
-      setScore(prev => prev + 20)
+  const handleAnswer = async (optionId) => {
+    if (showResult || isFinished) return
+
+    const timeSpentSeconds = Math.round((Date.now() - questionStartTimeRef.current) / 1000)
+
+    try {
+      const response = await axios.post(`${API_URL}/quiz/sessions/${sessionId}/answers`, {
+        questionId: questions[currentIndex].id,
+        selectedOptionId: optionId,
+        timeSpentSeconds
+      })
+
+      const result = response.data
+      setAnswerResult(result)
+      setSelectedAnswer(optionId)
+      setShowResult(true)
+      setCurrentScore(result.currentScore)
+      setCorrectCount(result.correctCount)
+      setIncorrectCount(result.incorrectCount)
+
+      if (result.retryLater) {
+        setTimeout(() => {
+          navigate(`/quiz/${buildingId}`)
+        }, 3000)
+      }
+    } catch (err) {
+      console.error('Failed to submit answer:', err)
+      setError('Failed to submit answer.')
     }
   }
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(prev => prev + 1)
       setSelectedAnswer(null)
       setShowResult(false)
+      setAnswerResult(null)
+      questionStartTimeRef.current = Date.now()
     } else {
       finishQuiz()
     }
   }
 
   const finishQuiz = async () => {
+    if (isFinished) return
+    setIsFinished(true)
+
     try {
-      await axios.post(`${API_URL}/quizzes/${buildingId}/submit`, {
-        score,
-        answers: questions.map((q, i) => ({
-          questionId: q.id,
-          selectedAnswer: i <= currentIndex ? (i === currentIndex ? selectedAnswer : questions[i].userAnswer) : null,
-          isCorrect: i <= currentIndex ? (i === currentIndex ? selectedAnswer === q.correctAnswer : questions[i].isCorrect) : false
-        }))
-      })
+      const response = await axios.post(`${API_URL}/quiz/sessions/${sessionId}/finish`, {})
+      setFinalResult(response.data)
     } catch (err) {
-      console.error('Failed to submit score:', err)
+      console.error('Failed to finish quiz:', err)
+      const timeUsedSeconds = Math.round((Date.now() - startTimeRef.current) / 1000)
+      setFinalResult({
+        sessionId,
+        mode: 'building',
+        buildingId,
+        score: currentScore,
+        correctCount,
+        incorrectCount,
+        totalQuestions: questions.length,
+        accuracy: questions.length > 0 ? correctCount / questions.length : 0,
+        timeUsedSeconds,
+        rank: null,
+        buildingProgress: {
+          buildingId,
+          isCompleted: true,
+          bestScore: currentScore
+        }
+      })
     }
-    navigate(`/quiz/${buildingId}/result?score=${score}&total=${questions.length * 20}`)
+
+    navigate(`/quiz/${buildingId}/result`, {
+      state: {
+        score: currentScore,
+        totalQuestions: questions.length,
+        correctCount,
+        incorrectCount
+      }
+    })
   }
 
-  const handleBack = () => {
-    navigate(`/quiz/${buildingId}`)
+  const handleQuit = () => {
+    if (sessionId && !isFinished) {
+      finishQuiz()
+    } else {
+      navigate(`/quiz/${buildingId}`)
+    }
   }
 
   if (loading) {
@@ -133,12 +157,38 @@ function QuestionPage() {
       <div className="page-container">
         <nav className="navbar">
           <div className="navbar-container">
-            <h2 className="navbar-logo" onClick={handleBack}>UOA Quiz</h2>
+            <div className="navbar-left">
+              <h2 className="navbar-logo" onClick={handleQuit}>← Back</h2>
+              <span className="navbar-divider">|</span>
+              <h2 className="navbar-logo" onClick={() => navigate('/')}>🏠 Home</h2>
+            </div>
           </div>
         </nav>
         <div className="loading-container">
           <div className="loading-spinner"></div>
-          <p>Loading questions...</p>
+          <p>Loading quiz...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error || questions.length === 0) {
+    return (
+      <div className="page-container">
+        <nav className="navbar">
+          <div className="navbar-container">
+            <div className="navbar-left">
+              <h2 className="navbar-logo" onClick={() => navigate(`/quiz/${buildingId}`)}>← Back</h2>
+              <span className="navbar-divider">|</span>
+              <h2 className="navbar-logo" onClick={() => navigate('/')}>🏠 Home</h2>
+            </div>
+          </div>
+        </nav>
+        <div className="loading-container">
+          <p>{error || 'No questions available.'}</p>
+          <button className="btn btn-primary" onClick={() => navigate(`/quiz/${buildingId}`)}>
+            Back to Building
+          </button>
         </div>
       </div>
     )
@@ -151,7 +201,11 @@ function QuestionPage() {
     <div className="question-page">
       <nav className="navbar">
         <div className="navbar-container">
-          <h2 className="navbar-logo" onClick={handleBack}>UOA Quiz</h2>
+          <div className="navbar-left">
+            <h2 className="navbar-logo" onClick={handleQuit}>← Back</h2>
+            <span className="navbar-divider">|</span>
+            <h2 className="navbar-logo" onClick={() => navigate('/')}>🏠 Home</h2>
+          </div>
           <div className="navbar-buttons">
             <span className="timer">⏱️ {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, '0')}</span>
           </div>
@@ -159,12 +213,6 @@ function QuestionPage() {
       </nav>
 
       <main className="question-content">
-        {error && (
-          <div className="error-message-box">
-            ⚠️ {error}
-          </div>
-        )}
-
         <div className="quiz-progress">
           <div className="progress-bar">
             <div className="progress-fill" style={{ width: `${progress}%` }}></div>
@@ -173,53 +221,68 @@ function QuestionPage() {
         </div>
 
         <div className="question-card">
-          <div className="question-number">Question {currentIndex + 1}</div>
-          <h2 className="question-text">{currentQuestion.question}</h2>
+          <div className="question-number">
+            <span className={`difficulty-badge ${currentQuestion.difficulty}`}>
+              {currentQuestion.difficulty?.toUpperCase() || 'BUILDING'}
+            </span>
+          </div>
+          <h2 className="question-text">{currentQuestion.questionText}</h2>
+
+          {currentQuestion.imageUrl && (
+            <img 
+              src={currentQuestion.imageUrl} 
+              alt="Question visual" 
+              className="question-image"
+            />
+          )}
           
           <div className="options-list">
-            {currentQuestion.options.map((option, index) => {
+            {currentQuestion.options.map((option) => {
               let optionClass = 'option-item'
-              if (showResult) {
-                if (index === currentQuestion.correctAnswer) {
+              if (showResult && answerResult) {
+                if (option.id === answerResult.correctOptionId) {
                   optionClass += ' correct'
-                } else if (index === selectedAnswer && index !== currentQuestion.correctAnswer) {
+                } else if (option.id === selectedAnswer && option.id !== answerResult.correctOptionId) {
                   optionClass += ' wrong'
                 }
-              } else if (selectedAnswer === index) {
+              } else if (selectedAnswer === option.id) {
                 optionClass += ' selected'
               }
               
               return (
                 <button
-                  key={index}
+                  key={option.id}
                   className={optionClass}
-                  onClick={() => handleAnswer(index)}
+                  onClick={() => handleAnswer(option.id)}
                   disabled={showResult}
                 >
-                  <span className="option-letter">{String.fromCharCode(65 + index)}</span>
-                  <span className="option-text">{option}</span>
+                  <span className="option-letter">{option.id}</span>
+                  <span className="option-text">{option.text}</span>
                 </button>
               )
             })}
           </div>
 
-          {showResult && (
-            <div className={`explanation-box ${selectedAnswer === currentQuestion.correctAnswer ? 'correct' : 'wrong'}`}>
+          {showResult && answerResult && (
+            <div className={`explanation-box ${answerResult.correct ? 'correct' : 'wrong'}`}>
               <p>
-                {selectedAnswer === currentQuestion.correctAnswer ? '✅ Correct!' : '❌ Wrong!'}
-                {currentQuestion.explanation && (
-                  <span className="explanation-text"> {currentQuestion.explanation}</span>
+                {answerResult.correct ? '✅ Correct!' : '❌ Wrong!'}
+                {answerResult.explanation && (
+                  <span className="explanation-text"> {answerResult.explanation}</span>
                 )}
               </p>
+              {answerResult.retryLater && (
+                <p className="retry-warning">⚠️ This question will appear again later!</p>
+              )}
             </div>
           )}
 
           <div className="question-actions">
-            <button className="btn btn-secondary" onClick={handleBack}>
+            <button className="btn btn-secondary" onClick={handleQuit}>
               Quit
             </button>
             {showResult && (
-              <button className="btn btn-primary">
+              <button className="btn btn-primary" onClick={handleNext}>
                 {currentIndex < questions.length - 1 ? 'Next Question' : 'Finish Quiz'}
               </button>
             )}
@@ -227,8 +290,11 @@ function QuestionPage() {
         </div>
 
         <div className="score-display">
-          <span className="score-label">Current Score</span>
-          <span className="score-value">{score}</span>
+          <span className="score-label">Score</span>
+          <span className="score-value">{currentScore}</span>
+          <span className="score-detail">
+            ✓ {correctCount} | ✗ {incorrectCount}
+          </span>
         </div>
       </main>
     </div>

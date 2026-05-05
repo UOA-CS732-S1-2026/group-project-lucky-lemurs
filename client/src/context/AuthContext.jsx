@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const AuthContext = createContext(null)
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
@@ -21,8 +21,8 @@ export function AuthProvider({ children }) {
 
   const validateToken = async () => {
     try {
-      const response = await axios.get(`${API_URL}/auth/me`)
-      setUser(response.data.user)
+      const response = await axios.get(`${API_URL}/users/me`)
+      setUser(response.data)
     } catch (error) {
       logout()
     } finally {
@@ -32,25 +32,25 @@ export function AuthProvider({ children }) {
 
   const login = async (email, password) => {
     const response = await axios.post(`${API_URL}/auth/login`, { email, password })
-    const { token: newToken, user: userData } = response.data
+    const { accessToken, user: userData } = response.data
     
-    localStorage.setItem('token', newToken)
-    setToken(newToken)
+    localStorage.setItem('token', accessToken)
+    setToken(accessToken)
     setUser(userData)
     setLoading(false)
-    axios.defaults.headers.common['Authorization'] = `Bearer ${newToken}`
+    axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
     
     return userData
   }
 
-  const register = async (email, password, name) => {
-    const response = await axios.post(`${API_URL}/auth/register`, { email, password, name })
-    const { token: newToken, user: userData } = response.data
+  const register = async (username, email, password) => {
+    const response = await axios.post(`${API_URL}/auth/register`, { username, email, password })
+    const { accessToken, user: userData } = response.data
     
-    localStorage.setItem('token', newToken)
-    setToken(newToken)
+    localStorage.setItem('token', accessToken)
+    setToken(accessToken)
     setUser(userData)
-    axios.defaults.headers.common['Authorization'] = `Bearer ${newToken}`
+    axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
     
     return userData
   }

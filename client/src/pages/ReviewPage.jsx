@@ -5,7 +5,7 @@ import axios from 'axios'
 import '../styles/Pages.css'
 import '../styles/ReviewPage.css'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 const buildingNames = {
   clocktower: 'Clock Tower',

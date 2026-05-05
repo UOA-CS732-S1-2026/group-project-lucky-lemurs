@@ -93,7 +93,7 @@ function ResultPage() {
             </div>
             <div className="stat-row">
               <span className="stat-label">User</span>
-              <span className="stat-value">{user?.name || 'Guest'}</span>
+              <span className="stat-value">{user?.username || 'Guest'}</span>
             </div>
           </div>
 

@@ -5,12 +5,13 @@ import axios from 'axios'
 import '../styles/Pages.css'
 import '../styles/LeaderboardPage.css'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 function LeaderboardPage() {
   const navigate = useNavigate()
   const { user } = useAuth()
   const [leaderboard, setLeaderboard] = useState([])
+  const [myRank, setMyRank] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -22,22 +23,24 @@ function LeaderboardPage() {
     try {
       setLoading(true)
       setError(null)
-      const response = await axios.get(`${API_URL}/leaderboard`)
-      setLeaderboard(response.data)
+      const response = await axios.get(`${API_URL}/leaderboard?mode=ranked&period=all`)
+      const { entries, myRank: userRank } = response.data
+      setLeaderboard(entries || [])
+      setMyRank(userRank)
     } catch (err) {
       console.error('Failed to fetch leaderboard:', err)
       setError('Failed to load leaderboard. Showing mock data.')
       setLeaderboard([
-        { id: 1, name: 'Alice Smith', score: 980, quizzesCompleted: 15, avatar: '👩‍🎓' },
-        { id: 2, name: 'Bob Johnson', score: 890, quizzesCompleted: 12, avatar: '👨‍🎓' },
-        { id: 3, name: 'Charlie Davis', score: 820, quizzesCompleted: 10, avatar: '👩‍🔬' },
-        { id: 4, name: 'Diana Evans', score: 750, quizzesCompleted: 9, avatar: '👨‍🏫' },
-        { id: 5, name: 'Ethan Wilson', score: 680, quizzesCompleted: 8, avatar: '👩‍💼' },
-        { id: 6, name: 'Fiona Brown', score: 620, quizzesCompleted: 7, avatar: '👨‍🔬' },
-        { id: 7, name: 'George Taylor', score: 550, quizzesCompleted: 6, avatar: '👩‍🎨' },
-        { id: 8, name: 'Helen Thomas', score: 480, quizzesCompleted: 5, avatar: '👨‍💻' },
-        { id: 9, name: 'Ivan Jackson', score: 420, quizzesCompleted: 4, avatar: '👩‍🔧' },
-        { id: 10, name: 'Julia White', score: 350, quizzesCompleted: 3, avatar: '👨‍🎤' },
+        { rank: 1, username: 'Alice Smith', score: 980, avatarUrl: '👩‍🎓' },
+        { rank: 2, username: 'Bob Johnson', score: 890, avatarUrl: '👨‍🎓' },
+        { rank: 3, username: 'Charlie Davis', score: 820, avatarUrl: '👩‍🔬' },
+        { rank: 4, username: 'Diana Evans', score: 750, avatarUrl: '👨‍🏫' },
+        { rank: 5, username: 'Ethan Wilson', score: 680, avatarUrl: '👩‍💼' },
+        { rank: 6, username: 'Fiona Brown', score: 620, avatarUrl: '👨‍🔬' },
+        { rank: 7, username: 'George Taylor', score: 550, avatarUrl: '👩‍🎨' },
+        { rank: 8, username: 'Helen Thomas', score: 480, avatarUrl: '👨‍💻' },
+        { rank: 9, username: 'Ivan Jackson', score: 420, avatarUrl: '👩‍🔧' },
+        { rank: 10, username: 'Julia White', score: 350, avatarUrl: '👨‍🎤' },
       ])
     } finally {
       setLoading(false)
@@ -45,9 +48,8 @@ function LeaderboardPage() {
   }
 
   const getUserRank = () => {
-    if (!user) return null
-    const rank = leaderboard.findIndex(u => u.email === user.email || u.name === user.name)
-    return rank >= 0 ? rank + 1 : null
+    if (!user || !myRank) return null
+    return myRank.rank
   }
 
   const userRank = getUserRank()
@@ -76,7 +78,7 @@ function LeaderboardPage() {
           <div className="navbar-buttons">
             {user ? (
               <>
-                <span className="user-greeting">Welcome, {user.name}</span>
+                <span className="user-greeting">Welcome, {user.username}</span>
                 <button className="btn-nav btn-nav-primary" onClick={() => navigate('/quiz')}>
                   Play Quiz
                 </button>
@@ -115,20 +117,20 @@ function LeaderboardPage() {
         {leaderboard.length >= 3 && (
           <div className="podium">
             <div className="podium-item second-place">
-              <div className="podium-avatar">🥈</div>
-              <div className="podium-name">{leaderboard[1].name}</div>
+              <div className="podium-avatar">{leaderboard[1].avatarUrl || '🥈'}</div>
+              <div className="podium-name">{leaderboard[1].username}</div>
               <div className="podium-score">{leaderboard[1].score}</div>
               <div className="podium-stand">2nd</div>
             </div>
             <div className="podium-item first-place">
-              <div className="podium-avatar">🥇</div>
-              <div className="podium-name">{leaderboard[0].name}</div>
+              <div className="podium-avatar">{leaderboard[0].avatarUrl || '🥇'}</div>
+              <div className="podium-name">{leaderboard[0].username}</div>
               <div className="podium-score">{leaderboard[0].score}</div>
               <div className="podium-stand">1st</div>
             </div>
             <div className="podium-item third-place">
-              <div className="podium-avatar">🥉</div>
-              <div className="podium-name">{leaderboard[2].name}</div>
+              <div className="podium-avatar">{leaderboard[2].avatarUrl || '🥉'}</div>
+              <div className="podium-name">{leaderboard[2].username}</div>
               <div className="podium-score">{leaderboard[2].score}</div>
               <div className="podium-stand">3rd</div>
             </div>
@@ -136,23 +138,22 @@ function LeaderboardPage() {
         )}
 
         <div className="leaderboard-list">
-          {leaderboard.slice(3).map((userItem, index) => {
-            const rank = index + 4
-            const isCurrentUser = user && (user.email === userItem.email || user.name === userItem.name)
+          {leaderboard.slice(3).map((userItem) => {
+            const isCurrentUser = user && user.username === userItem.username
             return (
               <div 
-                key={userItem.id} 
+                key={userItem.userId} 
                 className={`leaderboard-item ${isCurrentUser ? 'current-user' : ''}`}
               >
-                <div className="leaderboard-rank">#{rank}</div>
-                <div className="leaderboard-avatar">{userItem.avatar || '👤'}</div>
+                <div className="leaderboard-rank">#{userItem.rank}</div>
+                <div className="leaderboard-avatar">{userItem.avatarUrl || '👤'}</div>
                 <div className="leaderboard-info">
                   <div className="leaderboard-name">
-                    {userItem.name}
+                    {userItem.username}
                     {isCurrentUser && <span className="current-user-badge">You</span>}
                   </div>
                   <div className="leaderboard-detail">
-                    {userItem.quizzesCompleted || 0} quizzes completed
+                    Accuracy: {Math.round((userItem.accuracy || 0) * 100)}%
                   </div>
                 </div>
                 <div className="leaderboard-score">{userItem.score}</div>
