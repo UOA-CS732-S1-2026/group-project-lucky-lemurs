@@ -1,342 +1,2947 @@
 [
   {
     "id": "q_001",
-    "buildingId": "oggb",
-    "category": "building",
-    "difficulty": "easy",
-    "questionText": "What is the main academic focus of the Owen G Glenn Building?",
+    "buildingId": "clocktower",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "The ClockTower (Old Arts Building) is the University of Auckland's most iconic structure. In which year was it officially opened?",
     "options": [
-      { "id": "A", "text": "Business School" },
-      { "id": "B", "text": "Engineering workshops" },
-      { "id": "C", "text": "Medical simulation labs" },
-      { "id": "D", "text": "Music performance studios" }
+      {
+        "id": "A",
+        "text": "1910"
+      },
+      {
+        "id": "B",
+        "text": "1921"
+      },
+      {
+        "id": "C",
+        "text": "1923"
+      },
+      {
+        "id": "D",
+        "text": "1926"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "OGGB is mainly associated with the University of Auckland Business School.",
-    "imageUrl": "/images/buildings/oggb-01.jpg",
+    "correctOptionId": "D",
+    "explanation": "The correct answer is 1926.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_002",
-    "buildingId": "oggb",
-    "category": "location",
-    "difficulty": "easy",
-    "questionText": "Which road is the Owen G Glenn Building commonly associated with?",
+    "buildingId": "clocktower",
+    "category": "culture",
+    "difficulty": "medium",
+    "questionText": "The ClockTower's exterior is decorated with native New Zealand flora and fauna motifs. Which of the following is NOT one of the decorative elements carved into its stonework?",
     "options": [
-      { "id": "A", "text": "Grafton Road" },
-      { "id": "B", "text": "Queen Street" },
-      { "id": "C", "text": "Dominion Road" },
-      { "id": "D", "text": "Beach Road" }
+      {
+        "id": "A",
+        "text": "Kea (native parrot"
+      },
+      {
+        "id": "B",
+        "text": "Ponga fronds (native fern)"
+      },
+      {
+        "id": "C",
+        "text": "Harakeke (flax-seed pods)"
+      },
+      {
+        "id": "D",
+        "text": "Tuatara (native reptile)"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "The Owen G Glenn Building is located around Grafton Road on City Campus.",
-    "imageUrl": "/images/buildings/oggb-02.jpg",
+    "correctOptionId": "D",
+    "explanation": "The correct answer is Tuatara (native reptile).",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_003",
-    "buildingId": "oggb",
-    "category": "facility",
-    "difficulty": "medium",
-    "questionText": "Which activity would most likely happen inside OGGB?",
+    "buildingId": "clocktower",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "The Albert Barracks Wall, found on the University's City Campus along Alfred Street, is built from basalt stone quarried from which Auckland landmark?",
     "options": [
-      { "id": "A", "text": "A business case competition" },
-      { "id": "B", "text": "A swimming race" },
-      { "id": "C", "text": "A hospital ward round" },
-      { "id": "D", "text": "A football training session" }
+      {
+        "id": "A",
+        "text": "Rangitoto Island"
+      },
+      {
+        "id": "B",
+        "text": "One Tree Hill / Maungakiekie"
+      },
+      {
+        "id": "C",
+        "text": "Maungawhau / Mt Eden"
+      },
+      {
+        "id": "D",
+        "text": "\u014ct\u0101huhu volcanic cone"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "OGGB supports business teaching, events, and student activities.",
-    "imageUrl": "/images/buildings/oggb-03.jpg",
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Maungawhau / Mt Eden.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_004",
-    "buildingId": "oggb",
-    "category": "student_life",
+    "buildingId": "clocktower",
+    "category": "location",
     "difficulty": "easy",
-    "questionText": "Why might students visit OGGB outside scheduled classes?",
+    "questionText": "Old Government House, located within the University's City Campus, was completed in 1856. What was its primary significance before being transferred to the University in 1969?",
     "options": [
-      { "id": "A", "text": "To attend talks, meet groups, or study" },
-      { "id": "B", "text": "To borrow sports uniforms" },
-      { "id": "C", "text": "To check in for flights" },
-      { "id": "D", "text": "To register a car" }
+      {
+        "id": "A",
+        "text": "It was New Zealand's first public museum"
+      },
+      {
+        "id": "B",
+        "text": "It was the first building in Auckland to use reinforced concrete"
+      },
+      {
+        "id": "C",
+        "text": "It served as the seat of government and viceregal residence, hosting royalty six times"
+      },
+      {
+        "id": "D",
+        "text": "It was the headquarters of the Auckland Choral Society"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "OGGB is used for study, events, and student collaboration.",
-    "imageUrl": "/images/buildings/oggb-04.jpg",
+    "correctOptionId": "C",
+    "explanation": "The correct answer is It served as the seat of government and viceregal residence, hosting royalty six times.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_005",
     "buildingId": "clocktower",
-    "category": "history",
-    "difficulty": "easy",
-    "questionText": "Which UOA building is one of the most recognisable historic campus symbols?",
+    "category": "location",
+    "difficulty": "hard",
+    "questionText": "The University of Auckland's City Campus conservation area covers 41,500 square metres and contains over 400 mature trees. The campus heritage buildings are registered under what classification system in New Zealand?",
     "options": [
-      { "id": "A", "text": "ClockTower" },
-      { "id": "B", "text": "OGGB" },
-      { "id": "C", "text": "Engineering Building" },
-      { "id": "D", "text": "Recreation Centre" }
+      {
+        "id": "A",
+        "text": "UNESCO World Heritage classification"
+      },
+      {
+        "id": "B",
+        "text": "Auckland Council Green Star Rating system"
+      },
+      {
+        "id": "C",
+        "text": "Heritage New Zealand's Category 1 Historic Place register"
+      },
+      {
+        "id": "D",
+        "text": "The New Zealand National Trust Protected Structures list"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "The ClockTower is a well-known historic symbol of the University of Auckland.",
-    "imageUrl": "/images/buildings/clocktower-01.jpg",
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Heritage New Zealand's Category 1 Historic Place register.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_006",
-    "buildingId": "clocktower",
+    "buildingId": "general-library",
     "category": "location",
     "difficulty": "easy",
-    "questionText": "The ClockTower is closest to which City Campus street?",
+    "questionText": "What is the street address of the University of Auckland General Library (Te Herenga M\u0101tauranga Wh\u0101nui)?",
     "options": [
-      { "id": "A", "text": "Princes Street" },
-      { "id": "B", "text": "Sandringham Road" },
-      { "id": "C", "text": "Khyber Pass Road" },
-      { "id": "D", "text": "Quay Street" }
+      {
+        "id": "A",
+        "text": "Alfred Street, Auckland"
+      },
+      {
+        "id": "B",
+        "text": "10 Symonds Street, Auckland"
+      },
+      {
+        "id": "C",
+        "text": "5 Alfred Street, Auckland"
+      },
+      {
+        "id": "D",
+        "text": "85 Park Road, Grafton"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "The ClockTower is located near Princes Street on City Campus.",
-    "imageUrl": "/images/buildings/clocktower-02.jpg",
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 5 Alfred Street, Auckland.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_007",
-    "buildingId": "clocktower",
-    "category": "culture",
-    "difficulty": "medium",
-    "questionText": "Why is the ClockTower useful in a campus quiz game?",
+    "buildingId": "general-library",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "What is the building number officially assigned to the General Library on campus?",
     "options": [
-      { "id": "A", "text": "It connects campus knowledge with university identity" },
-      { "id": "B", "text": "It is only used for car parking" },
-      { "id": "C", "text": "It is outside New Zealand" },
-      { "id": "D", "text": "It is a sports stadium" }
+      {
+        "id": "A",
+        "text": "Building 200"
+      },
+      {
+        "id": "B",
+        "text": "Building 315"
+      },
+      {
+        "id": "C",
+        "text": "Building 109"
+      },
+      {
+        "id": "D",
+        "text": "Building 503"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "The ClockTower is closely linked with campus identity and history.",
-    "imageUrl": "/images/buildings/clocktower-03.jpg",
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Building 109.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_008",
-    "buildingId": "clocktower",
-    "category": "building",
-    "difficulty": "easy",
-    "questionText": "Which visual feature is most associated with the ClockTower?",
+    "buildingId": "general-library",
+    "category": "facility",
+    "difficulty": "hard",
+    "questionText": "The General Library's entrance features traditional M\u0101ori whakairo (carvings) and tukutuku (lattice-work panels). Who carved the pare and t\u0101huhu installed in the entranceway?",
     "options": [
-      { "id": "A", "text": "A tower form" },
-      { "id": "B", "text": "A glass-only cube" },
-      { "id": "C", "text": "A football pitch" },
-      { "id": "D", "text": "A harbour wharf" }
+      {
+        "id": "A",
+        "text": "Dr Merimeri Penfold"
+      },
+      {
+        "id": "B",
+        "text": "Bernard Makoare of Ng\u0101ti Wh\u0101tua, Te Rarawa and Ng\u0101puhi"
+      },
+      {
+        "id": "C",
+        "text": "Robert Sullivan of Te Tumu Herenga"
+      },
+      {
+        "id": "D",
+        "text": "Alice Pihema of Ng\u0101ti Wh\u0101tua"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "The tower form makes the ClockTower easy to recognise.",
-    "imageUrl": "/images/buildings/clocktower-04.jpg",
+    "correctOptionId": "B",
+    "explanation": "The correct answer is Bernard Makoare of Ng\u0101ti Wh\u0101tua, Te Rarawa and Ng\u0101puhi.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_009",
-    "buildingId": "kate-edger",
+    "buildingId": "general-library",
     "category": "facility",
-    "difficulty": "easy",
-    "questionText": "What is Kate Edger Information Commons mainly used for?",
+    "difficulty": "hard",
+    "questionText": "The tukutuku (woven lattice) panels in the General Library's entranceway feature several traditional patterns. Which of the following is NOT one of the patterns displayed?",
     "options": [
-      { "id": "A", "text": "Student study and services" },
-      { "id": "B", "text": "Airport security" },
-      { "id": "C", "text": "Marine cargo loading" },
-      { "id": "D", "text": "Professional rugby games" }
+      {
+        "id": "A",
+        "text": "Purapurawhet\u016b (stars, to acknowledge ancestors)"
+      },
+      {
+        "id": "B",
+        "text": "Maunga (to acknowledge the mountains of T\u0101maki Makaurau)"
+      },
+      {
+        "id": "C",
+        "text": "Wharenui (to acknowledge the ancestral meeting house)"
+      },
+      {
+        "id": "D",
+        "text": "Poutama (to acknowledge the educational sphere)"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "Kate Edger Information Commons provides study spaces and student-facing services.",
-    "imageUrl": "/images/buildings/kate-edger-01.jpg",
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Wharenui (to acknowledge the ancestral meeting house).",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_010",
-    "buildingId": "kate-edger",
-    "category": "student_life",
+    "buildingId": "general-library",
+    "category": "location",
     "difficulty": "easy",
-    "questionText": "Why might a student go to Kate Edger between classes?",
+    "questionText": "The General Library's M\u0101ori name \"Te Herenga M\u0101tauranga Wh\u0101nui\" broadly translates to which of the following?",
     "options": [
-      { "id": "A", "text": "To study, meet friends, or access services" },
-      { "id": "B", "text": "To renew a passport" },
-      { "id": "C", "text": "To take a driving test" },
-      { "id": "D", "text": "To board a ferry" }
+      {
+        "id": "A",
+        "text": "The gateway to the stars"
+      },
+      {
+        "id": "B",
+        "text": "The broad/general repository of knowledge"
+      },
+      {
+        "id": "C",
+        "text": "The chief tethering post of the people"
+      },
+      {
+        "id": "D",
+        "text": "The meeting place of all learning"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "Kate Edger is a common student study and service hub.",
-    "imageUrl": "/images/buildings/kate-edger-02.jpg",
+    "correctOptionId": "B",
+    "explanation": "The correct answer is The broad/general repository of knowledge.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_011",
-    "buildingId": "kate-edger",
-    "category": "location",
+    "buildingId": "general-library",
+    "category": "facility",
     "difficulty": "medium",
-    "questionText": "Kate Edger is close to which central campus area?",
+    "questionText": "The General Library building also houses the He M\u0101ra Mahara | Cultural Collections service. What are its weekday opening hours?",
     "options": [
-      { "id": "A", "text": "Alfred Street" },
-      { "id": "B", "text": "Mission Bay" },
-      { "id": "C", "text": "Mount Eden Summit" },
-      { "id": "D", "text": "Auckland Airport" }
+      {
+        "id": "A",
+        "text": "Monday\u2013Friday, 7am\u2013midnight"
+      },
+      {
+        "id": "B",
+        "text": "Monday\u2013Friday, 8:30am\u20135pm"
+      },
+      {
+        "id": "C",
+        "text": "Monday\u2013Friday, 9am\u20139pm"
+      },
+      {
+        "id": "D",
+        "text": "Monday\u2013Friday, 11am\u20134:30pm"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "Kate Edger Information Commons is located around Alfred Street.",
-    "imageUrl": "/images/buildings/kate-edger-03.jpg",
+    "correctOptionId": "B",
+    "explanation": "The correct answer is Monday\u2013Friday, 8:30am\u20135pm.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_012",
-    "buildingId": "kate-edger",
-    "category": "facility",
-    "difficulty": "easy",
-    "questionText": "Which option best describes an information commons?",
+    "buildingId": "general-library",
+    "category": "history",
+    "difficulty": "medium",
+    "questionText": "When was the University of Auckland originally established, making it the founding institution to which the General Library belongs?",
     "options": [
-      { "id": "A", "text": "A shared study and information support space" },
-      { "id": "B", "text": "A private apartment block" },
-      { "id": "C", "text": "A road tunnel" },
-      { "id": "D", "text": "A swimming pool" }
+      {
+        "id": "A",
+        "text": "1840"
+      },
+      {
+        "id": "B",
+        "text": "1870"
+      },
+      {
+        "id": "C",
+        "text": "1883"
+      },
+      {
+        "id": "D",
+        "text": "1901"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "An information commons supports shared learning, technology, and student information access.",
-    "imageUrl": "/images/buildings/kate-edger-04.jpg",
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 1883.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_013",
     "buildingId": "general-library",
-    "category": "facility",
-    "difficulty": "easy",
-    "questionText": "What is the main purpose of the General Library?",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "The Architecture and Planning Library \u2014 whose collection eventually merged into the General Library \u2014 was first established as a separate library in which year?",
     "options": [
-      { "id": "A", "text": "Supporting study and research" },
-      { "id": "B", "text": "Selling train tickets" },
-      { "id": "C", "text": "Running hospital surgery" },
-      { "id": "D", "text": "Hosting airport check-in" }
+      {
+        "id": "A",
+        "text": "1910"
+      },
+      {
+        "id": "B",
+        "text": "1927"
+      },
+      {
+        "id": "C",
+        "text": "1945"
+      },
+      {
+        "id": "D",
+        "text": "1960"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "The General Library provides resources and spaces for study and research.",
-    "imageUrl": "/images/buildings/general-library-01.jpg",
+    "correctOptionId": "B",
+    "explanation": "The correct answer is 1927.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_014",
     "buildingId": "general-library",
-    "category": "student_life",
-    "difficulty": "easy",
-    "questionText": "Which activity is most suitable in the General Library?",
+    "category": "facility",
+    "difficulty": "hard",
+    "questionText": "The Western Pacific Archives (WPA) were transferred to the General Library's Special Collections from which organisation?",
     "options": [
-      { "id": "A", "text": "Reading course material" },
-      { "id": "B", "text": "Playing loud music" },
-      { "id": "C", "text": "Cooking dinner" },
-      { "id": "D", "text": "Repairing a car" }
+      {
+        "id": "A",
+        "text": "The New Zealand National Archives"
+      },
+      {
+        "id": "B",
+        "text": "The Pacific Community Secretariat"
+      },
+      {
+        "id": "C",
+        "text": "The British Foreign and Commonwealth Office"
+      },
+      {
+        "id": "D",
+        "text": "The Australian National University"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "The library is designed for reading, study, and research work.",
-    "imageUrl": "/images/buildings/general-library-02.jpg",
+    "correctOptionId": "C",
+    "explanation": "The correct answer is The British Foreign and Commonwealth Office.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_015",
     "buildingId": "general-library",
-    "category": "location",
-    "difficulty": "medium",
-    "questionText": "The General Library is located near which street?",
+    "category": "facility",
+    "difficulty": "easy",
+    "questionText": "The whakairo and tukutuku panels in the General Library entrance are explicitly designed to maintain connection with which nearby University landmark?",
     "options": [
-      { "id": "A", "text": "Alfred Street" },
-      { "id": "B", "text": "Great North Road" },
-      { "id": "C", "text": "Tamaki Drive" },
-      { "id": "D", "text": "Lincoln Road" }
+      {
+        "id": "A",
+        "text": "The ClockTower building on Princes Street"
+      },
+      {
+        "id": "B",
+        "text": "The University's Waipapa marae"
+      },
+      {
+        "id": "C",
+        "text": "The Old Government House gardens"
+      },
+      {
+        "id": "D",
+        "text": "The Albert Park heritage precinct"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "The General Library is located around Alfred Street on City Campus.",
-    "imageUrl": "/images/buildings/general-library-03.jpg",
+    "correctOptionId": "B",
+    "explanation": "The correct answer is The University's Waipapa marae.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_016",
     "buildingId": "general-library",
-    "category": "facility",
-    "difficulty": "easy",
-    "questionText": "Which resource would students expect from a university library?",
+    "category": "history",
+    "difficulty": "medium",
+    "questionText": "The M\u0101ori name for the University of Auckland's library system, \"Te Tumu Herenga,\" was gifted by which distinguished figure?",
     "options": [
-      { "id": "A", "text": "Books, databases, and study spaces" },
-      { "id": "B", "text": "Bowling lanes" },
-      { "id": "C", "text": "Hotel rooms" },
-      { "id": "D", "text": "Supermarket aisles" }
+      {
+        "id": "A",
+        "text": "Robert Sullivan, Library Manager for M\u0101ori Services"
+      },
+      {
+        "id": "B",
+        "text": "Bernard Makoare, master carver"
+      },
+      {
+        "id": "C",
+        "text": "Dr Merimeri Penfold, the University's former kuia"
+      },
+      {
+        "id": "D",
+        "text": "Jackie Ede, library staff member"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "University libraries provide learning resources and study spaces.",
-    "imageUrl": "/images/buildings/general-library-04.jpg",
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Dr Merimeri Penfold, the University's former kuia.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_017",
-    "buildingId": "engineering",
-    "category": "building",
-    "difficulty": "easy",
-    "questionText": "Which students are most directly connected to the Engineering Building?",
+    "buildingId": "general-library",
+    "category": "location",
+    "difficulty": "hard",
+    "questionText": "The General Library is part of the University's City Campus. Approximately how large is the entire City Campus?",
     "options": [
-      { "id": "A", "text": "Engineering students" },
-      { "id": "B", "text": "Flight passengers" },
-      { "id": "C", "text": "Hotel guests" },
-      { "id": "D", "text": "Professional athletes only" }
+      {
+        "id": "A",
+        "text": "5 hectares"
+      },
+      {
+        "id": "B",
+        "text": "10 hectares"
+      },
+      {
+        "id": "C",
+        "text": "16 hectares"
+      },
+      {
+        "id": "D",
+        "text": "32 hectares"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "The Engineering Building supports engineering teaching and project work.",
-    "imageUrl": "/images/buildings/engineering-01.jpg",
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 16 hectares.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_018",
-    "buildingId": "engineering",
-    "category": "location",
-    "difficulty": "easy",
-    "questionText": "The Engineering Building is commonly associated with which street?",
+    "buildingId": "general-library",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "In 1931, the Carnegie Corporation offered grants to New Zealand university libraries. A University of Auckland librarian used this funding to pursue advanced study in the United States, becoming the first woman in New Zealand to hold a degree in librarianship. Who was she?",
     "options": [
-      { "id": "A", "text": "Symonds Street" },
-      { "id": "B", "text": "Ponsonby Road" },
-      { "id": "C", "text": "Queenstown Road" },
-      { "id": "D", "text": "Federal Street" }
+      {
+        "id": "A",
+        "text": "Kate Edger"
+      },
+      {
+        "id": "B",
+        "text": "Robin Hyde"
+      },
+      {
+        "id": "C",
+        "text": "Alice Minchin"
+      },
+      {
+        "id": "D",
+        "text": "Marie Clay"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "The Engineering Building is around Symonds Street.",
-    "imageUrl": "/images/buildings/engineering-02.jpg",
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Alice Minchin.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_019",
-    "buildingId": "engineering",
-    "category": "facility",
-    "difficulty": "medium",
-    "questionText": "Which activity best fits an engineering learning space?",
+    "buildingId": "general-library",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "In 2018, Vice-Chancellor McCutcheon announced the merger of three specialist libraries into the General Library. He stated this consolidation would save between how much per year?",
     "options": [
-      { "id": "A", "text": "Designing and testing prototypes" },
-      { "id": "B", "text": "Checking luggage for flights" },
-      { "id": "C", "text": "Selling concert tickets" },
-      { "id": "D", "text": "Serving court documents" }
+      {
+        "id": "A",
+        "text": "NZ$500,000\u2013$1 million"
+      },
+      {
+        "id": "B",
+        "text": "NZ$1\u20132 million"
+      },
+      {
+        "id": "C",
+        "text": "NZ$3\u20134 million"
+      },
+      {
+        "id": "D",
+        "text": "NZ$5\u20136 million"
+      }
     ],
-    "correctOptionId": "A",
-    "explanation": "Engineering learning often involves design, testing, and project-based work.",
-    "imageUrl": "/images/buildings/engineering-03.jpg",
+    "correctOptionId": "C",
+    "explanation": "The correct answer is NZ$3\u20134 million.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   },
   {
     "id": "q_020",
     "buildingId": "engineering",
-    "category": "student_life",
+    "category": "culture",
     "difficulty": "easy",
-    "questionText": "Why might engineering students meet in this building?",
+    "questionText": "What is the official building number and M\u0101ori name of the University of Auckland's new Engineering Building?",
     "options": [
-      { "id": "A", "text": "To work on classes, labs, or group projects" },
-      { "id": "B", "text": "To apply for a tourist visa" },
-      { "id": "C", "text": "To buy groceries" },
-      { "id": "D", "text": "To board a cruise ship" }
+      {
+        "id": "A",
+        "text": "Building 402, Te Herenga Hauora"
+      },
+      {
+        "id": "B",
+        "text": "Building 401, Te Pou Herenga Tangata"
+      },
+      {
+        "id": "C",
+        "text": "Building 405, Te Herenga M\u0101tai P\u016bkaha"
+      },
+      {
+        "id": "D",
+        "text": "Building 409, Te Tumu Herenga"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Building 405, Te Herenga M\u0101tai P\u016bkaha.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_021",
+    "buildingId": "engineering",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Where exactly is the Engineering Building (B405) located on campus?",
+    "options": [
+      {
+        "id": "A",
+        "text": "On the corner of Alfred Street and Princes Street"
+      },
+      {
+        "id": "B",
+        "text": "On the corner of Grafton Road and Park Road"
+      },
+      {
+        "id": "C",
+        "text": "On the corner of Grafton Road and Symonds Street"
+      },
+      {
+        "id": "D",
+        "text": "On the corner of Symonds Street and Waterloo Quadrant"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is On the corner of Grafton Road and Symonds Street.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_022",
+    "buildingId": "engineering",
+    "category": "culture",
+    "difficulty": "hard",
+    "questionText": "Which architecture firm designed Building 405?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Warren and Mahoney"
+      },
+      {
+        "id": "B",
+        "text": "Beca Architects"
+      },
+      {
+        "id": "C",
+        "text": "Jasmax"
+      },
+      {
+        "id": "D",
+        "text": "Studio Pacific Architecture"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Jasmax.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_023",
+    "buildingId": "engineering",
+    "category": "building",
+    "difficulty": "hard",
+    "questionText": "What are the overall dimensions of B405 in terms of length and width?",
+    "options": [
+      {
+        "id": "A",
+        "text": "80m long, 30m wide"
+      },
+      {
+        "id": "B",
+        "text": "90m long, 35m wide"
+      },
+      {
+        "id": "C",
+        "text": "114m long, 42m wide"
+      },
+      {
+        "id": "D",
+        "text": "130m long, 50m wide"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 114m long, 42m wide.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_024",
+    "buildingId": "engineering",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "What is the total floor area of the Engineering Building (B405)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "10,000 m\u00b2"
+      },
+      {
+        "id": "B",
+        "text": "20,000 m\u00b2"
+      },
+      {
+        "id": "C",
+        "text": "32,000 m\u00b2"
+      },
+      {
+        "id": "D",
+        "text": "50,000 m\u00b2"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 32,000 m\u00b2.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_025",
+    "buildingId": "engineering",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "The west-facing Symonds Street fa\u00e7ade of B405 is clad in which material, with coloured glass panels hanging at intervals?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Granite panels"
+      },
+      {
+        "id": "B",
+        "text": "Exposed concrete"
+      },
+      {
+        "id": "C",
+        "text": "Zinc cladding"
+      },
+      {
+        "id": "D",
+        "text": "Terracotta tiles"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Zinc cladding.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_026",
+    "buildingId": "engineering",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "The Engineering Building embraces a concept called \"Visible Engineering.\" How is this idea expressed architecturally inside the building?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Every room has a wall-mounted periodic table of elements"
+      },
+      {
+        "id": "B",
+        "text": "Staff wear high-visibility vests to make their expertise visible"
+      },
+      {
+        "id": "C",
+        "text": "Glass facades and windows in hallways beside labs allow passersby to see engineering in action, and structural elements like buckling-restrained braces are exposed on every floor"
+      },
+      {
+        "id": "D",
+        "text": "Large LED screens display live data feeds from research projects"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Glass facades and windows in hallways beside labs allow passersby to see engineering in action, and structural elements like buckling-restrained braces are exposed on every floor.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_027",
+    "buildingId": "engineering",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "The building was designed to last for how many years?",
+    "options": [
+      {
+        "id": "A",
+        "text": "30 years"
+      },
+      {
+        "id": "B",
+        "text": "50 years"
+      },
+      {
+        "id": "C",
+        "text": "80 years"
+      },
+      {
+        "id": "D",
+        "text": "100 years"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 80 years.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_028",
+    "buildingId": "engineering",
+    "category": "facility",
+    "difficulty": "hard",
+    "questionText": "The building contains how many rooms in total, including specialist laboratories?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Around 200 rooms"
+      },
+      {
+        "id": "B",
+        "text": "Around 400 rooms"
+      },
+      {
+        "id": "C",
+        "text": "More than 800 rooms"
+      },
+      {
+        "id": "D",
+        "text": "Around 1,200 rooms"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is More than 800 rooms.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_029",
+    "buildingId": "engineering",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "Construction of B405 began in which year?",
+    "options": [
+      {
+        "id": "A",
+        "text": "2014"
+      },
+      {
+        "id": "B",
+        "text": "2016"
+      },
+      {
+        "id": "C",
+        "text": "2017"
+      },
+      {
+        "id": "D",
+        "text": "2018"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 2017.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_030",
+    "buildingId": "engineering",
+    "category": "history",
+    "difficulty": "medium",
+    "questionText": "The building was formally opened with a dawn blessing ceremony on which date?",
+    "options": [
+      {
+        "id": "A",
+        "text": "28 April 2019"
+      },
+      {
+        "id": "B",
+        "text": "1 January 2020"
+      },
+      {
+        "id": "C",
+        "text": "6 December 2019"
+      },
+      {
+        "id": "D",
+        "text": "12 March 2020"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 6 December 2019.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_031",
+    "buildingId": "engineering",
+    "category": "history",
+    "difficulty": "medium",
+    "questionText": "Before B405 was built, what stood on the same site?",
+    "options": [
+      {
+        "id": "A",
+        "text": "An open-air car park"
+      },
+      {
+        "id": "B",
+        "text": "The original Newmarket Brewery"
+      },
+      {
+        "id": "C",
+        "text": "An existing six-storey building that was demolished"
+      },
+      {
+        "id": "D",
+        "text": "The University's old Science Centre"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is An existing six-storey building that was demolished.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_032",
+    "buildingId": "engineering",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "How many undergraduate students does the MDLS learning spaces engage every year?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Around 1,000"
+      },
+      {
+        "id": "B",
+        "text": "Around 2,000"
+      },
+      {
+        "id": "C",
+        "text": "Around 4,000"
+      },
+      {
+        "id": "D",
+        "text": "Around 8,000"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Around 4,000.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_033",
+    "buildingId": "engineering",
+    "category": "culture",
+    "difficulty": "medium",
+    "questionText": "The M\u0101ori name \"Te Herenga M\u0101tai P\u016bkaha\" was formally introduced at the building's opening. What is the significance of the name for the Faculty of Engineering?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It means \"the house of machines and metals\""
+      },
+      {
+        "id": "B",
+        "text": "It is the name of the first M\u0101ori engineer to graduate from the University"
+      },
+      {
+        "id": "C",
+        "text": "It is the M\u0101ori name for the Faculty of Engineering, connecting the faculty to its place in Aotearoa and the Pacific"
+      },
+      {
+        "id": "D",
+        "text": "It translates directly as \"the tall tower of learning\""
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is It is the M\u0101ori name for the Faculty of Engineering, connecting the faculty to its place in Aotearoa and the Pacific.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_034",
+    "buildingId": "engineering",
+    "category": "location",
+    "difficulty": "hard",
+    "questionText": "A pou whenua stands at the Grafton Road entrance of B405. Who carved it?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Robert Sullivan"
+      },
+      {
+        "id": "B",
+        "text": "Bernard Makoare"
+      },
+      {
+        "id": "C",
+        "text": "Delani Brown"
+      },
+      {
+        "id": "D",
+        "text": "Merimeri Penfold"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Delani Brown.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_035",
+    "buildingId": "engineering",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "The pou whenua at the Grafton Road entrance was gifted a name by Ng\u0101ti Wh\u0101tua \u014cr\u0101kei. What is the name and its meaning?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Te Herenga Ture \u2014 \"the anchor of the law\""
+      },
+      {
+        "id": "B",
+        "text": "Te Pou Herenga Tangata \u2014 \"the bond or connection of the people\""
+      },
+      {
+        "id": "C",
+        "text": "Te Tumu Herenga \u2014 \"the chief tethering post\""
+      },
+      {
+        "id": "D",
+        "text": "Ururangi \u2014 \"the gateway to higher knowledge\""
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is Te Pou Herenga Tangata \u2014 \"the bond or connection of the people\".",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_036",
+    "buildingId": "oggb",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "What is the building number of the University of Auckland Business School shown on the campus map?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Building 109"
+      },
+      {
+        "id": "B",
+        "text": "Building 260"
+      },
+      {
+        "id": "C",
+        "text": "Building 405"
+      },
+      {
+        "id": "D",
+        "text": "Building 810"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is Building 260.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_037",
+    "buildingId": "oggb",
+    "category": "culture",
+    "difficulty": "easy",
+    "questionText": "What is the name of the main Business School building?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Old Government House"
+      },
+      {
+        "id": "B",
+        "text": "General Library"
+      },
+      {
+        "id": "C",
+        "text": "Sir Owen G Glenn Building"
+      },
+      {
+        "id": "D",
+        "text": "ClockTower Building"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Sir Owen G Glenn Building.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_038",
+    "buildingId": "oggb",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "What is the street address of the University of Auckland Business School?",
+    "options": [
+      {
+        "id": "A",
+        "text": "5 Alfred Street"
+      },
+      {
+        "id": "B",
+        "text": "12 Grafton Road"
+      },
+      {
+        "id": "C",
+        "text": "20 Symonds Street"
+      },
+      {
+        "id": "D",
+        "text": "85 Park Road"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is 12 Grafton Road.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_039",
+    "buildingId": "oggb",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "In which year was the Sir Owen G Glenn Building completed?",
+    "options": [
+      {
+        "id": "A",
+        "text": "2002"
+      },
+      {
+        "id": "B",
+        "text": "2005"
+      },
+      {
+        "id": "C",
+        "text": "2008"
+      },
+      {
+        "id": "D",
+        "text": "2018"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 2008.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_040",
+    "buildingId": "oggb",
+    "category": "culture",
+    "difficulty": "hard",
+    "questionText": "Which architecture firms designed the Sir Owen G Glenn Building?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Jasmax and Beca"
+      },
+      {
+        "id": "B",
+        "text": "Warren and Mahoney and Studio Pacific Architecture"
+      },
+      {
+        "id": "C",
+        "text": "Francis-Jones Morehen Thorp and Archimedia"
+      },
+      {
+        "id": "D",
+        "text": "Hawkins and Fletcher Construction"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Francis-Jones Morehen Thorp and Archimedia.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_041",
+    "buildingId": "oggb",
+    "category": "building",
+    "difficulty": "easy",
+    "questionText": "The Sir Owen G Glenn Building is clustered around which major interior feature?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A 10m-high glass staircase"
+      },
+      {
+        "id": "B",
+        "text": "A 26m-high atrium"
+      },
+      {
+        "id": "C",
+        "text": "A rooftop garden"
+      },
+      {
+        "id": "D",
+        "text": "A circular underground hall"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is A 26m-high atrium.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_042",
+    "buildingId": "oggb",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "Which of the following is housed inside the Sir Owen G Glenn Building?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Lecture theatres, computer labs, work rooms and social spaces"
+      },
+      {
+        "id": "B",
+        "text": "A hospital ward and medical simulation centre"
+      },
+      {
+        "id": "C",
+        "text": "A law court and moot room"
+      },
+      {
+        "id": "D",
+        "text": "A public swimming pool"
+      }
     ],
     "correctOptionId": "A",
-    "explanation": "The Engineering Building supports classes, labs, and collaborative project work.",
-    "imageUrl": "/images/buildings/engineering-04.jpg",
+    "explanation": "The correct answer is Lecture theatres, computer labs, work rooms and social spaces.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_043",
+    "buildingId": "oggb",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "What is the maximum cocktail-style event capacity of the Sir Owen G Glenn Building?",
+    "options": [
+      {
+        "id": "A",
+        "text": "150 people"
+      },
+      {
+        "id": "B",
+        "text": "250 people"
+      },
+      {
+        "id": "C",
+        "text": "300 people"
+      },
+      {
+        "id": "D",
+        "text": "500 people"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": "The correct answer is 500 people.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_044",
+    "buildingId": "oggb",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "What is the maximum formal sit-down dinner capacity of the building?",
+    "options": [
+      {
+        "id": "A",
+        "text": "75 guests"
+      },
+      {
+        "id": "B",
+        "text": "150 guests"
+      },
+      {
+        "id": "C",
+        "text": "250 guests"
+      },
+      {
+        "id": "D",
+        "text": "570 guests"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 250 guests.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_045",
+    "buildingId": "oggb",
+    "category": "student_life",
+    "difficulty": "hard",
+    "questionText": "Covering over how many square metres, the Sir Owen G Glenn Building is described as New Zealand\u2019s largest teaching space?",
+    "options": [
+      {
+        "id": "A",
+        "text": "7,400 m\u00b2"
+      },
+      {
+        "id": "B",
+        "text": "32,000 m\u00b2"
+      },
+      {
+        "id": "C",
+        "text": "41,500 m\u00b2"
+      },
+      {
+        "id": "D",
+        "text": "74,000 m\u00b2"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": "The correct answer is 74,000 m\u00b2.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_046",
+    "buildingId": "oggb",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "What are the normal weekday opening hours for the OGGB?",
+    "options": [
+      {
+        "id": "A",
+        "text": "7am-6:30pm"
+      },
+      {
+        "id": "B",
+        "text": "8:30am-5pm"
+      },
+      {
+        "id": "C",
+        "text": "9am-9pm"
+      },
+      {
+        "id": "D",
+        "text": "12 midnight-5am"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is 7am-6:30pm.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_047",
+    "buildingId": "oggb",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "Until what time are the OGGB computer labs open on weekdays?",
+    "options": [
+      {
+        "id": "A",
+        "text": "5pm"
+      },
+      {
+        "id": "B",
+        "text": "6:30pm"
+      },
+      {
+        "id": "C",
+        "text": "9pm"
+      },
+      {
+        "id": "D",
+        "text": "Midnight"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 9pm.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_048",
+    "buildingId": "oggb",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "Which teaching facility in the OGGB seats 45 people?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Fisher and Paykel Auditorium"
+      },
+      {
+        "id": "B",
+        "text": "BNZ Financial Trading Room"
+      },
+      {
+        "id": "C",
+        "text": "Business History Wall"
+      },
+      {
+        "id": "D",
+        "text": "John Hood Plaza"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is BNZ Financial Trading Room.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_049",
+    "buildingId": "oggb",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "In which year was the building renamed the Sir Owen G Glenn Building to recognise Sir Owen Glenn\u2019s knighthood?",
+    "options": [
+      {
+        "id": "A",
+        "text": "2008"
+      },
+      {
+        "id": "B",
+        "text": "2013"
+      },
+      {
+        "id": "C",
+        "text": "2018"
+      },
+      {
+        "id": "D",
+        "text": "20205"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 2018.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_050",
+    "buildingId": "engineering",
+    "category": "student_life",
+    "difficulty": "easy",
+    "questionText": "According to the PDF map, which building numbers are associated with the Faculty of Engineering and Design?",
+    "options": [
+      {
+        "id": "A",
+        "text": "109, 260, 315, 810"
+      },
+      {
+        "id": "B",
+        "text": "201, 206, 274, 315"
+      },
+      {
+        "id": "C",
+        "text": "401, 402, 405, 423"
+      },
+      {
+        "id": "D",
+        "text": "801, 802, 803, 810"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 401, 402, 405, 423.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_051",
+    "buildingId": "engineering",
+    "category": "culture",
+    "difficulty": "medium",
+    "questionText": "What is the M\u0101ori name for the Faculty of Engineering and Design?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Te Tumu Herenga"
+      },
+      {
+        "id": "B",
+        "text": "Te Herenga Auaha"
+      },
+      {
+        "id": "C",
+        "text": "He Manga Tauhokohoko"
+      },
+      {
+        "id": "D",
+        "text": "Te P\u016btahi M\u0101tauranga"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is Te Herenga Auaha.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_052",
+    "buildingId": "engineering",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "What is the street address of the Faculty of Engineering and Design?",
+    "options": [
+      {
+        "id": "A",
+        "text": "5 Alfred Street"
+      },
+      {
+        "id": "B",
+        "text": "12 Grafton Road"
+      },
+      {
+        "id": "C",
+        "text": "20 Symonds Street"
+      },
+      {
+        "id": "D",
+        "text": "85 Park Road"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 20 Symonds Street.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_053",
+    "buildingId": "engineering",
+    "category": "culture",
+    "difficulty": "medium",
+    "questionText": "What is the M\u0101ori name formally introduced for Building 405?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Te Herenga M\u0101tai P\u016bkaha"
+      },
+      {
+        "id": "B",
+        "text": "Te Toka K\u0101maka o Waip\u0101r\u016br\u016b"
+      },
+      {
+        "id": "C",
+        "text": "Te Rerenga a Toroa"
+      },
+      {
+        "id": "D",
+        "text": "Te Pou Herenga Tangata"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Te Herenga M\u0101tai P\u016bkaha.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_054",
+    "buildingId": "engineering",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "In which year did the Engineering building programme begin?",
+    "options": [
+      {
+        "id": "A",
+        "text": "2012"
+      },
+      {
+        "id": "B",
+        "text": "2015"
+      },
+      {
+        "id": "C",
+        "text": "2017"
+      },
+      {
+        "id": "D",
+        "text": "2020"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is 2015.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_055",
+    "buildingId": "engineering",
+    "category": "history",
+    "difficulty": "medium",
+    "questionText": "Building 405 opened in time for which teaching period?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Semester One, 2020"
+      },
+      {
+        "id": "B",
+        "text": "Semester Two, 2018"
+      },
+      {
+        "id": "C",
+        "text": "Summer School, 2019"
+      },
+      {
+        "id": "D",
+        "text": "Semester Two, 2021"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Semester One, 2020.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_056",
+    "buildingId": "engineering",
+    "category": "facility",
+    "difficulty": "hard",
+    "questionText": "How many floors does Building 405 have?",
+    "options": [
+      {
+        "id": "A",
+        "text": "5 floors"
+      },
+      {
+        "id": "B",
+        "text": "8 floors"
+      },
+      {
+        "id": "C",
+        "text": "11 floors"
+      },
+      {
+        "id": "D",
+        "text": "20 floors"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 11 floors.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_057",
+    "buildingId": "engineering",
+    "category": "building",
+    "difficulty": "hard",
+    "questionText": "Approximately how large is Building 405?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Over 5,000 m\u00b2"
+      },
+      {
+        "id": "B",
+        "text": "Over 10,000 m\u00b2"
+      },
+      {
+        "id": "C",
+        "text": "Over 30,000 m\u00b2"
+      },
+      {
+        "id": "D",
+        "text": "Over 74,000 m\u00b2"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Over 30,000 m\u00b2.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_058",
+    "buildingId": "engineering",
+    "category": "building",
+    "difficulty": "hard",
+    "questionText": "How many Multi-Disciplinary Learning Spaces does Building 405 have?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Over 10"
+      },
+      {
+        "id": "B",
+        "text": "Over 25"
+      },
+      {
+        "id": "C",
+        "text": "Over 50"
+      },
+      {
+        "id": "D",
+        "text": "Over 100"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is Over 25.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_059",
+    "buildingId": "engineering",
+    "category": "facility",
+    "difficulty": "hard",
+    "questionText": "How many specialist research laboratories does Building 405 have?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Over 15"
+      },
+      {
+        "id": "B",
+        "text": "Over 30"
+      },
+      {
+        "id": "C",
+        "text": "Over 50"
+      },
+      {
+        "id": "D",
+        "text": "Over 150"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Over 50.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_060",
+    "buildingId": "engineering",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "Approximately how many undergraduate students do the MDLS spaces engage every year?",
+    "options": [
+      {
+        "id": "A",
+        "text": "400"
+      },
+      {
+        "id": "B",
+        "text": "1,000"
+      },
+      {
+        "id": "C",
+        "text": "2,500"
+      },
+      {
+        "id": "D",
+        "text": "4,000"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": "The correct answer is 4,000.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_061",
+    "buildingId": "engineering",
+    "category": "culture",
+    "difficulty": "hard",
+    "questionText": "Which architecture firm designed Building 405?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Jasmax"
+      },
+      {
+        "id": "B",
+        "text": "Archimedia"
+      },
+      {
+        "id": "C",
+        "text": "Francis-Jones Morehen Thorp"
+      },
+      {
+        "id": "D",
+        "text": "Warren and Mahoney"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Jasmax.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_062",
+    "buildingId": "engineering",
+    "category": "building",
+    "difficulty": "easy",
+    "questionText": "Which company built Building 405?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hawkins"
+      },
+      {
+        "id": "B",
+        "text": "Fletcher Construction"
+      },
+      {
+        "id": "C",
+        "text": "Beca"
+      },
+      {
+        "id": "D",
+        "text": "RCP"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Hawkins.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_063",
+    "buildingId": "engineering",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Where is Building 405 located?",
+    "options": [
+      {
+        "id": "A",
+        "text": "On the corner of Grafton Road and Symonds Street"
+      },
+      {
+        "id": "B",
+        "text": "On the corner of Alfred Street and Princes Street"
+      },
+      {
+        "id": "C",
+        "text": "On the corner of Short Street and Eden Crescent"
+      },
+      {
+        "id": "D",
+        "text": "On the corner of Park Road and Grafton Road"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is On the corner of Grafton Road and Symonds Street.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_064",
+    "buildingId": "engineering",
+    "category": "location",
+    "difficulty": "hard",
+    "questionText": "Who created the pou whenua at the Grafton Road entrance of Building 405?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Mike Mason"
+      },
+      {
+        "id": "B",
+        "text": "Carin Wilson"
+      },
+      {
+        "id": "C",
+        "text": "Delani Brown"
+      },
+      {
+        "id": "D",
+        "text": "Bernard Makoare"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Delani Brown.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_065",
+    "buildingId": "engineering",
+    "category": "building",
+    "difficulty": "easy",
+    "questionText": "How is the idea of \u201cVisible Engineering\u201d expressed in Building 405?",
+    "options": [
+      {
+        "id": "A",
+        "text": "All students must wear high-visibility vests"
+      },
+      {
+        "id": "B",
+        "text": "Glass facades and hallway windows allow people to see engineering in action"
+      },
+      {
+        "id": "C",
+        "text": "Every room has a live stock-market screen"
+      },
+      {
+        "id": "D",
+        "text": "The building is painted entirely in engineering symbols"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is Glass facades and hallway windows allow people to see engineering in action.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_066",
+    "buildingId": "law-school",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "In which year did legal teaching begin at Auckland University College, the origin of Auckland Law School?",
+    "options": [
+      {
+        "id": "A",
+        "text": "1856"
+      },
+      {
+        "id": "B",
+        "text": "1883"
+      },
+      {
+        "id": "C",
+        "text": "1920"
+      },
+      {
+        "id": "D",
+        "text": "1969"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is 1883.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_067",
+    "buildingId": "law-school",
+    "category": "history",
+    "difficulty": "medium",
+    "questionText": "Building 801, now part of Auckland Law School, was previously used by which institution?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Auckland City Council"
+      },
+      {
+        "id": "B",
+        "text": "The High Court of New Zealand"
+      },
+      {
+        "id": "C",
+        "text": "The General Library"
+      },
+      {
+        "id": "D",
+        "text": "The Faculty of Engineering"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is The High Court of New Zealand.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_068",
+    "buildingId": "law-school",
+    "category": "student_life",
+    "difficulty": "easy",
+    "questionText": "What special room has been retained in Building 801 for law students?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A music studio"
+      },
+      {
+        "id": "B",
+        "text": "A courtroom for moots"
+      },
+      {
+        "id": "C",
+        "text": "A science laboratory"
+      },
+      {
+        "id": "D",
+        "text": "A dance studio"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is A courtroom for moots.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_069",
+    "buildingId": "law-school",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Auckland Law School is located close to which major legal institution?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Auckland Museum"
+      },
+      {
+        "id": "B",
+        "text": "Auckland High Court"
+      },
+      {
+        "id": "C",
+        "text": "Auckland Art Gallery"
+      },
+      {
+        "id": "D",
+        "text": "Sky Tower"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is Auckland High Court.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_070",
+    "buildingId": "law-school",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Auckland Law School is mainly located around which area?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Eden Crescent and Waterloo Quadrant"
+      },
+      {
+        "id": "B",
+        "text": "Park Road and Grafton Bridge"
+      },
+      {
+        "id": "C",
+        "text": "Queen Street and Britomart"
+      },
+      {
+        "id": "D",
+        "text": "Wynyard Quarter"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Eden Crescent and Waterloo Quadrant.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_071",
+    "buildingId": "law-school",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Which building number is associated with the Law Student Centre at 1\u201311 Short Street?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Building 201"
+      },
+      {
+        "id": "B",
+        "text": "Building 206"
+      },
+      {
+        "id": "C",
+        "text": "Building 810"
+      },
+      {
+        "id": "D",
+        "text": "Building 109"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Building 810.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_072",
+    "buildingId": "law-school",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "What student facility is located on Level 4 of Building 810?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Law student study space"
+      },
+      {
+        "id": "B",
+        "text": "A swimming pool"
+      },
+      {
+        "id": "C",
+        "text": "A cinema room"
+      },
+      {
+        "id": "D",
+        "text": "A medical clinic"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Law student study space.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_073",
+    "buildingId": "law-school",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "What extra facility is included in the law student study space in Building 810?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A full kitchen"
+      },
+      {
+        "id": "B",
+        "text": "A sports hall"
+      },
+      {
+        "id": "C",
+        "text": "A recording studio"
+      },
+      {
+        "id": "D",
+        "text": "A theatre stage"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is A full kitchen.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_074",
+    "buildingId": "law-school",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "What is the name of the law library connected with Auckland Law School?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Kate Edger Library"
+      },
+      {
+        "id": "B",
+        "text": "Davis Law Library"
+      },
+      {
+        "id": "C",
+        "text": "General Library"
+      },
+      {
+        "id": "D",
+        "text": "Philson Library"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is Davis Law Library.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_075",
+    "buildingId": "law-school",
+    "category": "student_life",
+    "difficulty": "easy",
+    "questionText": "What activity allows law students to practise legal argument in a courtroom-style setting?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Mooting"
+      },
+      {
+        "id": "B",
+        "text": "Field painting"
+      },
+      {
+        "id": "C",
+        "text": "Lab testing"
+      },
+      {
+        "id": "D",
+        "text": "Financial trading"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Mooting.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_076",
+    "buildingId": "law-school",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Which of the following is a common study area at Auckland Law School?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Human rights law"
+      },
+      {
+        "id": "B",
+        "text": "Marine biology"
+      },
+      {
+        "id": "C",
+        "text": "Civil engineering"
+      },
+      {
+        "id": "D",
+        "text": "Veterinary medicine"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Human rights law.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_077",
+    "buildingId": "law-school",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Which phrase best describes the location advantage of Auckland Law School?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is far away from the city centre"
+      },
+      {
+        "id": "B",
+        "text": "It is inside Auckland\u2019s legal precinct"
+      },
+      {
+        "id": "C",
+        "text": "It is located on a rural campus"
+      },
+      {
+        "id": "D",
+        "text": "It is mainly beside the airport"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is It is inside Auckland\u2019s legal precinct.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_078",
+    "buildingId": "law-school",
+    "category": "history",
+    "difficulty": "medium",
+    "questionText": "What does the retained courtroom in Building 801 symbolise?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A connection between legal history and legal education"
+      },
+      {
+        "id": "B",
+        "text": "A connection between medicine and biology"
+      },
+      {
+        "id": "C",
+        "text": "A connection between sports and business"
+      },
+      {
+        "id": "D",
+        "text": "A connection between music and architecture"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is A connection between legal history and legal education.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_079",
+    "buildingId": "law-school",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "Which student support function is associated with Auckland Law School?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Student Support and Engagement services"
+      },
+      {
+        "id": "B",
+        "text": "Animal hospital services"
+      },
+      {
+        "id": "C",
+        "text": "Airport transfer services"
+      },
+      {
+        "id": "D",
+        "text": "Hotel booking services"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Student Support and Engagement services.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_080",
+    "buildingId": "law-school",
+    "category": "food",
+    "difficulty": "easy",
+    "questionText": "Which campus food option can law students reach by walking back toward Symonds Street and the main City Campus?",
+    "options": [
+      {
+        "id": "A",
+        "text": "B201 Social Eatery on Symonds Street"
+      },
+      {
+        "id": "B",
+        "text": "A restaurant inside Auckland Airport"
+      },
+      {
+        "id": "C",
+        "text": "A caf\u00e9 in Hamilton"
+      },
+      {
+        "id": "D",
+        "text": "A food court in Wellington"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is B201 Social Eatery on Symonds Street.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_081",
+    "buildingId": "arts-education",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Which two building numbers are most closely connected with the Faculty of Arts and Education area in the provided campus material?",
+    "options": [
+      {
+        "id": "A",
+        "text": "201 and 206"
+      },
+      {
+        "id": "B",
+        "text": "801 and 810"
+      },
+      {
+        "id": "C",
+        "text": "401 and 405"
+      },
+      {
+        "id": "D",
+        "text": "109 and 260"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is 201 and 206.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_082",
+    "buildingId": "arts-education",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "What is the street address of Building 201?",
+    "options": [
+      {
+        "id": "A",
+        "text": "5 Alfred Street"
+      },
+      {
+        "id": "B",
+        "text": "10 Symonds Street"
+      },
+      {
+        "id": "C",
+        "text": "1\u201311 Short Street"
+      },
+      {
+        "id": "D",
+        "text": "85 Park Road"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is 10 Symonds Street.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_083",
+    "buildingId": "arts-education",
+    "category": "building",
+    "difficulty": "easy",
+    "questionText": "Building 206 is also known as which building?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Davis Law Library"
+      },
+      {
+        "id": "B",
+        "text": "Te Puna Aronui | Humanities Building"
+      },
+      {
+        "id": "C",
+        "text": "Owen G Glenn Building"
+      },
+      {
+        "id": "D",
+        "text": "Old Government House"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is Te Puna Aronui | Humanities Building.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_084",
+    "buildingId": "arts-education",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "What is the address of Building 206?",
+    "options": [
+      {
+        "id": "A",
+        "text": "14A Symonds Street"
+      },
+      {
+        "id": "B",
+        "text": "1\u201311 Short Street"
+      },
+      {
+        "id": "C",
+        "text": "12 Grafton Road"
+      },
+      {
+        "id": "D",
+        "text": "5 Alfred Street"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is 14A Symonds Street.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_085",
+    "buildingId": "arts-education",
+    "category": "history",
+    "difficulty": "medium",
+    "questionText": "Building 206 was formerly known as what?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Arts 1"
+      },
+      {
+        "id": "B",
+        "text": "Law 1"
+      },
+      {
+        "id": "C",
+        "text": "Science 1"
+      },
+      {
+        "id": "D",
+        "text": "Engineering 1"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Arts 1.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_086",
+    "buildingId": "arts-education",
+    "category": "history",
+    "difficulty": "medium",
+    "questionText": "Building 201 was refurbished from approximately how old a structure?",
+    "options": [
+      {
+        "id": "A",
+        "text": "10 years old"
+      },
+      {
+        "id": "B",
+        "text": "25 years old"
+      },
+      {
+        "id": "C",
+        "text": "50 years old"
+      },
+      {
+        "id": "D",
+        "text": "100 years old"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 50 years old.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_087",
+    "buildingId": "arts-education",
+    "category": "building",
+    "difficulty": "easy",
+    "questionText": "What type of project is Building 201 considered to be?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Complete demolition and rebuild"
+      },
+      {
+        "id": "B",
+        "text": "Adaptive reuse and sustainable refurbishment"
+      },
+      {
+        "id": "C",
+        "text": "Temporary classroom installation"
+      },
+      {
+        "id": "D",
+        "text": "Underground car park conversion"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is Adaptive reuse and sustainable refurbishment.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_088",
+    "buildingId": "arts-education",
+    "category": "history",
+    "difficulty": "hard",
+    "questionText": "In which year was the refurbished B201 officially opened?",
+    "options": [
+      {
+        "id": "A",
+        "text": "2016"
+      },
+      {
+        "id": "B",
+        "text": "2019"
+      },
+      {
+        "id": "C",
+        "text": "2023"
+      },
+      {
+        "id": "D",
+        "text": "2025"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 2023.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_089",
+    "buildingId": "arts-education",
+    "category": "culture",
+    "difficulty": "medium",
+    "questionText": "What sustainability rating is associated with Building 201?",
+    "options": [
+      {
+        "id": "A",
+        "text": "2 Green Star"
+      },
+      {
+        "id": "B",
+        "text": "4 Green Star"
+      },
+      {
+        "id": "C",
+        "text": "5 Green Star"
+      },
+      {
+        "id": "D",
+        "text": "6 Green Star"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": "The correct answer is 6 Green Star.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_090",
+    "buildingId": "arts-education",
+    "category": "building",
+    "difficulty": "easy",
+    "questionText": "Which feature of B201 is often mentioned as part of its new architectural design?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A timber-roofed atrium"
+      },
+      {
+        "id": "B",
+        "text": "A medieval clock tower"
+      },
+      {
+        "id": "C",
+        "text": "A private courtroom"
+      },
+      {
+        "id": "D",
+        "text": "A hospital ward"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is A timber-roofed atrium.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_091",
+    "buildingId": "arts-education",
+    "category": "history",
+    "difficulty": "medium",
+    "questionText": "Which of the following subjects is based in Building 206?",
+    "options": [
+      {
+        "id": "A",
+        "text": "History"
+      },
+      {
+        "id": "B",
+        "text": "Mechanical Engineering"
+      },
+      {
+        "id": "C",
+        "text": "Medicine"
+      },
+      {
+        "id": "D",
+        "text": "Accounting"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is History.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_092",
+    "buildingId": "arts-education",
+    "category": "student_life",
+    "difficulty": "easy",
+    "questionText": "Which of the following subjects is also based in Building 206?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Philosophy"
+      },
+      {
+        "id": "B",
+        "text": "Dentistry"
+      },
+      {
+        "id": "C",
+        "text": "Nursing"
+      },
+      {
+        "id": "D",
+        "text": "Construction Management"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Philosophy.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_093",
+    "buildingId": "arts-education",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Building 201 includes spaces connected with which area of study?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Communication, Media and Screen Studies"
+      },
+      {
+        "id": "B",
+        "text": "Veterinary Surgery"
+      },
+      {
+        "id": "C",
+        "text": "Aviation Engineering"
+      },
+      {
+        "id": "D",
+        "text": "Pharmacy"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Communication, Media and Screen Studies.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_094",
+    "buildingId": "arts-education",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Which service or function is located in Building 201 according to the Faculty of Arts and Education location information?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Student Support and Engagement"
+      },
+      {
+        "id": "B",
+        "text": "High Court registry"
+      },
+      {
+        "id": "C",
+        "text": "Airport customs office"
+      },
+      {
+        "id": "D",
+        "text": "Police station"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Student Support and Engagement.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_095",
+    "buildingId": "arts-education",
+    "category": "food",
+    "difficulty": "easy",
+    "questionText": "Which food option is located directly in Building 201?",
+    "options": [
+      {
+        "id": "A",
+        "text": "B201 Social Eatery"
+      },
+      {
+        "id": "B",
+        "text": "Davis Law Caf\u00e9"
+      },
+      {
+        "id": "C",
+        "text": "ClockTower Dining Hall"
+      },
+      {
+        "id": "D",
+        "text": "Engineering Burger Bar"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is B201 Social Eatery.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
     "isActive": true
   }
 ]

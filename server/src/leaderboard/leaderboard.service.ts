@@ -15,7 +15,8 @@ export class LeaderboardService {
   ) {}
 
   async getLeaderboard(userId: string, mode: string, period: string) {
-    if (mode !== QuizMode.Ranked) {
+    const rankedMode: string = QuizMode.Ranked;
+    if (mode !== rankedMode) {
       throw new BadRequestException('Only ranked leaderboard is supported');
     }
 
@@ -62,7 +63,10 @@ export class LeaderboardService {
         username: user?.username ?? 'Unknown user',
         avatarUrl: user?.avatarUrl ?? '/images/avatars/default.png',
         score: session.score,
-        accuracy: this.getAccuracy(session.correctCount, session.incorrectCount),
+        accuracy: this.getAccuracy(
+          session.correctCount,
+          session.incorrectCount,
+        ),
         timeUsedSeconds: this.getTimeUsedSeconds(session),
         playedAt: session.finishedAt ?? session.startedAt,
       };

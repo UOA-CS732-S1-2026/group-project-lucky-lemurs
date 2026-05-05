@@ -27,14 +27,25 @@ export class UserBuildingProgress {
   @Prop({ default: 0 })
   totalQuestions: number;
 
-  @Prop({ default: null })
+  @Prop({ default: 0 })
+  coinsAwarded: number;
+
+  @Prop({ type: Date, default: null })
+  unlockedAt: Date | null;
+
+  @Prop({ type: Date, default: null })
+  completedAt: Date | null;
+
+  @Prop({ type: Date, default: null })
   lastPlayedAt: Date | null;
 
   createdAt: Date;
   updatedAt: Date;
 }
 
-export const UserBuildingProgressSchema = SchemaFactory.createForClass(
-  UserBuildingProgress,
+export const UserBuildingProgressSchema =
+  SchemaFactory.createForClass(UserBuildingProgress);
+UserBuildingProgressSchema.index(
+  { userId: 1, buildingId: 1 },
+  { unique: true },
 );
-UserBuildingProgressSchema.index({ userId: 1, buildingId: 1 }, { unique: true });

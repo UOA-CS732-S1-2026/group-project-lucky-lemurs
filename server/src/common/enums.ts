@@ -6,6 +6,7 @@ export enum UserRole {
 export enum QuizMode {
   Ranked = 'ranked',
   Building = 'building',
+  LocalMultiplayer = 'local_multiplayer',
 }
 
 export enum SessionStatus {

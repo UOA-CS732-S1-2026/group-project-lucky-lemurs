@@ -7,6 +7,7 @@
     "location": "12 Grafton Road",
     "imageUrl": "/images/buildings/oggb-cover.jpg",
     "unlockOrder": 1,
+    "completionCoinReward": 20,
     "isActive": true
   },
   {
@@ -17,6 +18,7 @@
     "location": "22 Princes Street",
     "imageUrl": "/images/buildings/clocktower-cover.jpg",
     "unlockOrder": 2,
+    "completionCoinReward": 20,
     "isActive": true
   },
   {
@@ -27,6 +29,7 @@
     "location": "2 Alfred Street",
     "imageUrl": "/images/buildings/kate-edger-cover.jpg",
     "unlockOrder": 3,
+    "completionCoinReward": 20,
     "isActive": true
   },
   {
@@ -37,6 +40,7 @@
     "location": "5 Alfred Street",
     "imageUrl": "/images/buildings/general-library-cover.jpg",
     "unlockOrder": 4,
+    "completionCoinReward": 20,
     "isActive": true
   },
   {
@@ -47,6 +51,29 @@
     "location": "20 Symonds Street",
     "imageUrl": "/images/buildings/engineering-cover.jpg",
     "unlockOrder": 5,
+    "completionCoinReward": 20,
+    "isActive": true
+  },
+  {
+    "id": "law-school",
+    "name": "Auckland Law School",
+    "shortName": "Law",
+    "description": "The University of Auckland's law school area around Eden Crescent and Waterloo Quadrant.",
+    "location": "1-11 Short Street",
+    "imageUrl": "/images/buildings/law-school-cover.jpg",
+    "unlockOrder": 6,
+    "completionCoinReward": 20,
+    "isActive": true
+  },
+  {
+    "id": "arts-education",
+    "name": "Faculty of Arts and Education",
+    "shortName": "Arts",
+    "description": "Arts and Education spaces including Building 201 and Te Puna Aronui Humanities Building.",
+    "location": "10 Symonds Street",
+    "imageUrl": "/images/buildings/arts-education-cover.jpg",
+    "unlockOrder": 7,
+    "completionCoinReward": 20,
     "isActive": true
   }
 ]

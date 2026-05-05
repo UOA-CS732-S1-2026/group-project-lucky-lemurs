@@ -50,7 +50,16 @@ export class UsersService {
       email: user.email,
       avatarUrl: user.avatarUrl,
       totalScore: user.totalScore,
+      coins: user.coins,
+      currentStreak: user.currentStreak,
+      bestStreak: user.bestStreak,
+      strongestCategory: user.strongestCategory,
+      badges: user.badges,
     };
+  }
+
+  async recordLogin(userId: string) {
+    await this.userModel.updateOne({ id: userId }, { lastLoginAt: new Date() });
   }
 
   async getProfile(userId: string) {
@@ -131,6 +140,9 @@ export class UsersService {
         bestScore: item.bestScore,
         correctCount: item.correctCount,
         totalQuestions: item.totalQuestions,
+        coinsAwarded: item.coinsAwarded,
+        unlockedAt: item.unlockedAt,
+        completedAt: item.completedAt,
         lastPlayedAt: item.lastPlayedAt,
       })),
     };

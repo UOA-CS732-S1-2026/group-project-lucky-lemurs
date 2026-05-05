@@ -21,11 +21,14 @@ export class Building {
   @Prop({ default: '' })
   location: string;
 
-  @Prop({ default: null })
+  @Prop({ type: String, default: null })
   imageUrl: string | null;
 
   @Prop({ default: 1 })
   unlockOrder: number;
+
+  @Prop({ default: 20 })
+  completionCoinReward: number;
 
   @Prop({ default: true })
   isActive: boolean;
