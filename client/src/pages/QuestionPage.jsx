@@ -81,12 +81,6 @@ function QuestionPage() {
       setCurrentScore(result.currentScore)
       setCorrectCount(result.correctCount)
       setIncorrectCount(result.incorrectCount)
-
-      if (result.retryLater) {
-        setTimeout(() => {
-          navigate(`/quiz/${buildingId}`)
-        }, 3000)
-      }
     } catch (err) {
       console.error('Failed to submit answer:', err)
       setError('Failed to submit answer.')
@@ -154,13 +148,13 @@ function QuestionPage() {
 
   if (loading) {
     return (
-      <div className="page-container">
+      <div className="question-page">
         <nav className="navbar">
           <div className="navbar-container">
             <div className="navbar-left">
-              <h2 className="navbar-logo" onClick={handleQuit}>← Back</h2>
+              <button className="navbar-back-btn" onClick={handleQuit}>← Back</button>
               <span className="navbar-divider">|</span>
-              <h2 className="navbar-logo" onClick={() => navigate('/')}>🏠 Home</h2>
+              <button className="navbar-home-btn" onClick={() => navigate('/')}>🏠 Home</button>
             </div>
           </div>
         </nav>
@@ -174,13 +168,13 @@ function QuestionPage() {
 
   if (error || questions.length === 0) {
     return (
-      <div className="page-container">
+      <div className="question-page">
         <nav className="navbar">
           <div className="navbar-container">
             <div className="navbar-left">
-              <h2 className="navbar-logo" onClick={() => navigate(`/quiz/${buildingId}`)}>← Back</h2>
+              <button className="navbar-back-btn" onClick={() => navigate(`/quiz/${buildingId}`)}>← Back</button>
               <span className="navbar-divider">|</span>
-              <h2 className="navbar-logo" onClick={() => navigate('/')}>🏠 Home</h2>
+              <button className="navbar-home-btn" onClick={() => navigate('/')}>🏠 Home</button>
             </div>
           </div>
         </nav>
@@ -202,9 +196,9 @@ function QuestionPage() {
       <nav className="navbar">
         <div className="navbar-container">
           <div className="navbar-left">
-            <h2 className="navbar-logo" onClick={handleQuit}>← Back</h2>
+            <button className="navbar-back-btn" onClick={handleQuit}>← Back</button>
             <span className="navbar-divider">|</span>
-            <h2 className="navbar-logo" onClick={() => navigate('/')}>🏠 Home</h2>
+            <button className="navbar-home-btn" onClick={() => navigate('/')}>🏠 Home</button>
           </div>
           <div className="navbar-buttons">
             <span className="timer">⏱️ {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, '0')}</span>

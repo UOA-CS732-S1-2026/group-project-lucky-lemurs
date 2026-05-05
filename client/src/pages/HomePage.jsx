@@ -1,8 +1,18 @@
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import '../styles/HomePage.css'
 
 function HomePage() {
   const navigate = useNavigate()
+  const { user, logout } = useAuth()
+
+  const handleStartQuiz = () => {
+    if (user) {
+      navigate('/quiz')
+    } else {
+      navigate('/login')
+    }
+  }
 
   return (
     <div className="home-page">
@@ -11,12 +21,26 @@ function HomePage() {
         <div className="navbar-container">
           <h2 className="navbar-logo">UOA Quiz</h2>
           <div className="navbar-buttons">
-            <button className="btn-nav" onClick={() => navigate('/login')}>
-              Login
-            </button>
-            <button className="btn-nav btn-nav-primary" onClick={() => navigate('/register')}>
-              Sign Up
-            </button>
+            {user ? (
+              <>
+                <span className="user-greeting">Welcome, {user.username}</span>
+                <button className="btn-nav" onClick={logout}>
+                  Logout
+                </button>
+                <button className="btn-nav btn-nav-primary" onClick={() => navigate('/quiz')}>
+                  Play Quiz
+                </button>
+              </>
+            ) : (
+              <>
+                <button className="btn-nav" onClick={() => navigate('/login')}>
+                  Login
+                </button>
+                <button className="btn-nav btn-nav-primary" onClick={() => navigate('/register')}>
+                  Sign Up
+                </button>
+              </>
+            )}
           </div>
         </div>
       </nav>
@@ -29,13 +53,30 @@ function HomePage() {
             Learn about campus history, buildings, facilities, and student life through interactive quizzes. Challenge yourself and discover the University of Auckland like never before.
           </p>
           <div className="hero-buttons">
-            <button className="btn btn-primary" onClick={() => navigate('/quiz')}>
-              Start Quiz
+            <button className="btn btn-primary" onClick={handleStartQuiz}>
+              {user ? 'Start Quiz' : 'Login to Start'}
             </button>
             <button className="btn btn-secondary" onClick={() => navigate('/leaderboard')}>
               View Leaderboard
             </button>
           </div>
+          
+          {/* {user && (
+            <div className="user-stats">
+              <div className="stat-item">
+                <span className="stat-value">0</span>
+                <span className="stat-label">Quizzes Completed</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-value">0</span>
+                <span className="stat-label">Total Score</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-value">--</span>
+                <span className="stat-label">Current Rank</span>
+              </div>
+            </div>
+          )} */}
         </div>
       </section>
     </div>

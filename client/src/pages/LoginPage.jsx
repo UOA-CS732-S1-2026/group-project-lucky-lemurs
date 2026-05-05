@@ -1,18 +1,34 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import '../styles/AuthPages.css'
 
 function LoginPage() {
   const navigate = useNavigate()
+  const { login } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // TODO: Add login logic here
-    console.log('Login attempt:', { email, password })
-    // Redirect to home for now
-    navigate('/')
+    
+    if (!email || !password) {
+      setError('Please fill in all fields')
+      return
+    }
+
+    try {
+      setLoading(true)
+      setError('')
+      await login(email, password)
+      navigate('/')
+    } catch (err) {
+      setError(err.response?.data?.message || 'Login failed. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -30,6 +46,12 @@ function LoginPage() {
             <p>Sign in to your account to continue</p>
           </div>
 
+          {error && (
+            <div className="error-message">
+              {error}
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="auth-form">
             <div className="form-group">
               <label htmlFor="email">Email Address</label>
@@ -40,6 +62,7 @@ function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
+                disabled={loading}
               />
             </div>
 
@@ -52,11 +75,16 @@ function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
                 required
+                disabled={loading}
               />
             </div>
 
-            <button type="submit" className="btn btn-primary btn-submit">
-              Sign In
+            <button 
+              type="submit" 
+              className="btn btn-primary btn-submit"
+              disabled={loading}
+            >
+              {loading ? 'Signing In...' : 'Sign In'}
             </button>
           </form>
 
@@ -67,6 +95,7 @@ function LoginPage() {
           <button
             onClick={() => navigate('/register')}
             className="btn btn-secondary btn-alt"
+            disabled={loading}
           >
             Create Account
           </button>
@@ -74,6 +103,7 @@ function LoginPage() {
           <button
             onClick={() => navigate('/')}
             className="btn-text"
+            disabled={loading}
           >
             Back to Home
           </button>
