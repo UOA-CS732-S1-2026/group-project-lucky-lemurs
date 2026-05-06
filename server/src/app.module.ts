@@ -16,7 +16,7 @@ import { join } from 'path';
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
-     // renderPath: '/images',
+      // renderPath: '/images',
     }),
     ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRootAsync({
@@ -26,19 +26,19 @@ import { join } from 'path';
           configService.get<string>('MONGODB_URI') ??
           'mongodb://127.0.0.1:27017/lucky-lemurs',
       }),
-//       useFactory: (configService: ConfigService) => {
-//   const uri =
-//     configService.get<string>('MONGODB_URI') ??
-//     'mongodb://127.0.0.1:27017/lucky-lemurs';
+      //       useFactory: (configService: ConfigService) => {
+      //   const uri =
+      //     configService.get<string>('MONGODB_URI') ??
+      //     'mongodb://127.0.0.1:27017/lucky-lemurs';
 
-//   console.log('=== DEBUG ===');
-//   console.log('MONGODB_URI exists:', !!uri);
-//   console.log('MONGODB_URI value:', uri?.slice(0, 40));
+      //   console.log('=== DEBUG ===');
+      //   console.log('MONGODB_URI exists:', !!uri);
+      //   console.log('MONGODB_URI value:', uri?.slice(0, 40));
 
-//   return {
-//     uri,
-//   };
-// },
+      //   return {
+      //     uri,
+      //   };
+      // },
     }),
     AuthModule,
     UsersModule,

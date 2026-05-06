@@ -8,7 +8,16 @@
     "imageUrl": "/images/buildings/oggb-cover.jpg",
     "unlockOrder": 1,
     "completionCoinReward": 20,
-    "isActive": true
+    "isActive": true,
+    "reviewItems": [
+      {
+        "id": "oggb-260",
+        "topic": "Overview",
+        "question": "Building 260 - Sir Owen G. Glenn Building",
+        "answer": "Building 260 - Sir Owen G. Glenn Building",
+        "details": "Building 260 \u2014 Sir Owen G. Glenn BuildingBuilding 260, the Sir Owen G. Glenn Building, is the main building of the University of Auckland\u2019s Faculty of Business and Economics. Its modern glass exterior, wide entrance steps, and professional interior spaces create a strong business-school atmosphere. Inside, the building includes lecture areas, computer workstations, study zones, meeting spaces, and open areas where students can collaborate or prepare for classes. The design uses glass, metal, warm lighting, and large stairways to create a contemporary and organised environment. As the centre of the Business School, Building 260 supports subjects such as economics, finance, accounting, management, marketing, and international business. It is not only a place for academic learning, but also a space for teamwork, networking, and professional development. The building reflects the practical nature of business education and gives students a setting that connects classroom study with real-world skills and future career preparation. It is a key landmark on campus."
+      }
+    ]
   },
   {
     "id": "clocktower",
@@ -19,17 +28,49 @@
     "imageUrl": "/images/buildings/clocktower-cover.jpg",
     "unlockOrder": 2,
     "completionCoinReward": 20,
-    "isActive": true
+    "isActive": true,
+    "reviewItems": [
+      {
+        "id": "clocktower-overview",
+        "topic": "Overview",
+        "question": "The ClockTower (Old Arts Building)",
+        "answer": "The ClockTower (Old Arts Building)",
+        "details": "The ClockTower (Old Arts Building) Located at 21 Princes Street on the University of Auckland's City Campus, the ClockTower formally known as the Old Arts Building it is the University's most iconic landmark and its first purpose-built permanent structure. Designed by Chicago-trained American architect Roy Lippincott and constructed by Fletcher Construction between 1923 and 1926, the building rises 54 metres in the Perpendicular Gothic style, its exterior clad in Mount Somers stone quarried from the South Island. Lippincott drew conscious inspiration from the Tom Tower of Christ Church, Oxford, yet deliberately grounded the building in its New Zealand context: carvings of ponga fronds, flax-seed pods, kea, and k ades, balustrades, and pillars, it is one of the earliest architectural expressions of native flora and fauna in the country. Inside, an octagonal space beneath the tower features vaulted ceilings, galleried levels, stone piers, and a striking mosaic floor. Over its century of use, the building has housed Arts, Architecture, Law, Music, and the University Library, and underwent major seismic strengthening and restoration between 1985 and 1988, which work recognised with an award from the New Zealand Institute of Architects. Today, registered as a Category 1 Historic Place, the ClockTower remains open to the public and continues to serve as the enduring symbol of the University."
+      }
+    ]
   },
   {
-    "id": "kate-edger",
-    "name": "Kate Edger Information Commons",
-    "shortName": "Kate Edger",
-    "description": "A central student study and service space on City Campus.",
-    "location": "2 Alfred Street",
-    "imageUrl": "/images/buildings/kate-edger-cover.jpg",
+    "id": "science",
+    "name": "Science Centre",
+    "shortName": "Science",
+    "description": "The University of Auckland's Science Centre around Buildings 301, 302, and 303.",
+    "location": "23 Symonds Street",
+    "imageUrl": "/images/buildings/science-cover.jpg",
     "unlockOrder": 3,
     "completionCoinReward": 20,
+    "reviewItems": [
+      {
+        "id": "science-301",
+        "topic": "Overview",
+        "question": "Building 301 - Science Centre",
+        "answer": "Building 301 - Science Centre",
+        "details": "Building 301 \u2014 Science CentreBuilding 301 is one of the main parts of the University of Auckland\u2019s Science Centre and is closely connected with the Faculty of Science. It is an important place for students studying science-related subjects such as mathematics, statistics, computer science, physics, and other scientific fields. The building includes classrooms, study areas, shared spaces, and an information desk that helps students and visitors. Its design combines practical learning spaces with open areas for communication and student movement. The glass windows, wide corridors, stairways, and seating areas make the building feel active and modern. Building 301 is not only used for lectures and academic activities, but also supports daily student life. It represents the Faculty of Science\u2019s focus on learning, research, technology, and problem-solving, making it a key building for science students on campus."
+      },
+      {
+        "id": "science-302",
+        "topic": "Facilities",
+        "question": "Building 302 - Science Centre",
+        "answer": "Building 302 - Science Centre",
+        "details": "Building 302 \u2014 Science CentreBuilding 302 is another important part of the University of Auckland\u2019s Science Centre. Together with Buildings 301 and 303, it helps form a larger academic area for the Faculty of Science. This building supports science students by providing spaces connected to teaching, study, research, and student movement around the Science Centre. Its location makes it closely linked with other science facilities, allowing students to move easily between classes, laboratories, study areas, and shared spaces. Building 302 reflects the practical purpose of the Science Centre, where learning is supported by a strong academic environment. For students, it is part of their everyday university experience, especially when attending science-related classes or moving through the campus. As part of the Faculty of Science, Building 302 helps create a connected and useful environment for academic learning, collaboration, and scientific development."
+      },
+      {
+        "id": "science-303",
+        "topic": "Facilities",
+        "question": "Building 303 - Science Centre",
+        "answer": "Building 303 - Science Centre",
+        "details": "Building 303 \u2014 Science CentreBuilding 303 is also part of the University of Auckland\u2019s Science Centre and plays an important role within the Faculty of Science. It is connected with subjects such as mathematics, statistics, and other science-related areas, making it a useful academic space for students. Along with Buildings 301 and 302, it helps form a complete science learning environment on the City Campus. The building supports teaching, study, and movement between different science facilities. For students, Building 303 is more than just a classroom location; it is part of the wider Science Centre experience. It helps connect academic subjects with practical learning spaces and creates a place where students can focus on study, problem-solving, and communication. As part of the Faculty of Science, Building 303 represents the university\u2019s commitment to science education, research, and student support."
+      }
+    ],
     "isActive": true
   },
   {
@@ -39,9 +80,25 @@
     "description": "The main library supporting study, research, and student learning.",
     "location": "5 Alfred Street",
     "imageUrl": "/images/buildings/general-library-cover.jpg",
+    "reviewImageUrls": [
+      "/images/buildings/general-library/library-01.jpg",
+      "/images/buildings/general-library/library-02.jpg",
+      "/images/buildings/general-library/library-03.jpg",
+      "/images/buildings/general-library/library-04.jpg",
+      "/images/buildings/general-library/library-05.jpg"
+    ],
     "unlockOrder": 4,
     "completionCoinReward": 20,
-    "isActive": true
+    "isActive": true,
+    "reviewItems": [
+      {
+        "id": "library-overview",
+        "topic": "Overview",
+        "question": "Te Herenga M?tauranga Wh?nui | General Library",
+        "answer": "Te Herenga M?tauranga Wh?nui | General Library",
+        "details": "nui | General Library Located at 5 Alfred Street on the University of Auckland's City Campus, the General Library (Building 109) is the institution's primary academic resource centre and its largest library facility. The building spans multiple floors, housing an extensive collection of books, journals, digital resources, and specialist materials consolidated from the former Fine Arts, Architecture and Planning, and Music and Dance libraries following their merger in 2018. Its interior ranges from open-plan reading floors lined with floor-to-ceiling stacks to quiet individual study zones, group collaboration spaces, and a dedicated ReoSpace for M?ori language use. The recently refurbished lower levels (Levels 1 and M) introduced modernised accessible lounges and updated study environments. Most distinctively, the building's entrance features traditional M?ori whakairo carvings and tukutuku lattice panels, crafted by artist Bernard Makoare, embedding a permanent cultural identity into the building's physical fabric. The Cultural Collections reading room on Level M preserves rare manuscripts, the Western Pacific Archives, and internationally significant special collections."
+      }
+    ]
   },
   {
     "id": "engineering",
@@ -52,7 +109,16 @@
     "imageUrl": "/images/buildings/engineering-cover.jpg",
     "unlockOrder": 5,
     "completionCoinReward": 20,
-    "isActive": true
+    "isActive": true,
+    "reviewItems": [
+      {
+        "id": "engineering-overview",
+        "topic": "Overview",
+        "question": "Te Herenga M?tai P?kaha | Engineering Building B405",
+        "answer": "Te Herenga M?tai P?kaha | Engineering Building B405",
+        "details": "Te Herenga M kaha | Engineering Building (B405) Completed in 2019 and formally opened in December of that year, B405 stands as the University of Auckland's most ambitious construction project in recent decades. Designed by architecture firm Jasmax and built by Hawkins, the 12-storey, 32,000-square-metre tower rises prominently at the corner of Grafton Road and Symonds Street, measuring 114 metres long and 42 metres wide. Its east-facing facade is clad in 486 individually angled aluminium sunshades that filter direct sunlight while preserving panoramic views toward the Auckland Domain, described by its architects as \"jewel-like\" and kinetic in changing light. The zinc-clad western face features hanging coloured glass panels visible along Symonds Street. Inside, the building accommodates over 50 modular research laboratories, multi-disciplinary learning spaces, postgraduate write-up zones, and informal terraced study areas, all designed around the concept of \"Visible Engineering\", exposing structural elements and laboratory activity through glass walls so that engineering practice remains constantly on show throughout the building."
+      }
+    ]
   },
   {
     "id": "law-school",
@@ -63,7 +129,16 @@
     "imageUrl": "/images/buildings/law-school-cover.jpg",
     "unlockOrder": 6,
     "completionCoinReward": 20,
-    "isActive": true
+    "isActive": true,
+    "reviewItems": [
+      {
+        "id": "law-overview",
+        "topic": "Overview",
+        "question": "Faculty of Law",
+        "answer": "Faculty of Law",
+        "details": "The Auckland Law School is one of the most historically meaningful buildings at the University of Auckland. Located around Eden Crescent, Short Street and Waterloo Quadrant, it sits close to the Auckland High Court, which gives the school a strong connection to the city\u2019s legal community. Part of the Law School, Building 801, was formerly used by the High Court of New Zealand, and one of its courtrooms has been retained for student mooting. This means students can practise legal arguments in a real courtroom-style environment. The Law School also provides important student facilities, including the Davis Law Library, law student study spaces, and Student Support and Engagement services. For students, the building is not only a place to attend lectures, but also a place to understand law, justice, public service and legal history. It shows how architecture, education and professional identity can connect in one space."
+      }
+    ]
   },
   {
     "id": "arts-education",
@@ -74,7 +149,17 @@
     "imageUrl": "/images/buildings/arts-education-cover.jpg",
     "unlockOrder": 7,
     "completionCoinReward": 20,
-    "isActive": true
+    "isActive": true,
+    "reviewItems": [
+      {
+        "id": "arts-overview",
+        "topic": "Overview",
+        "question": "Faculty of Arts and Education",
+        "answer": "Faculty of Arts and Education",
+        "details": "The Faculty of Arts and Education buildings, especially Building 201 and Building 206, represent creativity, culture and humanities at the University of Auckland. Building 201 is located at 10 Symonds Street and was transformed from an older social sciences building into a modern, sustainable learning space. It includes areas for Communication, Media and Screen Studies, Dance Studies, Education, Social Work and student support services. Building 206, also known as Te Puna Aronui | Humanities Building, is home to subjects such as History, English, Philosophy, Art History and Asian Studies. Together, these buildings support a wide range of students and disciplines. They are places where people study society, language, culture, identity and human experience. Compared with the Law School, the Arts buildings feel more open and interdisciplinary. They show that university life is not only about professional training, but also about imagination, critical thinking and understanding people."
+      }
+    ]
+
   },
   {
     "id": "science",
@@ -86,5 +171,17 @@
     "unlockOrder": 8,
     "completionCoinReward": 20,
     "isActive": true
+  },
+  {
+    "id": "kate-edger",
+    "name": "Kate Edger Information Commons",
+    "shortName": "Kate Edger",
+    "description": "A central student study and service space on City Campus.",
+    "location": "2 Alfred Street",
+    "imageUrl": "/images/buildings/kate-edger-cover.jpg",
+    "unlockOrder": 99,
+    "completionCoinReward": 20,
+    "isActive": false,
+    "reviewItems": []
   }
 ]

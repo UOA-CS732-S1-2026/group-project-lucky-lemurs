@@ -29,4 +29,8 @@ export class BuildingsController {
   ) {
     return this.buildingsService.unlockBuildingWithCoins(user.id, buildingId);
   }
+  @Get(':buildingId/review')
+  getReview(@Param('buildingId') buildingId: string) {
+    return this.buildingsService.getReview(buildingId);
+  }
 }

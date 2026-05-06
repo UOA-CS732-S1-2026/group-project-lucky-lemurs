@@ -61,6 +61,19 @@ export class BuildingsService {
     return this.toBuildingResponse(building, questionCount, progress);
   }
 
+  async getReview(buildingId: string) {
+    const building = await this.findActiveById(buildingId);
+
+    return building.reviewItems.map((item) => ({
+      id: item.id,
+      topic: item.topic,
+      question: item.question,
+      answer: item.answer,
+      details: item.details,
+      imageUrls: building.reviewImageUrls ?? [],
+    }));
+  }
+
   async findActiveById(buildingId: string) {
     const building = await this.buildingModel
       .findOne({ id: buildingId, isActive: true })
