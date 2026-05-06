@@ -4,6 +4,27 @@ import { generateId } from '../../common/id.util';
 
 export type BuildingDocument = HydratedDocument<Building>;
 
+@Schema({ _id: false })
+export class BuildingReviewItem {
+  @Prop({ required: true })
+  id: string;
+
+  @Prop({ required: true })
+  topic: string;
+
+  @Prop({ required: true })
+  question: string;
+
+  @Prop({ required: true })
+  answer: string;
+
+  @Prop({ default: '' })
+  details: string;
+}
+
+const BuildingReviewItemSchema =
+  SchemaFactory.createForClass(BuildingReviewItem);
+
 @Schema({ timestamps: true })
 export class Building {
   @Prop({ default: () => generateId('building'), unique: true, index: true })
@@ -24,11 +45,17 @@ export class Building {
   @Prop({ type: String, default: null })
   imageUrl: string | null;
 
+  @Prop({ type: [String], default: [] })
+  reviewImageUrls: string[];
+
   @Prop({ default: 1 })
   unlockOrder: number;
 
   @Prop({ default: 20 })
   completionCoinReward: number;
+
+  @Prop({ type: [BuildingReviewItemSchema], default: [] })
+  reviewItems: BuildingReviewItem[];
 
   @Prop({ default: true })
   isActive: boolean;

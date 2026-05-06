@@ -9,13 +9,12 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 const buildingPositions = [
   { id: 'clocktower', position: { top: '18%', left: '43%' }, difficulty: 'easy' },
-  { id: 'oldgov', position: { top: '32%', left: '20%' }, difficulty: 'medium' },
   { id: 'oggb', position: { top: '22%', left: '68%' }, difficulty: 'hard' },
-  { id: 'business', position: { top: '35%', left: '82%' }, difficulty: 'hard' },
-  { id: 'library', position: { top: '55%', left: '18%' }, difficulty: 'medium' },
-  { id: 'humanities', position: { top: '78%', left: '27%' }, difficulty: 'easy' },
+  { id: 'general-library', position: { top: '55%', left: '18%' }, difficulty: 'medium' },
+  { id: 'arts-education', position: { top: '78%', left: '27%' }, difficulty: 'easy' },
   { id: 'science', position: { top: '75%', left: '50%' }, difficulty: 'hard' },
   { id: 'engineering', position: { top: '60%', left: '88%' }, difficulty: 'medium' },
+  { id: 'law-school', position: { top: '32%', left: '20%' }, difficulty: 'medium' },
 ]
 
 const difficultyColors = {
@@ -53,7 +52,7 @@ function QuizPage() {
     try {
       setLoading(true)
       const response = await axios.get(`${API_URL}/buildings`)
-      const backendBuildings = response.data
+      const backendBuildings = response.data.buildings
       
       const mergedBuildings = backendBuildings.map(backend => {
         const positionData = buildingPositions.find(p => p.id === backend.id) || buildingPositions[0]

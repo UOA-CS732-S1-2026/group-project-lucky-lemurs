@@ -7,6 +7,7 @@ import {
 } from '../users/schemas/user-building-progress.schema';
 import { BuildingsController } from './buildings.controller';
 import { BuildingsService } from './buildings.service';
+import { QuizzesReviewController } from './quizzes-review.controller';
 import { Building, BuildingSchema } from './schemas/building.schema';
 
 @Module({
@@ -20,7 +21,7 @@ import { Building, BuildingSchema } from './schemas/building.schema';
       },
     ]),
   ],
-  controllers: [BuildingsController],
+  controllers: [BuildingsController, QuizzesReviewController],
   providers: [BuildingsService],
   exports: [BuildingsService],
 })

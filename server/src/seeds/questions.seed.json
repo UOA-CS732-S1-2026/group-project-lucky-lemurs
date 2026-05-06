@@ -2943,5 +2943,439 @@
     "imageUrl": null,
     "sourceUrl": null,
     "isActive": true
+  },
+  {
+    "id": "q_096",
+    "buildingId": "science",
+    "category": "building",
+    "difficulty": "easy",
+    "questionText": "According to the PDF, which building number is associated with the Faculty of Science?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Building 109"
+      },
+      {
+        "id": "B",
+        "text": "Building 260"
+      },
+      {
+        "id": "C",
+        "text": "Building 301"
+      },
+      {
+        "id": "D",
+        "text": "Building 405"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is Building 301.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_097",
+    "buildingId": "science",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "What is the street address of Building 301?",
+    "options": [
+      {
+        "id": "A",
+        "text": "5 Alfred Street"
+      },
+      {
+        "id": "B",
+        "text": "12 Grafton Road"
+      },
+      {
+        "id": "C",
+        "text": "23 Symonds Street"
+      },
+      {
+        "id": "D",
+        "text": "38 Princes Street"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 23 Symonds Street.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_098",
+    "buildingId": "science",
+    "category": "facility",
+    "difficulty": "hard",
+    "questionText": "The Science Centre consists of which three buildings?",
+    "options": [
+      {
+        "id": "A",
+        "text": "101, 102 and 103"
+      },
+      {
+        "id": "B",
+        "text": "201, 206 and 215"
+      },
+      {
+        "id": "C",
+        "text": "301, 302 and 303"
+      },
+      {
+        "id": "D",
+        "text": "401, 402 and 405"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": "The correct answer is 301, 302 and 303.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_099",
+    "buildingId": "science",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Building 301 is located on which campus?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Grafton Campus"
+      },
+      {
+        "id": "B",
+        "text": "City Campus"
+      },
+      {
+        "id": "C",
+        "text": "Newmarket Campus"
+      },
+      {
+        "id": "D",
+        "text": "Leigh Campus"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is City Campus.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_100",
+    "buildingId": "science",
+    "category": "facility",
+    "difficulty": "hard",
+    "questionText": "The Science Centre is home to the Faculty Administration Office and many of what?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Sports teams and gyms"
+      },
+      {
+        "id": "B",
+        "text": "Schools and departments"
+      },
+      {
+        "id": "C",
+        "text": "Student halls only"
+      },
+      {
+        "id": "D",
+        "text": "Medical clinics only"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is Schools and departments.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_101",
+    "buildingId": "science",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "Which of the following is listed as part of the Science Centre facilities?",
+    "options": [
+      {
+        "id": "A",
+        "text": "School of Chemical Sciences"
+      },
+      {
+        "id": "B",
+        "text": "Faculty of Law"
+      },
+      {
+        "id": "C",
+        "text": "Business School Computer Laboratories"
+      },
+      {
+        "id": "D",
+        "text": "Conference Centre"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is School of Chemical Sciences.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_102",
+    "buildingId": "science",
+    "category": "location",
+    "difficulty": "hard",
+    "questionText": "Which school is also listed in the Science Centre area?",
+    "options": [
+      {
+        "id": "A",
+        "text": "School of Environment"
+      },
+      {
+        "id": "B",
+        "text": "School of Music"
+      },
+      {
+        "id": "C",
+        "text": "School of Architecture and Planning"
+      },
+      {
+        "id": "D",
+        "text": "School of Humanities"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is School of Environment.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_103",
+    "buildingId": "science",
+    "category": "facility",
+    "difficulty": "medium",
+    "questionText": "Which of the following is listed as a Science Centre facility?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Centre for eResearch"
+      },
+      {
+        "id": "B",
+        "text": "General Library"
+      },
+      {
+        "id": "C",
+        "text": "Fisher and Paykel Auditorium"
+      },
+      {
+        "id": "D",
+        "text": "Old Government House"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Centre for eResearch.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_104",
+    "buildingId": "science",
+    "category": "facility",
+    "difficulty": "hard",
+    "questionText": "Which support space is listed in the Science Centre?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Science Assistance Room"
+      },
+      {
+        "id": "B",
+        "text": "Law Student Centre"
+      },
+      {
+        "id": "C",
+        "text": "Business Helpdesk"
+      },
+      {
+        "id": "D",
+        "text": "Architecture Studio"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Science Assistance Room.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_105",
+    "buildingId": "science",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "Building 303 and 303S have which street address?",
+    "options": [
+      {
+        "id": "A",
+        "text": "23 Symonds Street"
+      },
+      {
+        "id": "B",
+        "text": "38 Princes Street"
+      },
+      {
+        "id": "C",
+        "text": "12 Grafton Road"
+      },
+      {
+        "id": "D",
+        "text": "5 Alfred Street"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": "The correct answer is 38 Princes Street.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_106",
+    "buildingId": "science",
+    "category": "facility",
+    "difficulty": "hard",
+    "questionText": "Which department is listed in Building 303 and 303S?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Department of Mathematics"
+      },
+      {
+        "id": "B",
+        "text": "Department of Commercial Law"
+      },
+      {
+        "id": "C",
+        "text": "Department of Accounting and Finance"
+      },
+      {
+        "id": "D",
+        "text": "Department of Civil and Environmental Engineering"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is Department of Mathematics.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_107",
+    "buildingId": "science",
+    "category": "location",
+    "difficulty": "easy",
+    "questionText": "The School of Biological Sciences is described as being located where?",
+    "options": [
+      {
+        "id": "A",
+        "text": "In its own buildings separate from the Science Centre"
+      },
+      {
+        "id": "B",
+        "text": "Inside the General Library"
+      },
+      {
+        "id": "C",
+        "text": "Inside the Business School"
+      },
+      {
+        "id": "D",
+        "text": "Inside the Law School"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is In its own buildings separate from the Science Centre.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_108",
+    "buildingId": "science",
+    "category": "facility",
+    "difficulty": "hard",
+    "questionText": "The new Science Centre includes which sustainable design feature?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A high-tech fa\u00e7ade with double glazing"
+      },
+      {
+        "id": "B",
+        "text": "A stone wall from Albert Barracks"
+      },
+      {
+        "id": "C",
+        "text": "A clock tower made of limestone"
+      },
+      {
+        "id": "D",
+        "text": "A rooftop swimming pool"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": "The correct answer is A high-tech fa\u00e7ade with double glazing.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
+  },
+  {
+    "id": "q_109",
+    "buildingId": "science",
+    "category": "facility",
+    "difficulty": "hard",
+    "questionText": "According to the Science Centre project information, the facility was valued at approximately how much?",
+    "options": [
+      {
+        "id": "A",
+        "text": "$20 million"
+      },
+      {
+        "id": "B",
+        "text": "$50 million"
+      },
+      {
+        "id": "C",
+        "text": "$100 million"
+      },
+      {
+        "id": "D",
+        "text": "$200 million"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": "The correct answer is $200 million.",
+    "hintText": "",
+    "imageUrl": null,
+    "sourceUrl": null,
+    "isActive": true
   }
 ]

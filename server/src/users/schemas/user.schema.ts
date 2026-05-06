@@ -7,7 +7,7 @@ export type UserDocument = HydratedDocument<User>;
 
 @Schema({ _id: false })
 export class UserCategoryStat {
-  @Prop({ enum: QuestionCategory, required: true })
+  @Prop({ type: String, enum: QuestionCategory, required: true })
   category: QuestionCategory;
 
   @Prop({ default: 0 })
@@ -53,7 +53,7 @@ export class User {
   @Prop({ default: '/images/avatars/default.png' })
   avatarUrl: string;
 
-  @Prop({ enum: UserRole, default: UserRole.User })
+  @Prop({ type: String, enum: UserRole, default: UserRole.User })
   role: UserRole;
 
   @Prop({ default: 0 })

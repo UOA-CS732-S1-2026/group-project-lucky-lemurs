@@ -24,10 +24,10 @@ export class Question {
   @Prop({ required: true, index: true })
   buildingId: string;
 
-  @Prop({ enum: QuestionCategory, required: true })
+  @Prop({ type: String, enum: QuestionCategory, required: true })
   category: QuestionCategory;
 
-  @Prop({ enum: QuestionDifficulty, required: true })
+  @Prop({ type: String, enum: QuestionDifficulty, required: true })
   difficulty: QuestionDifficulty;
 
   @Prop({ required: true })

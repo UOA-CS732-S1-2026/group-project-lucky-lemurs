@@ -21,4 +21,9 @@ export class BuildingsController {
   ) {
     return this.buildingsService.findOneForUser(buildingId, user.id);
   }
+
+  @Get(':buildingId/review')
+  getReview(@Param('buildingId') buildingId: string) {
+    return this.buildingsService.getReview(buildingId);
+  }
 }

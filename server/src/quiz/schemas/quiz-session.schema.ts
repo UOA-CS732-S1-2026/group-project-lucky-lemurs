@@ -45,13 +45,18 @@ export class QuizSession {
   @Prop({ required: true, index: true })
   userId: string;
 
-  @Prop({ enum: QuizMode, required: true, index: true })
+  @Prop({ type: String, enum: QuizMode, required: true, index: true })
   mode: QuizMode;
 
   @Prop({ type: String, default: null, index: true })
   buildingId: string | null;
 
-  @Prop({ enum: SessionStatus, default: SessionStatus.Active, index: true })
+  @Prop({
+    type: String,
+    enum: SessionStatus,
+    default: SessionStatus.Active,
+    index: true,
+  })
   status: SessionStatus;
 
   @Prop({ type: [String], default: [] })
