@@ -75,5 +75,16 @@
     "unlockOrder": 7,
     "completionCoinReward": 20,
     "isActive": true
+  },
+  {
+    "id": "science",
+    "name": "Science Centre",
+    "shortName": "Science",
+    "description": "Science teaching and research facilities including chemistry, physics, and biology labs.",
+    "location": "23 Symonds Street",
+    "imageUrl": "/images/buildings/science-cover.jpg",
+    "unlockOrder": 8,
+    "completionCoinReward": 20,
+    "isActive": true
   }
 ]

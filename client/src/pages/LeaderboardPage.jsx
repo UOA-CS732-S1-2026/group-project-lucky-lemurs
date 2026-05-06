@@ -89,7 +89,12 @@ function LeaderboardPage() {
           <div className="navbar-buttons">
             {user ? (
               <>
-                <span className="user-greeting">Welcome, {user.username}</span>
+                <div className="user-info">
+                  <span className="user-greeting">Welcome, {user.username}</span>
+                  <span className="coin-display">
+                    💰 {user.coins || 0} Coins
+                  </span>
+                </div>
                 <button className="btn-nav btn-nav-primary" onClick={() => navigate('/quiz')}>
                   Play Quiz
                 </button>

@@ -5,6 +5,7 @@ import {
   UserBuildingProgress,
   UserBuildingProgressSchema,
 } from '../users/schemas/user-building-progress.schema';
+import { User, UserSchema } from '../users/schemas/user.schema';
 import { BuildingsController } from './buildings.controller';
 import { BuildingsService } from './buildings.service';
 import { Building, BuildingSchema } from './schemas/building.schema';
@@ -18,6 +19,7 @@ import { Building, BuildingSchema } from './schemas/building.schema';
         name: UserBuildingProgress.name,
         schema: UserBuildingProgressSchema,
       },
+      { name: User.name, schema: UserSchema },
     ]),
   ],
   controllers: [BuildingsController],

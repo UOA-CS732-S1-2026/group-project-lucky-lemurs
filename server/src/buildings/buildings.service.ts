@@ -1,8 +1,14 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Question } from '../questions/schemas/question.schema';
 import { UserBuildingProgress } from '../users/schemas/user-building-progress.schema';
+import { User } from '../users/schemas/user.schema';
 import { Building } from './schemas/building.schema';
 
 @Injectable()
@@ -14,6 +20,8 @@ export class BuildingsService {
     private readonly questionModel: Model<Question>,
     @InjectModel(UserBuildingProgress.name)
     private readonly progressModel: Model<UserBuildingProgress>,
+    @InjectModel(User.name)
+    private readonly userModel: Model<User>,
   ) {}
 
   async findAllForUser(userId: string) {
@@ -69,6 +77,71 @@ export class BuildingsService {
       .findOne({ isActive: true, unlockOrder: { $gt: unlockOrder } })
       .sort({ unlockOrder: 1 })
       .exec();
+  }
+
+  async unlockBuildingWithCoins(userId: string, buildingId: string) {
+    const building = await this.findActiveById(buildingId);
+    const [progress, completedBuildingCount] = await Promise.all([
+      this.progressModel.findOne({ userId, buildingId }).lean().exec(),
+      this.progressModel.countDocuments({ userId, isCompleted: true }).exec(),
+    ]);
+    const isUnlocked = progress?.isUnlocked ?? building.unlockOrder === 1;
+
+    if (isUnlocked) {
+      throw new BadRequestException('Building is already unlocked');
+    }
+
+    const unlockCost = this.calculateUnlockCost(
+      building.unlockOrder,
+      completedBuildingCount,
+    );
+    const userUpdate = await this.userModel
+      .findOneAndUpdate(
+        { id: userId, coins: { $gte: unlockCost } },
+        { $inc: { coins: -unlockCost } },
+        { new: true },
+      )
+      .lean()
+      .exec();
+
+    if (!userUpdate) {
+      const user = await this.userModel.findOne({ id: userId }).lean().exec();
+      if (!user) {
+        throw new NotFoundException('User not found');
+      }
+
+      throw new ForbiddenException('Not enough coins');
+    }
+
+    await this.progressModel.updateOne(
+      { userId, buildingId },
+      {
+        $set: { isUnlocked: true },
+        $setOnInsert: {
+          isCompleted: false,
+          bestScore: 0,
+          correctCount: 0,
+          totalQuestions: 0,
+          coinsAwarded: 0,
+          unlockedAt: new Date(),
+          completedAt: null,
+          lastPlayedAt: null,
+        },
+      },
+      { upsert: true },
+    );
+
+    return {
+      buildingId,
+      isUnlocked: true,
+      coinsSpent: unlockCost,
+      remainingCoins: userUpdate.coins,
+    };
+  }
+
+  calculateUnlockCost(unlockOrder: number, completedBuildingCount: number) {
+    const lockedDistance = Math.max(0, unlockOrder - completedBuildingCount);
+    return lockedDistance * 22;
   }
 
   toBuildingResponse(

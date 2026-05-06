@@ -182,6 +182,10 @@ export class QuizService {
 
     const correct = question.correctOptionId === dto.selectedOptionId;
     const scoreDelta = correct ? CORRECT_SCORE_DELTA : 0;
+    
+    // 积分地板除10的金币奖励
+    const coinReward = Math.floor(scoreDelta / 10);
+    
     session.attemptedCount += 1;
     if (correct) {
       session.currentStreak += 1;
@@ -206,6 +210,15 @@ export class QuizService {
     } else {
       session.incorrectCount += 1;
     }
+    
+    // 发放金币奖励
+    if (coinReward > 0) {
+      await this.userModel.updateOne(
+        { id: session.userId },
+        { $inc: { coins: coinReward } }
+      );
+    }
+    
     await session.save();
 
     return {
@@ -220,6 +233,7 @@ export class QuizService {
       incorrectCount: session.incorrectCount,
       currentStreak: session.currentStreak,
       bestStreak: session.bestStreak,
+      coinReward, // 新增金币奖励信息
       ...(session.mode === QuizMode.Building && !correct
         ? { retryLater: true }
         : {}),

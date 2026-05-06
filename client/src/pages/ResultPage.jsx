@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { useNavigate, useParams, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import '../styles/Pages.css'
 import '../styles/ResultPage.css'
@@ -8,19 +8,25 @@ function ResultPage() {
   const navigate = useNavigate()
   const { buildingId } = useParams()
   const { user } = useAuth()
-  const [searchParams] = useSearchParams()
+  const location = useLocation()
   const [score, setScore] = useState(0)
-  const [total, setTotal] = useState(100)
+  const [total, setTotal] = useState(0)
+  const [correctCount, setCorrectCount] = useState(0)
+  const [incorrectCount, setIncorrectCount] = useState(0)
   const [showDetails, setShowDetails] = useState(false)
 
   useEffect(() => {
-    const scoreParam = searchParams.get('score')
-    const totalParam = searchParams.get('total')
-    if (scoreParam) setScore(parseInt(scoreParam))
-    if (totalParam) setTotal(parseInt(totalParam))
-  }, [searchParams])
+    // 从路由state中获取数据
+    if (location.state) {
+      const { score: stateScore, totalQuestions, correctCount: stateCorrectCount, incorrectCount: stateIncorrectCount } = location.state
+      if (stateScore !== undefined) setScore(stateScore)
+      if (totalQuestions !== undefined) setTotal(totalQuestions)
+      if (stateCorrectCount !== undefined) setCorrectCount(stateCorrectCount)
+      if (stateIncorrectCount !== undefined) setIncorrectCount(stateIncorrectCount)
+    }
+  }, [location.state])
 
-  const percentage = Math.round((score / total) * 100)
+  const percentage = Math.round((correctCount / total) * 100)
 
   const getResultMessage = () => {
     if (percentage >= 90) return { emoji: '🏆', message: 'Excellent!', color: 'gold' }
@@ -58,7 +64,7 @@ function ResultPage() {
           
           <div className="score-circle">
             <div className="score-inner">
-              <span className="score-number">{score}</span>
+              <span className="score-number">{correctCount}</span>
               <span className="score-total">/ {total}</span>
             </div>
             <svg className="score-ring" viewBox="0 0 100 100">
@@ -88,8 +94,20 @@ function ResultPage() {
 
           <div className="result-stats">
             <div className="stat-row">
-              <span className="stat-label">Percentage</span>
+              <span className="stat-label">Correct Answers</span>
+              <span className="stat-value">{correctCount}/{total}</span>
+            </div>
+            <div className="stat-row">
+              <span className="stat-label">Points Earned</span>
+              <span className="stat-value">{score} points</span>
+            </div>
+            <div className="stat-row">
+              <span className="stat-label">Accuracy</span>
               <span className="stat-value">{percentage}%</span>
+            </div>
+            <div className="stat-row">
+              <span className="stat-label">Coins Earned</span>
+              <span className="stat-value">💰 {correctCount} coins</span>
             </div>
             <div className="stat-row">
               <span className="stat-label">User</span>

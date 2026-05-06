@@ -182,6 +182,55 @@
   white-space: nowrap;
 }
 
+.building-locked {
+  opacity: 0.85;
+  cursor: pointer;
+  border-color: #94a3b8 !important;
+  background-color: rgba(148, 163, 184, 0.15) !important;
+}
+
+.building-locked:hover {
+  transform: translate(-50%, -50%) scale(1.05) !important;
+  box-shadow: 0 4px 12px rgba(148, 163, 184, 0.3) !important;
+  z-index: 10;
+  background-color: rgba(148, 163, 184, 0.25) !important;
+}
+
+.lock-icon {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.unlock-order {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
 .legend {
   margin-top: 32px;
   padding: 20px;
@@ -442,6 +491,50 @@
 .btn-half.start:hover {
   background: linear-gradient(135deg, #16a34a, #15803d);
   transform: translateY(-2px);
+}
+
+.btn-half.start.disabled {
+  background: linear-gradient(135deg, #94a3b8, #64748b);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-half.start.disabled:hover {
+  background: linear-gradient(135deg, #94a3b8, #64748b);
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-half.unlock {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.btn-half.unlock:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+  background: linear-gradient(135deg, #f59e0b, #b45309);
+}
+
+.btn-half.unlock:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #94a3b8, #64748b);
+  color: #cbd5e1;
+}
+
+.btn-half.unlock:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.lock-icon-small {
+  margin-left: 8px;
+  font-size: 0.9rem;
 }
 
 .btn-half::before {

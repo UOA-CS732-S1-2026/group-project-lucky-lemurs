@@ -216,9 +216,7 @@ function QuestionPage() {
 
         <div className="question-card">
           <div className="question-number">
-            <span className={`difficulty-badge ${currentQuestion.difficulty}`}>
-              {currentQuestion.difficulty?.toUpperCase() || 'BUILDING'}
-            </span>
+
           </div>
           <h2 className="question-text">{currentQuestion.questionText}</h2>
 
