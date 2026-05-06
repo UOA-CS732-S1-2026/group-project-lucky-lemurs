@@ -23,7 +23,7 @@ const mockReviewData = {
       topic: 'Overview',
       question: 'General Library',
       answer: 'General Library',
-      details: 'No review data available from the backend yet.',
+      details: 'A short introduction will appear here once building information is available from the backend.',
       imageUrls: [],
     },
   ],
@@ -153,9 +153,21 @@ function ReviewPage() {
 
       <main className="review-content">
         <div className="review-header">
-          <h1>{buildingName} Review</h1>
-          <p>Review key facts and information before taking the quiz.</p>
+          <span className="review-eyebrow">Building introduction</span>
+          <h1>{buildingName}</h1>
+          <p>Get familiar with the building before starting the quiz.</p>
         </div>
+
+        <section className="review-intro-panel" aria-label={`${buildingName} overview`}>
+          <div>
+            <span className="intro-label">Overview</span>
+            <p>
+              Browse the main background notes, quick facts, and photos for this
+              campus landmark.
+            </p>
+          </div>
+          <span className="intro-count">{reviewItems.length} sections</span>
+        </section>
 
         {error && <div className="error-message-box">{error}</div>}
 
@@ -183,12 +195,12 @@ function ReviewPage() {
                 {expandedId === item.id && (
                   <div className="review-card-body">
                     <div className="review-answer">
-                      <span className="answer-label">Answer:</span>
+                      <span className="answer-label">Key point</span>
                       <span className="answer-text">{item.answer}</span>
                     </div>
                     {item.details && (
                       <div className="review-details">
-                        <span className="details-label">Details:</span>
+                        <span className="details-label">Description</span>
                         <p>{item.details}</p>
                       </div>
                     )}
