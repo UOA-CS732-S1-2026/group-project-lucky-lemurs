@@ -1,0 +1,131 @@
+.achievements-page {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+}
+
+.achievements-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 20px 72px;
+}
+
+.achievements-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.achievements-header h1 {
+  margin: 0 0 8px;
+  color: var(--primary-black);
+  font-size: 2.4rem;
+  line-height: 1.1;
+}
+
+.achievements-header p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.achievements-state {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  color: var(--text-secondary);
+}
+
+.achievement-summary {
+  margin-bottom: 24px;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.achievement-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  min-height: 136px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.achievement-card.featured {
+  min-height: 112px;
+  align-items: center;
+  border-color: var(--primary-black);
+}
+
+.achievement-card.locked {
+  opacity: 0.62;
+}
+
+.achievement-icon {
+  flex: 0 0 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  color: var(--text-secondary);
+  font-weight: 800;
+}
+
+.achievement-card.unlocked .achievement-icon {
+  background: var(--primary-black);
+  border-color: var(--primary-black);
+  color: var(--primary-white);
+}
+
+.achievement-copy {
+  min-width: 0;
+}
+
+.achievement-order {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.achievement-card h2 {
+  margin: 0 0 8px;
+  color: var(--primary-black);
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.achievement-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .achievements-content {
+    padding: 32px 16px 56px;
+  }
+
+  .achievements-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .achievements-header h1 {
+    font-size: 2rem;
+  }
+}

@@ -35,6 +35,9 @@ function HomePage() {
                 <button className="btn-nav btn-nav-primary" onClick={() => navigate('/quiz')}>
                   Play Quiz
                 </button>
+                <button className="btn-nav" onClick={() => navigate('/achievements')}>
+                  Achievements
+                </button>
               </>
             ) : (
               <>
@@ -64,6 +67,11 @@ function HomePage() {
             <button className="btn btn-secondary" onClick={() => navigate('/leaderboard')}>
               View Leaderboard
             </button>
+            {user && (
+              <button className="btn btn-secondary" onClick={() => navigate('/achievements')}>
+                View Achievements
+              </button>
+            )}
           </div>
           
           {/* {user && (

@@ -10,6 +10,7 @@ import TestModePage from './pages/TestModePage'
 import ResultPage from './pages/ResultPage'
 import ReviewPage from './pages/ReviewPage'
 import LeaderboardPage from './pages/LeaderboardPage'
+import AchievementsPage from './pages/AchievementsPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import ErrorPage from './pages/ErrorPage'
@@ -62,6 +63,11 @@ function App() {
               </ProtectedRoute>
             } />
             <Route path="/leaderboard" element={<LeaderboardPage />} />
+            <Route path="/achievements" element={
+              <ProtectedRoute>
+                <AchievementsPage />
+              </ProtectedRoute>
+            } />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
