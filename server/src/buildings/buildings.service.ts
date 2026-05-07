@@ -162,13 +162,16 @@ export class BuildingsService {
     questionCount: number,
     progress?: UserBuildingProgress | null,
   ) {
+    const primaryImageUrl = building.reviewImageUrls?.[0] ?? building.imageUrl;
+
     return {
       id: building.id,
       name: building.name,
       shortName: building.shortName,
       description: building.description,
       location: building.location,
-      imageUrl: building.imageUrl,
+      imageUrl: primaryImageUrl,
+      reviewImageUrls: building.reviewImageUrls ?? [],
       unlockOrder: building.unlockOrder,
       questionCount,
       isUnlocked: progress?.isUnlocked ?? building.unlockOrder === 1,

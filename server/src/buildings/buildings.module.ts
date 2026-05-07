@@ -8,7 +8,7 @@ import {
 import { User, UserSchema } from '../users/schemas/user.schema';
 import { BuildingsController } from './buildings.controller';
 import { BuildingsService } from './buildings.service';
-import { QuizzesReviewController } from './quizzes-review.controller';
+import { QuizzesReviewPublicController } from './quizzes-review-public.controller';
 import { Building, BuildingSchema } from './schemas/building.schema';
 
 @Module({
@@ -23,7 +23,7 @@ import { Building, BuildingSchema } from './schemas/building.schema';
       { name: User.name, schema: UserSchema },
     ]),
   ],
-  controllers: [BuildingsController, QuizzesReviewController],
+  controllers: [BuildingsController, QuizzesReviewPublicController],
   providers: [BuildingsService],
   exports: [BuildingsService],
 })

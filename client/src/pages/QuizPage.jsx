@@ -30,6 +30,34 @@ const difficultyLabels = {
   hard: 'Hard',
 }
 
+const resolveImageUrl = (imageUrl) => {
+  if (!imageUrl) {
+    return ''
+  }
+
+  if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+    return imageUrl
+  }
+
+  return `${API_URL}${imageUrl.startsWith('/') ? imageUrl : `/${imageUrl}`}`
+}
+
+const getBuildingImageUrl = (building) => {
+  if (!building) return ''
+
+  const imageUrlCandidates = [
+    building.reviewImageUrls?.[0],
+    building.imageUrls?.[0],
+    building.imageURL,
+    building.coverImageUrl,
+    building.coverUrl,
+    building.photoUrl,
+    building.imageUrl,
+  ].filter(Boolean)
+
+  return resolveImageUrl(imageUrlCandidates[0])
+}
+
 function QuizPage() {
   const navigate = useNavigate()
   const { user, logout } = useAuth()
@@ -200,9 +228,9 @@ function QuizPage() {
             <p className="quiz-description">
               {selectedBuilding.shortDescription || `Test your knowledge about the ${selectedBuilding.name}!`}
             </p>
-            {selectedBuilding.imageUrl && (
+            {getBuildingImageUrl(selectedBuilding) && (
               <img
-                src={selectedBuilding.imageUrl}
+                src={getBuildingImageUrl(selectedBuilding)}
                 alt={selectedBuilding.name}
                 className="quiz-detail-image"
               />

@@ -382,6 +382,17 @@
   line-height: 1.6;
 }
 
+.quiz-detail-image {
+  display: block;
+  width: 112px;
+  height: 84px;
+  object-fit: cover;
+  margin: -12px auto 28px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
 .quiz-stats {
   display: flex;
   justify-content: center;
@@ -559,5 +570,4 @@
     font-size: 1rem;
   }
 }
-
 
