@@ -2,6 +2,7 @@ import { Body, Controller, Param, Post, Get, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import type { AuthUser } from '../common/auth-user.interface';
 import { CurrentUser } from '../common/current-user.decorator';
+import { EliminateOptionsDto } from './dto/eliminate-options.dto';
 import { StartBuildingQuizDto } from './dto/start-building-quiz.dto';
 import { SubmitAnswerDto } from './dto/submit-answer.dto';
 import { QuizService } from './quiz.service';
@@ -36,6 +37,19 @@ export class QuizController {
     @Body() submitAnswerDto: SubmitAnswerDto,
   ) {
     return this.quizService.submitAnswer(user.id, sessionId, submitAnswerDto);
+  }
+
+  @Post('sessions/:sessionId/eliminate-options')
+  eliminateOptions(
+    @CurrentUser() user: AuthUser,
+    @Param('sessionId') sessionId: string,
+    @Body() eliminateOptionsDto: EliminateOptionsDto,
+  ) {
+    return this.quizService.eliminateOptions(
+      user.id,
+      sessionId,
+      eliminateOptionsDto,
+    );
   }
 
   @Post('sessions/:sessionId/finish')

@@ -37,6 +37,17 @@ export class QuizAnswer {
 
 const QuizAnswerSchema = SchemaFactory.createForClass(QuizAnswer);
 
+@Schema({ _id: false })
+export class QuizQuestionHelp {
+  @Prop({ required: true })
+  questionId: string;
+
+  @Prop({ type: [String], default: [] })
+  removedOptionIds: string[];
+}
+
+const QuizQuestionHelpSchema = SchemaFactory.createForClass(QuizQuestionHelp);
+
 @Schema({ timestamps: true })
 export class QuizSession {
   @Prop({ default: () => generateId('session'), unique: true, index: true })
@@ -85,6 +96,9 @@ export class QuizSession {
 
   @Prop({ default: 0 })
   coinsSpent: number;
+
+  @Prop({ type: [QuizQuestionHelpSchema], default: [] })
+  eliminatedOptions: QuizQuestionHelp[];
 
   @Prop({ default: 0 })
   currentStreak: number;

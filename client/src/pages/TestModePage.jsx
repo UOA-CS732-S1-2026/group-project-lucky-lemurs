@@ -25,8 +25,29 @@ function TestModePage() {
   const [answerResult, setAnswerResult] = useState(null)
   const [isFinished, setIsFinished] = useState(false)
   const [finalResult, setFinalResult] = useState(null)
+  const [userCoins, setUserCoins] = useState(user?.coins || 0)
+  const [eliminatedByQuestion, setEliminatedByQuestion] = useState({})
   const startTimeRef = useRef(Date.now())
   const questionStartTimeRef = useRef(Date.now())
+
+  useEffect(() => {
+    setUserCoins(user?.coins || 0)
+  }, [user])
+
+  useEffect(() => {
+    const fetchUserCoins = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/users/me`, {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        })
+        setUserCoins(response.data.coins || 0)
+      } catch (err) {
+        console.error('Failed to refresh user coins:', err)
+      }
+    }
+
+    fetchUserCoins()
+  }, [])
 
   useEffect(() => {
     if (location.state?.sessionData) {
@@ -42,10 +63,12 @@ function TestModePage() {
   useEffect(() => {
     if (timeLeft > 0 && !showResult && questions.length > 0 && !isFinished) {
       const timer = setInterval(() => {
-        setTimeLeft(prev => prev - 1)
+        setTimeLeft((prev) => prev - 1)
       }, 1000)
       return () => clearInterval(timer)
-    } else if (timeLeft === 0 && !isFinished) {
+    }
+
+    if (timeLeft === 0 && !isFinished) {
       finishTestMode()
     }
   }, [timeLeft, showResult, questions.length, isFinished])
@@ -54,8 +77,16 @@ function TestModePage() {
     try {
       setLoading(true)
       setError(null)
+      setCurrentIndex(0)
+      setSelectedAnswer(null)
+      setShowResult(false)
+      setAnswerResult(null)
+      setIsFinished(false)
+      setFinalResult(null)
+      setEliminatedByQuestion({})
+
       const response = await axios.post(`${API_URL}/quiz/ranked/start`, {}, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       const { sessionId: newSessionId, questions: quizQuestions } = response.data
       setSessionId(newSessionId)
@@ -74,13 +105,17 @@ function TestModePage() {
   const handleAnswer = async (optionId) => {
     if (showResult || isFinished) return
 
+    const currentQuestionId = questions[currentIndex]?.id
+    const eliminatedOptionIds = eliminatedByQuestion[currentQuestionId] || []
+    if (eliminatedOptionIds.includes(optionId)) return
+
     const timeSpentSeconds = Math.round((Date.now() - questionStartTimeRef.current) / 1000)
 
     try {
       const response = await axios.post(`${API_URL}/quiz/sessions/${sessionId}/answers`, {
-        questionId: questions[currentIndex].id,
+        questionId: currentQuestionId,
         selectedOptionId: optionId,
-        timeSpentSeconds
+        timeSpentSeconds,
       })
 
       const result = response.data
@@ -90,15 +125,37 @@ function TestModePage() {
       setCurrentScore(result.currentScore)
       setCorrectCount(result.correctCount)
       setIncorrectCount(result.incorrectCount)
+      setUserCoins((coins) => coins + (result.coinReward || 0))
     } catch (err) {
       console.error('Failed to submit answer:', err)
       setError('Failed to submit answer.')
     }
   }
 
+  const handleEliminateOptions = async (count) => {
+    const currentQuestionId = questions[currentIndex]?.id
+    if (!currentQuestionId || showResult || isFinished) return
+
+    try {
+      const response = await axios.post(`${API_URL}/quiz/sessions/${sessionId}/eliminate-options`, {
+        questionId: currentQuestionId,
+        count,
+      })
+
+      setEliminatedByQuestion((current) => ({
+        ...current,
+        [currentQuestionId]: response.data.removedOptionIds || [],
+      }))
+      setUserCoins(response.data.remainingCoins ?? Math.max(0, userCoins - response.data.coinsSpent))
+    } catch (err) {
+      console.error('Failed to eliminate options:', err)
+      alert(err.response?.data?.message || 'Failed to eliminate options.')
+    }
+  }
+
   const handleNext = async () => {
     if (currentIndex < questions.length - 1) {
-      setCurrentIndex(prev => prev + 1)
+      setCurrentIndex((prev) => prev + 1)
       setSelectedAnswer(null)
       setShowResult(false)
       setAnswerResult(null)
@@ -206,6 +263,10 @@ function TestModePage() {
                 <span className="stat-value">{finalResult.bestStreak}</span>
                 <span className="stat-label">Best Streak</span>
               </div>
+              <div className="stat-item">
+                <span className="stat-value">{finalResult.coinsSpent}</span>
+                <span className="stat-label">Coins Spent</span>
+              </div>
             </div>
             <div className="result-actions">
               <button className="btn btn-primary" onClick={startTestModeSession}>
@@ -222,6 +283,12 @@ function TestModePage() {
   }
 
   const currentQuestion = questions[currentIndex]
+  const eliminatedOptionIds = currentQuestion ? eliminatedByQuestion[currentQuestion.id] || [] : []
+  const activeOptionCount = currentQuestion?.options?.filter(
+    (option) => !eliminatedOptionIds.includes(option.id),
+  ).length || 0
+  const canEliminateOne = !showResult && activeOptionCount > 2 && userCoins >= 2
+  const canEliminateTwo = !showResult && activeOptionCount > 3 && userCoins >= 4
 
   return (
     <div className="question-page">
@@ -240,8 +307,8 @@ function TestModePage() {
       <main className="question-content">
         <div className="quiz-progress">
           <div className="progress-bar">
-            <div 
-              className="progress-fill" 
+            <div
+              className="progress-fill"
               style={{ width: `${((currentIndex + 1) / questions.length) * 100}%` }}
             ></div>
           </div>
@@ -252,34 +319,64 @@ function TestModePage() {
 
         <div className="question-card">
           <div className="question-number">Question {currentIndex + 1}</div>
+          <div className="test-mode-tools">
+            <span className="test-mode-coins">{userCoins} Coins</span>
+            <button
+              type="button"
+              className="tool-button"
+              onClick={() => handleEliminateOptions(1)}
+              disabled={!canEliminateOne}
+            >
+              Eliminate 1 - 2 coins
+            </button>
+            <button
+              type="button"
+              className="tool-button"
+              onClick={() => handleEliminateOptions(2)}
+              disabled={!canEliminateTwo}
+            >
+              Eliminate 2 - 4 coins
+            </button>
+          </div>
           <h1 className="question-text">{currentQuestion?.questionText}</h1>
-          
+
           <div className="options-list">
-            {currentQuestion?.options?.map((option) => (
-              <button
-                key={option.id}
-                className={`option-item ${
-                  showResult 
-                    ? option.id === answerResult?.correctOptionId 
-                      ? 'correct' 
-                      : selectedAnswer === option.id 
-                        ? 'incorrect' 
-                        : ''
-                    : selectedAnswer === option.id
-                      ? 'selected'
-                      : ''
-                }`}
-                onClick={() => handleAnswer(option.id)}
-                disabled={showResult || isFinished}
-              >
-                <span className="option-radio">
-                  {showResult && option.id === answerResult?.correctOptionId && '✓'}
-                  {showResult && selectedAnswer === option.id && option.id !== answerResult?.correctOptionId && '✗'}
-                  {!showResult && selectedAnswer === option.id && '●'}
-                </span>
-                <span className="option-text">{option.text}</span>
-              </button>
-            ))}
+            {currentQuestion?.options?.map((option) => {
+              const isEliminated = eliminatedOptionIds.includes(option.id)
+
+              return (
+                <button
+                  key={option.id}
+                  className={`option-item ${
+                    isEliminated
+                      ? 'removed'
+                      : showResult
+                        ? option.id === answerResult?.correctOptionId
+                          ? 'correct'
+                          : selectedAnswer === option.id
+                            ? 'wrong'
+                            : ''
+                        : selectedAnswer === option.id
+                          ? 'selected'
+                          : ''
+                  }`}
+                  onClick={() => handleAnswer(option.id)}
+                  disabled={showResult || isFinished || isEliminated}
+                >
+                  <span className="option-letter">
+                    {isEliminated && '-'}
+                    {showResult && option.id === answerResult?.correctOptionId && 'OK'}
+                    {showResult && selectedAnswer === option.id && option.id !== answerResult?.correctOptionId && 'X'}
+                    {!showResult && selectedAnswer === option.id && '*'}
+                    {!isEliminated && !showResult && selectedAnswer !== option.id && option.id}
+                  </span>
+                  <span className="option-text">
+                    {option.text}
+                    {isEliminated && <span className="removed-label">Eliminated</span>}
+                  </span>
+                </button>
+              )
+            })}
           </div>
 
           {showResult && (
@@ -296,6 +393,12 @@ function TestModePage() {
               </button>
             </div>
           )}
+
+          <div className="score-display">
+            <span className="score-label">Score</span>
+            <span className="score-value">{currentScore}</span>
+            <span className="score-label">Correct {correctCount} / Wrong {incorrectCount}</span>
+          </div>
         </div>
       </main>
     </div>

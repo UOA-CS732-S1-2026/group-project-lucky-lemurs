@@ -13,6 +13,7 @@ import { QuestionsService } from '../questions/questions.service';
 import { Question } from '../questions/schemas/question.schema';
 import { UserBuildingProgress } from '../users/schemas/user-building-progress.schema';
 import { User } from '../users/schemas/user.schema';
+import { EliminateOptionsDto } from './dto/eliminate-options.dto';
 import { StartBuildingQuizDto } from './dto/start-building-quiz.dto';
 import { SubmitAnswerDto } from './dto/submit-answer.dto';
 import {
@@ -24,6 +25,8 @@ const RANKED_QUESTION_LIMIT = 20;
 const RANKED_TIME_LIMIT_SECONDS = 60;
 const RANKED_HINT_LIMIT = 3;
 const CORRECT_SCORE_DELTA = 10;
+const ELIMINATE_ONE_COST = 2;
+const ELIMINATE_TWO_COST = 4;
 
 @Injectable()
 export class QuizService {
@@ -164,6 +167,14 @@ export class QuizService {
       throw new BadRequestException('selectedOptionId is invalid');
     }
 
+    const removedOptionIds = this.getRemovedOptionIds(
+      session,
+      dto.questionId,
+    );
+    if (removedOptionIds.includes(dto.selectedOptionId)) {
+      throw new BadRequestException('selectedOptionId has been eliminated');
+    }
+
     const alreadyCorrect = session.answers.some(
       (answer) => answer.questionId === dto.questionId && answer.isCorrect,
     );
@@ -201,7 +212,7 @@ export class QuizService {
       scoreDelta,
       timeSpentSeconds: dto.timeSpentSeconds,
       usedHint: false,
-      removedOptionIds: [],
+      removedOptionIds,
       answeredAt: new Date(),
     });
     session.score += scoreDelta;
@@ -215,7 +226,7 @@ export class QuizService {
     if (coinReward > 0) {
       await this.userModel.updateOne(
         { id: session.userId },
-        { $inc: { coins: coinReward } }
+        { $inc: { coins: coinReward } },
       );
     }
     
@@ -237,6 +248,107 @@ export class QuizService {
       ...(session.mode === QuizMode.Building && !correct
         ? { retryLater: true }
         : {}),
+    };
+  }
+
+  async eliminateOptions(
+    userId: string,
+    sessionId: string,
+    dto: EliminateOptionsDto,
+  ) {
+    const session = await this.findUserSession(userId, sessionId);
+    if (session.status !== SessionStatus.Active) {
+      throw new ConflictException('Quiz session is not active');
+    }
+
+    if (session.mode !== QuizMode.Ranked) {
+      throw new BadRequestException(
+        'Option elimination is only available in test mode',
+      );
+    }
+
+    if (session.expiresAt && new Date() > session.expiresAt) {
+      session.status = SessionStatus.Expired;
+      await session.save();
+      throw new ForbiddenException('Test mode session has expired');
+    }
+
+    if (!session.questionIds.includes(dto.questionId)) {
+      throw new BadRequestException('Question does not belong to this session');
+    }
+
+    if (session.answers.some((answer) => answer.questionId === dto.questionId)) {
+      throw new ConflictException('Question has already been answered');
+    }
+
+    const question = await this.questionsService.findById(dto.questionId);
+    const existingRemovedOptionIds = this.getRemovedOptionIds(
+      session,
+      dto.questionId,
+    );
+    const removableOptionIds = question.options
+      .map((option) => option.id)
+      .filter(
+        (optionId) =>
+          optionId !== question.correctOptionId &&
+          !existingRemovedOptionIds.includes(optionId),
+      );
+
+    if (removableOptionIds.length < dto.count) {
+      throw new BadRequestException('Not enough options left to eliminate');
+    }
+
+    const cost = dto.count === 2 ? ELIMINATE_TWO_COST : ELIMINATE_ONE_COST;
+    const userUpdate = await this.userModel
+      .findOneAndUpdate(
+        { id: userId, coins: { $gte: cost } },
+        { $inc: { coins: -cost } },
+        { new: true },
+      )
+      .lean()
+      .exec();
+
+    if (!userUpdate) {
+      const user = await this.userModel.findOne({ id: userId }).lean().exec();
+      if (!user) {
+        throw new NotFoundException('User not found');
+      }
+
+      throw new ForbiddenException('Not enough coins');
+    }
+
+    const newlyRemovedOptionIds = removableOptionIds.slice(0, dto.count);
+    const updatedRemovedOptionIds = [
+      ...existingRemovedOptionIds,
+      ...newlyRemovedOptionIds,
+    ];
+    session.eliminatedOptions ??= [];
+    const helpIndex = session.eliminatedOptions.findIndex(
+      (item) => item.questionId === dto.questionId,
+    );
+
+    if (helpIndex >= 0) {
+      session.eliminatedOptions[helpIndex].removedOptionIds =
+        updatedRemovedOptionIds;
+    } else {
+      session.eliminatedOptions.push({
+        questionId: dto.questionId,
+        removedOptionIds: updatedRemovedOptionIds,
+      });
+    }
+
+    session.hintUsedCount += dto.count;
+    session.coinsSpent += cost;
+    await session.save();
+
+    return {
+      sessionId: session.id,
+      questionId: dto.questionId,
+      removedOptionIds: updatedRemovedOptionIds,
+      newlyRemovedOptionIds,
+      coinsSpent: cost,
+      totalCoinsSpent: session.coinsSpent,
+      remainingCoins: userUpdate.coins,
     };
   }
 
@@ -438,6 +550,18 @@ export class QuizService {
       bestScore,
       coinsAwarded,
     };
+  }
+
+  private getRemovedOptionIds(
+    session: QuizSessionDocument,
+    questionId: string,
+  ): string[] {
+    const eliminatedOptions = session.eliminatedOptions ?? [];
+
+    return (
+      eliminatedOptions.find((item) => item.questionId === questionId)
+        ?.removedOptionIds ?? []
+    );
   }
 
   private toFinishResponse(

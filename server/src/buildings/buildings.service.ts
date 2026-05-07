@@ -154,7 +154,11 @@ export class BuildingsService {
 
   calculateUnlockCost(unlockOrder: number, completedBuildingCount: number) {
     const lockedDistance = Math.max(0, unlockOrder - completedBuildingCount);
-    return lockedDistance * 22;
+    if (lockedDistance === 0) {
+      return 0;
+    }
+
+    return Math.min(10, Math.max(1, lockedDistance * 2));
   }
 
   toBuildingResponse(

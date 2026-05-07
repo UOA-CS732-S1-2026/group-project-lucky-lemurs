@@ -160,7 +160,13 @@ function QuizPage() {
     if (!userInfo || !building) return 0
     const completedCount = userInfo.completedBuildingCount || 0
     const unlockOrder = building.unlockOrder || 1
-    return Math.max(0, unlockOrder - completedCount) * 22
+    const lockedDistance = Math.max(0, unlockOrder - completedCount)
+
+    if (lockedDistance === 0) {
+      return 0
+    }
+
+    return Math.min(10, Math.max(1, lockedDistance * 2))
   }
 
   const canUnlockWithCoins = (building) => {

@@ -51,7 +51,7 @@ export class Building {
   @Prop({ default: 1 })
   unlockOrder: number;
 
-  @Prop({ default: 20 })
+  @Prop({ default: 5 })
   completionCoinReward: number;
 
   @Prop({ type: [BuildingReviewItemSchema], default: [] })

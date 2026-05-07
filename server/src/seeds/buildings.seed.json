@@ -16,7 +16,7 @@
       "/images/buildings/oggb/oggb-07.jpg"
     ],
     "unlockOrder": 1,
-    "completionCoinReward": 20,
+    "completionCoinReward": 5,
     "isActive": true,
     "reviewItems": [
       {
@@ -39,7 +39,7 @@
       "/images/buildings/clocktower/clocktower-01.jpg"
     ],
     "unlockOrder": 2,
-    "completionCoinReward": 20,
+    "completionCoinReward": 5,
     "isActive": true,
     "reviewItems": [
       {
@@ -58,8 +58,16 @@
     "description": "The University of Auckland's Science Centre around Buildings 301, 302, and 303.",
     "location": "23 Symonds Street",
     "imageUrl": "/images/buildings/science-cover.jpg",
+    "reviewImageUrls": [
+      "/images/buildings/science/science-01.jpg",
+      "/images/buildings/science/science-02.jpg",
+      "/images/buildings/science/science-03.jpg",
+      "/images/buildings/science/science-04.jpg",
+      "/images/buildings/science/science-05.jpg",
+      "/images/buildings/science/science-06.jpg"
+    ],
     "unlockOrder": 3,
-    "completionCoinReward": 20,
+    "completionCoinReward": 5,
     "reviewItems": [
       {
         "id": "science-301",
@@ -100,7 +108,7 @@
       "/images/buildings/general-library/library-05.jpg"
     ],
     "unlockOrder": 4,
-    "completionCoinReward": 20,
+    "completionCoinReward": 5,
     "isActive": true,
     "reviewItems": [
       {
@@ -129,7 +137,7 @@
       "/images/buildings/engineering/engineering-07.jpg"
     ],
     "unlockOrder": 5,
-    "completionCoinReward": 20,
+    "completionCoinReward": 5,
     "isActive": true,
     "reviewItems": [
       {
@@ -157,7 +165,7 @@
       "/images/buildings/law-school/law-school-06.jpg"
     ],
     "unlockOrder": 6,
-    "completionCoinReward": 20,
+    "completionCoinReward": 5,
     "isActive": true,
     "reviewItems": [
       {
@@ -185,7 +193,7 @@
       "/images/buildings/arts-education/arts-education-06.jpg"
     ],
     "unlockOrder": 7,
-    "completionCoinReward": 20,
+    "completionCoinReward": 5,
     "isActive": true,
     "reviewItems": [
       {
@@ -206,7 +214,7 @@
     "location": "2 Alfred Street",
     "imageUrl": "/images/buildings/kate-edger-cover.jpg",
     "unlockOrder": 99,
-    "completionCoinReward": 20,
+    "completionCoinReward": 5,
     "isActive": false,
     "reviewItems": []
   }
