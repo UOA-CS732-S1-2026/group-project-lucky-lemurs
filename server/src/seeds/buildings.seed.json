@@ -6,6 +6,15 @@
     "description": "A major building for the University of Auckland Business School.",
     "location": "12 Grafton Road",
     "imageUrl": "/images/buildings/oggb-cover.jpg",
+    "reviewImageUrls": [
+      "/images/buildings/oggb/oggb-01.jpg",
+      "/images/buildings/oggb/oggb-02.jpg",
+      "/images/buildings/oggb/oggb-03.jpg",
+      "/images/buildings/oggb/oggb-04.jpg",
+      "/images/buildings/oggb/oggb-05.jpg",
+      "/images/buildings/oggb/oggb-06.jpg",
+      "/images/buildings/oggb/oggb-07.jpg"
+    ],
     "unlockOrder": 1,
     "completionCoinReward": 20,
     "isActive": true,
@@ -26,6 +35,9 @@
     "description": "One of the most recognisable historic buildings on the City Campus.",
     "location": "22 Princes Street",
     "imageUrl": "/images/buildings/clocktower-cover.jpg",
+    "reviewImageUrls": [
+      "/images/buildings/clocktower/clocktower-01.jpg"
+    ],
     "unlockOrder": 2,
     "completionCoinReward": 20,
     "isActive": true,
@@ -107,6 +119,15 @@
     "description": "A key teaching and project space for engineering students.",
     "location": "20 Symonds Street",
     "imageUrl": "/images/buildings/engineering-cover.jpg",
+    "reviewImageUrls": [
+      "/images/buildings/engineering/engineering-01.jpg",
+      "/images/buildings/engineering/engineering-02.jpg",
+      "/images/buildings/engineering/engineering-03.jpg",
+      "/images/buildings/engineering/engineering-04.jpg",
+      "/images/buildings/engineering/engineering-05.jpg",
+      "/images/buildings/engineering/engineering-06.jpg",
+      "/images/buildings/engineering/engineering-07.jpg"
+    ],
     "unlockOrder": 5,
     "completionCoinReward": 20,
     "isActive": true,
@@ -127,6 +148,14 @@
     "description": "The University of Auckland's law school area around Eden Crescent and Waterloo Quadrant.",
     "location": "1-11 Short Street",
     "imageUrl": "/images/buildings/law-school-cover.jpg",
+    "reviewImageUrls": [
+      "/images/buildings/law-school/law-school-01.jpg",
+      "/images/buildings/law-school/law-school-02.jpg",
+      "/images/buildings/law-school/law-school-03.jpg",
+      "/images/buildings/law-school/law-school-04.jpg",
+      "/images/buildings/law-school/law-school-05.jpg",
+      "/images/buildings/law-school/law-school-06.jpg"
+    ],
     "unlockOrder": 6,
     "completionCoinReward": 20,
     "isActive": true,
@@ -147,6 +176,14 @@
     "description": "Arts and Education spaces including Building 201 and Te Puna Aronui Humanities Building.",
     "location": "10 Symonds Street",
     "imageUrl": "/images/buildings/arts-education-cover.jpg",
+    "reviewImageUrls": [
+      "/images/buildings/arts-education/arts-education-01.jpg",
+      "/images/buildings/arts-education/arts-education-02.jpg",
+      "/images/buildings/arts-education/arts-education-03.jpg",
+      "/images/buildings/arts-education/arts-education-04.jpg",
+      "/images/buildings/arts-education/arts-education-05.jpg",
+      "/images/buildings/arts-education/arts-education-06.jpg"
+    ],
     "unlockOrder": 7,
     "completionCoinReward": 20,
     "isActive": true,
@@ -160,17 +197,6 @@
       }
     ]
 
-  },
-  {
-    "id": "science",
-    "name": "Science Centre",
-    "shortName": "Science",
-    "description": "Science teaching and research facilities including chemistry, physics, and biology labs.",
-    "location": "23 Symonds Street",
-    "imageUrl": "/images/buildings/science-cover.jpg",
-    "unlockOrder": 8,
-    "completionCoinReward": 20,
-    "isActive": true
   },
   {
     "id": "kate-edger",
