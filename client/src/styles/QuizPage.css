@@ -422,6 +422,10 @@
 }
 
 @media (max-width: 768px) {
+  .map-container {
+    padding: 28px 12px;
+  }
+
   .map-header h1 {
     font-size: 2rem;
   }
@@ -431,12 +435,38 @@
   }
 
   .building-marker {
-    padding: 8px 12px;
-    min-width: 60px;
+    padding: 6px 9px;
+    min-width: 48px;
+    gap: 2px;
+    border-width: 2px;
+  }
+
+  .marker-icon {
+    font-size: 1rem;
   }
 
   .marker-label {
-    font-size: 0.65rem;
+    max-width: 72px;
+    overflow: hidden;
+    font-size: 0.58rem;
+    line-height: 1.1;
+    text-overflow: ellipsis;
+  }
+
+  .lock-icon,
+  .unlock-order {
+    top: -6px;
+    width: 16px;
+    height: 16px;
+    font-size: 0.58rem;
+  }
+
+  .lock-icon {
+    right: -6px;
+  }
+
+  .unlock-order {
+    left: -6px;
   }
 
   .legend-items {
@@ -459,6 +489,71 @@
 
   .stat-value {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-container {
+    padding: 22px 8px;
+  }
+
+  .map-header {
+    margin-bottom: 20px;
+  }
+
+  .map-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .map-header p {
+    font-size: 0.9rem;
+  }
+
+  .map-wrapper {
+    border-radius: 10px;
+  }
+
+  .building-marker {
+    padding: 4px 6px;
+    min-width: 34px;
+    border-width: 2px;
+    gap: 1px;
+  }
+
+  .building-marker:hover,
+  .building-locked:hover {
+    transform: translate(-50%, -50%) scale(1.04) !important;
+  }
+
+  .marker-pulse {
+    border-radius: 32px;
+  }
+
+  .marker-icon {
+    font-size: 0.82rem;
+    line-height: 1;
+  }
+
+  .marker-label {
+    max-width: 48px;
+    font-size: 0.46rem;
+    line-height: 1;
+  }
+
+  .lock-icon,
+  .unlock-order {
+    top: -5px;
+    width: 13px;
+    height: 13px;
+    font-size: 0.46rem;
+  }
+
+  .lock-icon {
+    right: -5px;
+  }
+
+  .unlock-order {
+    left: -5px;
   }
 }
 
