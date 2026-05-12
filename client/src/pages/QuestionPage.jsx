@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import axios from 'axios'
+import api, { resolveApiUrl } from '../lib/api'
 import '../styles/Pages.css'
 import '../styles/QuestionPage.css'
-
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 function QuestionPage() {
   const navigate = useNavigate()
@@ -47,7 +45,7 @@ function QuestionPage() {
     try {
       setLoading(true)
       setError(null)
-      const response = await axios.post(`${API_URL}/quiz/building/start`, { buildingId })
+      const response = await api.post('/quiz/building/start', { buildingId })
       const { sessionId: newSessionId, questions: quizQuestions } = response.data
       setSessionId(newSessionId)
       setQuestions(quizQuestions)
@@ -68,7 +66,7 @@ function QuestionPage() {
     const timeSpentSeconds = Math.round((Date.now() - questionStartTimeRef.current) / 1000)
 
     try {
-      const response = await axios.post(`${API_URL}/quiz/sessions/${sessionId}/answers`, {
+      const response = await api.post(`/quiz/sessions/${sessionId}/answers`, {
         questionId: questions[currentIndex].id,
         selectedOptionId: optionId,
         timeSpentSeconds
@@ -104,7 +102,7 @@ function QuestionPage() {
     setIsFinished(true)
 
     try {
-      const response = await axios.post(`${API_URL}/quiz/sessions/${sessionId}/finish`, {})
+      const response = await api.post(`/quiz/sessions/${sessionId}/finish`, {})
       setFinalResult(response.data)
     } catch (err) {
       console.error('Failed to finish quiz:', err)
@@ -222,7 +220,7 @@ function QuestionPage() {
 
           {currentQuestion.imageUrl && (
             <img 
-              src={currentQuestion.imageUrl} 
+              src={resolveApiUrl(currentQuestion.imageUrl)} 
               alt="Question visual" 
               className="question-image"
             />

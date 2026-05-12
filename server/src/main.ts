@@ -9,7 +9,10 @@ import { HttpExceptionFilter } from './common/http-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors();
+  app.enableCors({
+    origin: getCorsOrigin(),
+    credentials: true,
+  });
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalPipes(
     new ValidationPipe({
@@ -30,6 +33,19 @@ async function bootstrap() {
   await app.listen(process.env.PORT ?? 3000);
 }
 void bootstrap();
+
+function getCorsOrigin(): boolean | string[] {
+  const configuredOrigin = process.env.CORS_ORIGIN ?? process.env.CLIENT_URL;
+
+  if (!configuredOrigin) {
+    return true;
+  }
+
+  return configuredOrigin
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+}
 
 function findFirstValidationError(errors: ValidationError[]): {
   field: string;

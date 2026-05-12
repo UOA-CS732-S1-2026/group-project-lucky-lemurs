@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import axios from 'axios'
+import api, { resolveApiUrl } from '../lib/api'
 import '../styles/Pages.css'
 import '../styles/LeaderboardPage.css'
-
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 function LeaderboardPage() {
   const navigate = useNavigate()
@@ -23,12 +21,7 @@ function LeaderboardPage() {
     try {
       setLoading(true)
       setError(null)
-      const token = localStorage.getItem('token')
-      const config = token ? {
-        headers: { Authorization: `Bearer ${token}` }
-      } : {}
-      
-      const response = await axios.get(`${API_URL}/leaderboard?mode=ranked&period=all`, config)
+      const response = await api.get('/leaderboard?mode=ranked&period=all')
       const { entries, myRank: userRank } = response.data
       setLeaderboard(entries || [])
       setMyRank(userRank)
@@ -135,7 +128,7 @@ function LeaderboardPage() {
             <div className="podium-item second-place">
               <div className="podium-avatar">
                 {leaderboard[1]?.avatarUrl ? (
-                  <img src={`${API_URL}${leaderboard[1].avatarUrl}`} alt={leaderboard[1]?.username || 'Player'} />
+                  <img src={resolveApiUrl(leaderboard[1].avatarUrl)} alt={leaderboard[1]?.username || 'Player'} />
                 ) : (
                   <span>🥈</span>
                 )}
@@ -147,7 +140,7 @@ function LeaderboardPage() {
             <div className="podium-item first-place">
               <div className="podium-avatar">
                 {leaderboard[0]?.avatarUrl ? (
-                  <img src={`${API_URL}${leaderboard[0].avatarUrl}`} alt={leaderboard[0]?.username || 'Player'} />
+                  <img src={resolveApiUrl(leaderboard[0].avatarUrl)} alt={leaderboard[0]?.username || 'Player'} />
                 ) : (
                   <span>🥇</span>
                 )}
@@ -159,7 +152,7 @@ function LeaderboardPage() {
             <div className="podium-item third-place">
               <div className="podium-avatar">
                 {leaderboard[2]?.avatarUrl ? (
-                  <img src={`${API_URL}${leaderboard[2].avatarUrl}`} alt={leaderboard[2]?.username || 'Player'} />
+                  <img src={resolveApiUrl(leaderboard[2].avatarUrl)} alt={leaderboard[2]?.username || 'Player'} />
                 ) : (
                   <span>🥉</span>
                 )}
@@ -181,7 +174,7 @@ function LeaderboardPage() {
                   <div className="leaderboard-rank">#{userItem.rank || index + 1}</div>
                   <div className="leaderboard-avatar">
                     {userItem.avatarUrl ? (
-                      <img src={`${API_URL}${userItem.avatarUrl}`} alt={userItem.username || 'Player'} />
+                      <img src={resolveApiUrl(userItem.avatarUrl)} alt={userItem.username || 'Player'} />
                     ) : (
                       <span>👤</span>
                     )}
@@ -214,7 +207,7 @@ function LeaderboardPage() {
                   <div className="leaderboard-rank">#{userItem.rank}</div>
                   <div className="leaderboard-avatar">
                     {userItem.avatarUrl ? (
-                      <img src={`${API_URL}${userItem.avatarUrl}`} alt={userItem.username || 'Player'} />
+                      <img src={resolveApiUrl(userItem.avatarUrl)} alt={userItem.username || 'Player'} />
                     ) : (
                       <span>👤</span>
                     )}

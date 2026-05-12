@@ -1,10 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import api from '../lib/api'
 import { useAuth } from '../context/AuthContext'
 import '../styles/AchievementsPage.css'
-
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 function AchievementsPage() {
   const navigate = useNavigate()
@@ -15,9 +13,7 @@ function AchievementsPage() {
 
   const fetchBuildings = useCallback(async () => {
     try {
-      const response = await axios.get(`${API_URL}/buildings`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      })
+      const response = await api.get('/buildings')
       setBuildings(response.data.buildings || [])
     } catch (err) {
       console.error('Failed to fetch achievements:', err)

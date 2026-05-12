@@ -1,10 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import axios from 'axios'
+import api, { resolveApiUrl } from '../lib/api'
 import '../styles/Pages.css'
 import '../styles/ReviewPage.css'
-
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 const buildingNames = {
   clocktower: 'Clock Tower',
@@ -43,7 +41,7 @@ function ReviewPage() {
     try {
       setLoading(true)
       setError(null)
-      const response = await axios.get(`${API_URL}/quizzes/${buildingId}/review`)
+      const response = await api.get(`/quizzes/${buildingId}/review`)
       setReviewItems(response.data)
     } catch (err) {
       console.error('Failed to fetch review data:', err)
@@ -80,18 +78,6 @@ function ReviewPage() {
 
   const toggleExpand = (id) => {
     setExpandedId(expandedId === id ? null : id)
-  }
-
-  const resolveImageUrl = (imageUrl) => {
-    if (!imageUrl) {
-      return ''
-    }
-
-    if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
-      return imageUrl
-    }
-
-    return `${API_URL}${imageUrl}`
   }
 
   const openGallery = (imageUrls, index = 0) => {
@@ -223,7 +209,7 @@ function ReviewPage() {
                               onClick={() => openGallery(imageUrls, index)}
                             >
                               <img
-                                src={resolveImageUrl(imageUrl)}
+                                src={resolveApiUrl(imageUrl)}
                                 alt={`${buildingName} ${index + 1}`}
                               />
                             </button>
@@ -267,7 +253,7 @@ function ReviewPage() {
             </button>
             <img
               className="review-gallery-image"
-              src={resolveImageUrl(galleryImages[galleryIndex])}
+              src={resolveApiUrl(galleryImages[galleryIndex])}
               alt={`${buildingName} photo ${galleryIndex + 1}`}
             />
             <div className="review-gallery-controls">

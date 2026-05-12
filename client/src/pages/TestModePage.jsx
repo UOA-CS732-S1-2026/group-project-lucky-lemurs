@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import axios from 'axios'
+import api from '../lib/api'
 import '../styles/Pages.css'
 import '../styles/QuestionPage.css'
-
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 function TestModePage() {
   const navigate = useNavigate()
@@ -37,9 +35,7 @@ function TestModePage() {
   useEffect(() => {
     const fetchUserCoins = async () => {
       try {
-        const response = await axios.get(`${API_URL}/users/me`, {
-          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-        })
+        const response = await api.get('/users/me')
         setUserCoins(response.data.coins || 0)
       } catch (err) {
         console.error('Failed to refresh user coins:', err)
@@ -85,9 +81,7 @@ function TestModePage() {
       setFinalResult(null)
       setEliminatedByQuestion({})
 
-      const response = await axios.post(`${API_URL}/quiz/ranked/start`, {}, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      })
+      const response = await api.post('/quiz/ranked/start')
       const { sessionId: newSessionId, questions: quizQuestions } = response.data
       setSessionId(newSessionId)
       setQuestions(quizQuestions)
@@ -112,7 +106,7 @@ function TestModePage() {
     const timeSpentSeconds = Math.round((Date.now() - questionStartTimeRef.current) / 1000)
 
     try {
-      const response = await axios.post(`${API_URL}/quiz/sessions/${sessionId}/answers`, {
+      const response = await api.post(`/quiz/sessions/${sessionId}/answers`, {
         questionId: currentQuestionId,
         selectedOptionId: optionId,
         timeSpentSeconds,
@@ -137,7 +131,7 @@ function TestModePage() {
     if (!currentQuestionId || showResult || isFinished) return
 
     try {
-      const response = await axios.post(`${API_URL}/quiz/sessions/${sessionId}/eliminate-options`, {
+      const response = await api.post(`/quiz/sessions/${sessionId}/eliminate-options`, {
         questionId: currentQuestionId,
         count,
       })
@@ -167,7 +161,7 @@ function TestModePage() {
 
   const finishTestMode = async () => {
     try {
-      const response = await axios.post(`${API_URL}/quiz/sessions/${sessionId}/finish`)
+      const response = await api.post(`/quiz/sessions/${sessionId}/finish`)
       setFinalResult(response.data)
       setIsFinished(true)
     } catch (err) {

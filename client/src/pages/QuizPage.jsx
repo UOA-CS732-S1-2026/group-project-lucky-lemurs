@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import axios from 'axios'
+import api, { resolveApiUrl } from '../lib/api'
 import campusImage from '../campus.png'
 import '../styles/QuizPage.css'
-
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 const buildingPositions = [
   { id: 'oggb', position: { top: '22%', left: '68%' }, difficulty: 'hard' },
@@ -30,18 +28,6 @@ const difficultyLabels = {
   hard: 'Hard',
 }
 
-const resolveImageUrl = (imageUrl) => {
-  if (!imageUrl) {
-    return ''
-  }
-
-  if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
-    return imageUrl
-  }
-
-  return `${API_URL}${imageUrl.startsWith('/') ? imageUrl : `/${imageUrl}`}`
-}
-
 const getBuildingImageUrl = (building) => {
   if (!building) return ''
 
@@ -55,7 +41,7 @@ const getBuildingImageUrl = (building) => {
     building.imageUrl,
   ].filter(Boolean)
 
-  return resolveImageUrl(imageUrlCandidates[0])
+  return resolveApiUrl(imageUrlCandidates[0])
 }
 
 function QuizPage() {
@@ -82,12 +68,10 @@ function QuizPage() {
     try {
       setLoading(true)
 
-      const userResponse = await axios.get(`${API_URL}/users/me`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      })
+      const userResponse = await api.get('/users/me')
       setUserInfo(userResponse.data)
 
-      const buildingsResponse = await axios.get(`${API_URL}/buildings`)
+      const buildingsResponse = await api.get('/buildings')
       const backendBuildings = buildingsResponse.data.buildings || []
 
       const mergedBuildings = backendBuildings.map((backend) => {
@@ -141,9 +125,7 @@ function QuizPage() {
       setStartingTestMode(true)
       setIsTransitioning(true)
 
-      const response = await axios.post(`${API_URL}/quiz/ranked/start`, {}, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      })
+      const response = await api.post('/quiz/ranked/start')
 
       setTimeout(() => {
         navigate('/test-mode/questions', { state: { sessionData: response.data } })
@@ -186,10 +168,8 @@ function QuizPage() {
 
     try {
       const cost = calculateUnlockCost(building)
-      const response = await axios.post(`${API_URL}/buildings/${building.id}/unlock`, {
+      const response = await api.post(`/buildings/${building.id}/unlock`, {
         cost,
-      }, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
 
       setBuildings((currentBuildings) => currentBuildings.map((b) => (
