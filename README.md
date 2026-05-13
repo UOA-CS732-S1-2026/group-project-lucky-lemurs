@@ -45,7 +45,7 @@ Lucky Lemurs focuses on a clear student-facing flow: authentication, mode select
 - Frontend: React, Vite, React Router, Axios
 - Backend: NestJS, TypeScript, Mongoose, Passport JWT, bcrypt
 - Database: MongoDB, either local MongoDB or MongoDB Atlas
-- Quality checks: Jest and Supertest scripts for backend testing, ESLint for frontend and backend linting
+- Quality checks: Jest and Supertest for backend testing, ESLint for backend linting, and Vite production build checks for the frontend
 
 The project also applies further learning beyond the base course material by using JWT-based authentication, NestJS modules/services/controllers, MongoDB Atlas-compatible configuration, seeded backend data, static backend asset serving, and API contract documentation.
 
@@ -154,7 +154,7 @@ These checks are not required to start the app, but they should be run before ma
 
 ### Backend Automated Tests
 
-Backend automated tests are written with Jest. The current test coverage includes basic controller/service tests for the app, authentication, and user service setup. The backend also keeps the default Supertest e2e test under `server/test`.
+Backend automated tests are written with Jest. The current test coverage includes controller/service tests for authentication, user profile logic, quiz logic, leaderboard ranking, and app setup. The backend also includes Supertest e2e tests for the authentication and protected user routes under `server/test`.
 
 Run backend unit tests:
 
@@ -192,10 +192,9 @@ Frontend checks:
 ```bash
 cd client
 npm run build         # Check the Vite production build
-npm run lint          # Run frontend linting
 ```
 
-The frontend currently does not include a dedicated automated test script. Its main verification commands are `npm run build`, `npm run lint`, and the manual smoke test below.
+The frontend currently does not include a dedicated automated test script. Its main required verification command is `npm run build`. A frontend lint script is available for development, but the current React 19 hook/compiler rules may report strict lint errors that do not block the production build or local app flow.
 
 ### Manual Smoke Test
 
@@ -302,3 +301,14 @@ Weekly meeting minutes, task breakdowns, and team member responsibilities should
 ## Version Control Workflow
 
 The team should use regular, fine-grained commits and a feature-branch workflow. Work should be split into focused branches for areas such as frontend pages, backend API features, authentication, quiz logic, seed data, testing, and deployment. Each team member should commit regularly to demonstrate their own contribution.
+
+## Team Contributions
+
+| Team Member | Main Contributions |
+|---|---|
+| Zishuo Zhang | Technical lead, frontend design, route configuration, user interaction flow design, frontend-backend integration, and website deployment |
+| Zixuan Cuan | Database construction, quiz/question data entry, building seed data, image resources, and MongoDB Atlas database support |
+| Huzhihao Zhao | Functional module design, backend core APIs, API specifications, and business logic framework |
+| Haiyan Zhao | Information collection for the Law School and Arts buildings, image collection, frontend testing assistance, and team communication |
+| Jijia Zhai | Information collection for Science and Business School buildings, image collection, feature testing, and team communication |
+| Beier Guo | Information collection for Library and Engineering buildings, image collection, backend testing assistance, and team communication |
