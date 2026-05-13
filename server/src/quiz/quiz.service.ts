@@ -167,10 +167,7 @@ export class QuizService {
       throw new BadRequestException('selectedOptionId is invalid');
     }
 
-    const removedOptionIds = this.getRemovedOptionIds(
-      session,
-      dto.questionId,
-    );
+    const removedOptionIds = this.getRemovedOptionIds(session, dto.questionId);
     if (removedOptionIds.includes(dto.selectedOptionId)) {
       throw new BadRequestException('selectedOptionId has been eliminated');
     }
@@ -193,10 +190,10 @@ export class QuizService {
 
     const correct = question.correctOptionId === dto.selectedOptionId;
     const scoreDelta = correct ? CORRECT_SCORE_DELTA : 0;
-    
+
     // 积分地板除10的金币奖励
     const coinReward = Math.floor(scoreDelta / 10);
-    
+
     session.attemptedCount += 1;
     if (correct) {
       session.currentStreak += 1;
@@ -221,7 +218,7 @@ export class QuizService {
     } else {
       session.incorrectCount += 1;
     }
-    
+
     // 发放金币奖励
     if (coinReward > 0) {
       await this.userModel.updateOne(
@@ -229,7 +226,7 @@ export class QuizService {
         { $inc: { coins: coinReward } },
       );
     }
-    
+
     await session.save();
 
     return {
@@ -277,7 +274,9 @@ export class QuizService {
       throw new BadRequestException('Question does not belong to this session');
     }
 
-    if (session.answers.some((answer) => answer.questionId === dto.questionId)) {
+    if (
+      session.answers.some((answer) => answer.questionId === dto.questionId)
+    ) {
       throw new ConflictException('Question has already been answered');
     }
 

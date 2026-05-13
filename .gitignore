@@ -4,6 +4,13 @@
 .DS_Store
 node_modules
 
+# Build and generated output
+dist
+build
+coverage
+client/dist
+server/dist
+
 # Environment variables - Edit if necessary
 .env
 .env.*
