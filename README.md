@@ -46,6 +46,8 @@ Lucky Lemurs focuses on a clear student-facing flow: authentication, mode select
 - Backend: NestJS, TypeScript, Mongoose, Passport JWT, bcrypt
 - Database: MongoDB, either local MongoDB or MongoDB Atlas
 - Quality checks: Jest and Supertest for backend testing, ESLint for backend linting, and Vite production build checks for the frontend
+- Version control: Github
+- AI tools: Open AI Codex
 
 The project also applies further learning beyond the base course material by using JWT-based authentication, NestJS modules/services/controllers, MongoDB Atlas-compatible configuration, seeded backend data, static backend asset serving, and API contract documentation.
 
@@ -288,19 +290,7 @@ npm run seed
 
 The seed script uses upsert behaviour based on each item's `id`, so it writes new records and updates matching existing records rather than clearing the whole database. Keep each question's `buildingId` aligned with a matching building `id`.
 
-## Project Management
 
-Weekly meeting minutes, task breakdowns, and team member responsibilities should be recorded in the GitHub Wiki before submission. The Wiki should include:
-
-- Weekly meeting notes
-- Tasks assigned to each team member
-- Progress updates and blockers
-- Changes to project scope or requirements
-- Evidence of how user requirements from the proposal were implemented
-
-## Version Control Workflow
-
-The team should use regular, fine-grained commits and a feature-branch workflow. Work should be split into focused branches for areas such as frontend pages, backend API features, authentication, quiz logic, seed data, testing, and deployment. Each team member should commit regularly to demonstrate their own contribution.
 
 ## Team Contributions
 
