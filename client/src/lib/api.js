@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+// Keep endpoint joining predictable even when the env value includes a trailing slash.
 export const API_BASE_URL = (
   import.meta.env.VITE_API_URL || 'http://localhost:3000'
 ).replace(/\/+$/, '')
